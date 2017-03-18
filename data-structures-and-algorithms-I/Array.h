@@ -14,28 +14,18 @@ public:
 	Array();
 	~Array();
 
-	/**
-	Adds an element at the end of the array.
-	*/
-	void addElement(type element);
+	int size();
 
-	/**
-	Adds an element to the front of the array.
-	*/
+	void addElementEnd(type element);
 	void addElementFront(type element);
-
-	/**
-	Adds an element to the random position of the array.
-	*/
 	void addElementRandom(type element);
-
-	/**
-	Adds an element at specified position of the array.
-	*/
 	void addElementAt(type element, int position);
 
-	int size();
-	
+	void deleteElementAt(int position);
+	void deleteElementEnd();
+	void deleteElementFront();
+	void deleteElementRandom();
+
 	std::string toString();
 
 };

@@ -11,47 +11,12 @@ Array::~Array() {
 	delete[] elements;
 }
 
-void Array::addElement(type element) {
-	if (currentSize == 0) {
-		elements = new type[++currentSize];
-		elements[0] = element;
-
-		return;
-	} 
-
-	type* newElements = new type[currentSize + 1];
-	
-	for (int i = 0; i < currentSize; i++) {
-		newElements[i] = elements[i];
-	}
-
-	newElements[currentSize++] = element;
-
-	delete[] elements;
-	elements = newElements;
-
+void Array::addElementEnd(type element) {
+	addElementAt(element, currentSize);
 }
 
 void Array::addElementFront(type element) {
-	if (currentSize == 0) {
-		elements = new type[++currentSize];
-		elements[0] = element;
-
-		return;
-	}
-
-	type* newElements = new type[currentSize + 1];
-
-	newElements[0] = element;
-
-	for (int i = 0; i < currentSize; i++) {
-		newElements[i+1] = elements[i];
-	}
-
-	currentSize++;
-
-	delete[] elements;
-	elements = newElements;
+	addElementAt(element, 0);
 }
 
 void Array::addElementRandom(type element) {
@@ -63,13 +28,18 @@ void Array::addElementRandom(type element) {
 }
 
 void Array::addElementAt(type element, int position) {
-	// handling wrong input
+	// handles wrong input
 	if (position > currentSize) {
-		addElement(element);
-		return;
+		position = currentSize;
 	}
 	else if (position < 0) {
-		addElementFront(element);
+		position = 0;
+	}
+
+	if (currentSize == 0) {
+		elements = new type[++currentSize];
+		elements[0] = element;
+
 		return;
 	}
 
@@ -90,6 +60,51 @@ void Array::addElementAt(type element, int position) {
 
 	delete[] elements;
 	elements = newElements;
+}
+
+void Array::deleteElementAt(int position) {
+	type deletedElement = -1;
+
+	if (position > currentSize) {
+		position = currentSize;
+	}
+	else if (position < 0) {
+		position = 0;
+	}
+
+	if (currentSize == 0)
+		return;
+
+	type* newElements = new type[currentSize - 1];
+
+	int i = 0;
+	for (; i < position; i++) {
+		newElements[i] = elements[i];
+	}
+
+	for (; i < currentSize - 1; i++) {
+		newElements[i] = elements[i+1];
+	}
+
+	currentSize--;
+
+	delete[] elements;
+	elements = newElements;
+}
+
+void Array::deleteElementEnd() {
+	deleteElementAt(currentSize - 1);
+}
+
+void Array::deleteElementFront() {
+	deleteElementAt(0);
+}
+
+void Array::deleteElementRandom() {
+	srand(time(NULL));
+
+	int position = rand() % currentSize;
+	deleteElementAt(position);
 }
 
 int Array::size() {

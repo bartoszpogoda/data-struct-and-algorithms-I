@@ -11,5 +11,11 @@ public:
 	static bool shouldAddFewItemsToTheFrontOfArray();
 	static bool shouldAddElementAtSpecifiedPosition();
 	static bool shouldAddElementAtInCaseOfIncorrectPosition();
+
+	static bool shouldDeleteItemFromArray();
+	static bool shouldDeleteFirstItemFromArray();
+	static bool shouldDeleteLastItemFromArray();
+	static bool shouldDeleteFewItemsFromArray();
+
 	static bool shouldPrintEmptyArrayString();
 };
