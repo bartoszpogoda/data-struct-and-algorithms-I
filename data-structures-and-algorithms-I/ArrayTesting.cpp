@@ -1,7 +1,8 @@
 #include "ArrayTesting.h"
+#include "Type.h"
 
 void ArrayTesting::runTests() {
-	std::cout << "Running tests: \n";
+	std::cout << "Running tests for Array: \n";
 	std::cout << "shouldAddFewItemsToArray: " << shouldAddFewItemsToArray() << std::endl;
 	std::cout << "shouldAddFewItemsToTheFrontOfArray: " << shouldAddFewItemsToTheFrontOfArray() << std::endl;
 	std::cout << "shouldAddElementAtSpecifiedPosition: " << shouldAddElementAtSpecifiedPosition() << std::endl;
@@ -13,6 +14,7 @@ void ArrayTesting::runTests() {
 	std::cout << "shouldDeleteLastItemFromArray: " << shouldDeleteLastItemFromArray() << std::endl;
 	std::cout << "shouldDeleteFewItemsFromArray: " << shouldDeleteFewItemsFromArray() << std::endl;
 
+	std::cout << "shouldFindElement: " << shouldFindElement() << std::endl;
 
 	std::cout << "shouldPrintEmptyArrayString: " << shouldPrintEmptyArrayString() << std::endl;
 }
@@ -133,6 +135,22 @@ bool ArrayTesting::shouldDeleteFewItemsFromArray()
 	myArray.deleteElementAt(2);
 
 	if (myArray.toString().compare("[1 4]") == 0)
+		return true;
+
+	return false;
+}
+
+bool ArrayTesting::shouldFindElement() {
+	Array myArray = Array();
+	myArray.addElementEnd(1);
+	myArray.addElementEnd(2);
+	myArray.addElementEnd(3);
+	myArray.addElementEnd(4);
+	myArray.addElementEnd(5);
+
+	int position = myArray.findElement(3);
+
+	if (position == 2)
 		return true;
 
 	return false;

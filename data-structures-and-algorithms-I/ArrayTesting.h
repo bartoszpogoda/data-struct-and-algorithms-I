@@ -17,5 +17,7 @@ public:
 	static bool shouldDeleteLastItemFromArray();
 	static bool shouldDeleteFewItemsFromArray();
 
+	static bool shouldFindElement();
+
 	static bool shouldPrintEmptyArrayString();
 };

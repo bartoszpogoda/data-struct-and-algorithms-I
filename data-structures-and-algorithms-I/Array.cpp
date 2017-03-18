@@ -19,7 +19,7 @@ void Array::addElementFront(type element) {
 	addElementAt(element, 0);
 }
 
-void Array::addElementRandom(type element) {
+void Array::addElementRandom(type element) {	
 	srand(time(NULL));
 
 	int position = rand() % currentSize;
@@ -67,8 +67,7 @@ void Array::deleteElementAt(int position) {
 
 	if (position > currentSize) {
 		position = currentSize;
-	}
-	else if (position < 0) {
+	} else if (position < 0) {
 		position = 0;
 	}
 
@@ -105,6 +104,14 @@ void Array::deleteElementRandom() {
 
 	int position = rand() % currentSize;
 	deleteElementAt(position);
+}
+
+int Array::findElement(type element) {
+	for (int i = 0; i < currentSize; i++) {
+		if (element == elements[i])
+			return i;
+	}
+	return -1;
 }
 
 int Array::size() {

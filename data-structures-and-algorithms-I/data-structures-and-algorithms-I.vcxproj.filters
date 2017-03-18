@@ -47,5 +47,8 @@
     <ClInclude Include="ArrayTesting.h">
       <Filter>Header Files\tests</Filter>
     </ClInclude>
+    <ClInclude Include="Type.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

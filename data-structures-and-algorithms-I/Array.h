@@ -1,8 +1,7 @@
 #pragma once
-#include <stdint.h>
 #include "Printable.h"
+#include "Type.h"
 
-typedef int32_t type;
 
 class Array : public Printable {
 
@@ -16,15 +15,17 @@ public:
 
 	int size();
 
-	void addElementEnd(type element);
-	void addElementFront(type element);
-	void addElementRandom(type element);
 	void addElementAt(type element, int position);
+	void addElementFront(type element);
+	void addElementEnd(type element);
+	void addElementRandom(type element);
 
 	void deleteElementAt(int position);
-	void deleteElementEnd();
 	void deleteElementFront();
+	void deleteElementEnd();
 	void deleteElementRandom();
+
+	int findElement(type element);
 
 	std::string toString();
 
