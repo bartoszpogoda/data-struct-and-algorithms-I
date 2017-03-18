@@ -1,11 +1,26 @@
-#include <iostream>
-#include <string>
+
 #include "ArrayTesting.h"
+#include "CLInterface.h"
+
+using namespace std;
+
+const bool RUN_TESTS = true;
+
+
+//-------------------------------------------------------------------------
+
 
 int main() {
 	
-	ArrayTesting::runTests();
+	if (RUN_TESTS) {
+		ArrayTesting::runTests();
+	}
 
+	//CLI 
 
-	system("pause");
+	CLInterface::enterCLI();
+
+	//CLI END
+	
+
 }

@@ -36,6 +36,9 @@
     <ClCompile Include="ArrayTesting.cpp">
       <Filter>Source Files\tests</Filter>
     </ClCompile>
+    <ClCompile Include="CLInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Printable.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files\tests</Filter>
     </ClInclude>
     <ClInclude Include="Type.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CLInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
