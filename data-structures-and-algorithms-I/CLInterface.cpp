@@ -1,12 +1,16 @@
 #include "CLInterface.h"
+#include "Array.h"
 #include <conio.h>
 #include <iostream>
-#include "Array.h"
 #include <windows.h>
 #include <iomanip>
-#include <conio.h>
+#include <sstream> 
 
 using namespace std;
+
+long long int CLInterface::frequency = 0;
+long long int CLInterface::start = 0;
+long long int CLInterface::elapsed = 0;
 
 void CLInterface::enterCLI() {
 	viewStructures();
@@ -32,22 +36,16 @@ void CLInterface::viewStructures() {
 		else if (selected == 1) {
 			// enter funkcja widoku od listy
 			Array myarray = Array();
-
-			/*QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
-			/*start = read_QPC();
+			
+			startTimer();
 
 			for (int i = 0; i < 50000; i++)
 				myarray.addElementEnd(1);
 
+			endTimer();
+			cout << "Time elapsed [ms] is " << timeMiliSeconds();
 
-			elapsed = read_QPC() - start;
-
-			cout << "Time [s] = " << fixed << setprecision(3) << (float)elapsed /
-				frequency << endl;
-			cout << "Time [ms] = " << setprecision(0) << (1000.0 * elapsed) /
-				frequency << endl;
-			cout << "Time [us] = " << setprecision(0) << (1000000.0 * elapsed) /
-				frequency << endl << endl;*/
+		
 		}
 	}
 	
@@ -76,4 +74,44 @@ long long int CLInterface::read_QPC() {
 		LARGE_INTEGER count;
 		QueryPerformanceCounter(&count);
 		return((long long int)count.QuadPart);
+}
+
+void CLInterface::startTimer() {
+	QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
+
+	LARGE_INTEGER count;
+	QueryPerformanceCounter(&count);
+	start = ((long long int)count.QuadPart);
+}
+
+void CLInterface::endTimer() {
+
+	LARGE_INTEGER count;
+	QueryPerformanceCounter(&count);
+	elapsed = ((long long int)count.QuadPart) - start;
+}
+
+std::string CLInterface::timeSeconds()
+{
+	stringstream str;
+	str << fixed << setprecision(3) << (float)elapsed /
+		frequency << endl;
+
+	return str.str();
+}
+
+std::string CLInterface::timeMiliSeconds() {
+	stringstream str;
+	str << setprecision(0) << (1000.0 * elapsed) /
+		frequency << endl;
+
+	return str.str();
+}
+
+std::string CLInterface::timeMicroSeconds() {
+	stringstream str;
+	str << setprecision(0) << (1000000.0 * elapsed) /
+		frequency << endl << endl;
+
+	return str.str();
 }
