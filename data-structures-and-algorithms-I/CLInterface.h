@@ -15,7 +15,8 @@ private:
 	CLInterface() {};
 public:
 	static void enterCLI();
-	static void viewStructures();
+	static void viewMenuStructures();
+	static void viewMenuArray();
 
 	static int handleUserInput();
 };

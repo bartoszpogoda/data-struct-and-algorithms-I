@@ -11,25 +11,26 @@ using namespace std;
 Timer CLInterface::timer = Timer();
 
 void CLInterface::enterCLI() {
-	viewStructures();
+	viewMenuStructures();
 }
 
-void CLInterface::viewStructures() {
+void CLInterface::viewMenuStructures() {
 	int selected = 0, max = 2, selectedDelta = 0;
 
+	system("CLS");
 	while (selected != max) {
-		while ((selectedDelta = handleUserInput()) != 0) {
+		 do {
 			if (selected + selectedDelta >= 0 && selected + selectedDelta <= max) selected += selectedDelta;
-
+	
 			system("CLS");
 			cout << "-- Struktury danych: --" << endl << endl;
 			cout << ((selected == 0) ? " > " : "   ") << "Tablica" << endl;
 			cout << ((selected == 1) ? " > " : "   ") << "Lista" << endl;
 			cout << ((selected == 2) ? " > " : "   ") << "Wyjscie" << endl;
-		}
+		} while ((selectedDelta = handleUserInput()) != 0);
 
 		if (selected == 0) {
-			// enter funkcja widoku od tablicy
+			viewMenuArray();
 		}
 		else if (selected == 1) {
 			// enter funkcja widoku od listy
@@ -46,6 +47,30 @@ void CLInterface::viewStructures() {
 			cout << "Time elapsed [s] is " << timer.timeSeconds();
 
 		
+		}
+	}
+}
+
+void CLInterface::viewMenuArray() {
+	int selected = 0, max = 2, selectedDelta = 0;
+
+	system("CLS");
+	while (selected != max) {
+		do {
+			if (selected + selectedDelta >= 0 && selected + selectedDelta <= max) selected += selectedDelta;
+
+			system("CLS");
+			cout << "-- Tablica: --" << endl << endl;
+			cout << ((selected == 0) ? " > " : "   ") << "Zrob to" << endl;
+			cout << ((selected == 1) ? " > " : "   ") << "Zrob tamto" << endl;
+			cout << ((selected == 2) ? " > " : "   ") << "Wyjscie" << endl;
+		} while ((selectedDelta = handleUserInput()) != 0);
+
+		if (selected == 0) {
+			// ...
+		}
+		else if (selected == 1) {
+			// ...
 		}
 	}
 }
