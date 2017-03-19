@@ -1,9 +1,9 @@
 #pragma once
-#include "Printable.h"
 #include "Type.h"
+#include <iostream>
 
 
-class Array : public Printable {
+class Array{
 
 private:
 	type* elements;

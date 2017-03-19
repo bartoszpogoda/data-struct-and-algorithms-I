@@ -153,7 +153,6 @@
     <ClInclude Include="CLInterface.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Type.h" />
-    <ClInclude Include="Printable.h" />
     <ClInclude Include="ArrayTesting.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
