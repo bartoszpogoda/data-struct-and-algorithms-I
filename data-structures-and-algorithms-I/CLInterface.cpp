@@ -8,9 +8,7 @@
 
 using namespace std;
 
-long long int CLInterface::frequency = 0;
-long long int CLInterface::start = 0;
-long long int CLInterface::elapsed = 0;
+Timer CLInterface::timer = Timer();
 
 void CLInterface::enterCLI() {
 	viewStructures();
@@ -37,19 +35,19 @@ void CLInterface::viewStructures() {
 			// enter funkcja widoku od listy
 			Array myarray = Array();
 			
-			startTimer();
+			timer.startTimer();
 
 			for (int i = 0; i < 50000; i++)
 				myarray.addElementEnd(1);
 
-			endTimer();
-			cout << "Time elapsed [ms] is " << timeMiliSeconds();
+			timer.endTimer();
+			cout << "Time elapsed [us] is " << timer.timeMicroSeconds();
+			cout << "Time elapsed [ms] is " << timer.timeMiliSeconds();
+			cout << "Time elapsed [s] is " << timer.timeSeconds();
 
 		
 		}
 	}
-	
-
 }
 
 int CLInterface::handleUserInput() {
@@ -68,50 +66,4 @@ int CLInterface::handleUserInput() {
 
 		c = 0;
 	}
-}
-
-long long int CLInterface::read_QPC() {
-		LARGE_INTEGER count;
-		QueryPerformanceCounter(&count);
-		return((long long int)count.QuadPart);
-}
-
-void CLInterface::startTimer() {
-	QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
-
-	LARGE_INTEGER count;
-	QueryPerformanceCounter(&count);
-	start = ((long long int)count.QuadPart);
-}
-
-void CLInterface::endTimer() {
-
-	LARGE_INTEGER count;
-	QueryPerformanceCounter(&count);
-	elapsed = ((long long int)count.QuadPart) - start;
-}
-
-std::string CLInterface::timeSeconds()
-{
-	stringstream str;
-	str << fixed << setprecision(3) << (float)elapsed /
-		frequency << endl;
-
-	return str.str();
-}
-
-std::string CLInterface::timeMiliSeconds() {
-	stringstream str;
-	str << setprecision(0) << (1000.0 * elapsed) /
-		frequency << endl;
-
-	return str.str();
-}
-
-std::string CLInterface::timeMicroSeconds() {
-	stringstream str;
-	str << setprecision(0) << (1000000.0 * elapsed) /
-		frequency << endl << endl;
-
-	return str.str();
 }

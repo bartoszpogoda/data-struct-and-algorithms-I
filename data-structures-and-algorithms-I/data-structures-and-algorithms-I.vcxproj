@@ -146,10 +146,12 @@
     <ClCompile Include="CLInterface.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="ArrayTesting.cpp" />
+    <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h" />
     <ClInclude Include="CLInterface.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="Type.h" />
     <ClInclude Include="Printable.h" />
     <ClInclude Include="ArrayTesting.h" />
