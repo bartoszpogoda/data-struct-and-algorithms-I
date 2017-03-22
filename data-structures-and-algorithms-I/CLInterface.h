@@ -1,6 +1,8 @@
 #pragma 
 #include <iostream>
 #include "Timer.h"
+#include "FileReader.h";
+#include "Array.h";
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -11,12 +13,18 @@
 class CLInterface {
 private:
 	static Timer timer;
+	static FileReader fileReader;
+
+	static Array *testArray;
 
 	CLInterface() {};
 public:
 	static void enterCLI();
 	static void viewMenuStructures();
+
 	static void viewMenuArray();
+	static void viewInputFilenameArray();
+	static void viewPrintedArray();
 
 	static int handleUserInput();
 };

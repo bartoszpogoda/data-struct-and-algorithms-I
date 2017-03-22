@@ -14,6 +14,7 @@ int main() {
 	
 	if (RUN_TESTS) {
 		ArrayTesting::runTests();
+		system("PAUSE");
 	}
 
 	//CLI 

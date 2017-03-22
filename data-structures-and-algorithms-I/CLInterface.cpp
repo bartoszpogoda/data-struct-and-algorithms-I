@@ -9,6 +9,8 @@
 using namespace std;
 
 Timer CLInterface::timer = Timer();
+FileReader CLInterface::fileReader = FileReader();
+Array* CLInterface::testArray = nullptr;
 
 void CLInterface::enterCLI() {
 	viewMenuStructures();
@@ -61,18 +63,43 @@ void CLInterface::viewMenuArray() {
 
 			system("CLS");
 			cout << "-- Tablica: --" << endl << endl;
-			cout << ((selected == 0) ? " > " : "   ") << "Zrob to" << endl;
-			cout << ((selected == 1) ? " > " : "   ") << "Zrob tamto" << endl;
+			cout << ((selected == 0) ? " > " : "   ") << "Wczytaj z pliku" << endl;
+			cout << ((selected == 1) ? " > " : "   ") << "Wypisz tablice na ekran" << endl;
 			cout << ((selected == 2) ? " > " : "   ") << "Wyjscie" << endl;
 		} while ((selectedDelta = handleUserInput()) != 0);
 
 		if (selected == 0) {
-			// ...
+			viewInputFilenameArray();
 		}
 		else if (selected == 1) {
-			// ...
+			viewPrintedArray();
 		}
 	}
+}
+
+void CLInterface::viewInputFilenameArray() {
+	string filename = " ";
+
+	system("CLS");
+	cout << "-- Wczytaj z pliku: --" << endl << endl;
+	cout << " > Podaj nazwe pliku: ";
+	cin >> filename;
+
+	cout << "Wynik: " << fileReader.readArray(filename, CLInterface::testArray);
+	handleUserInput();
+}
+
+
+void CLInterface::viewPrintedArray() {
+
+	system("CLS");
+	
+	if (testArray == nullptr)
+		testArray = new Array();
+
+	cout << testArray->toString();
+
+	handleUserInput();
 }
 
 int CLInterface::handleUserInput() {
