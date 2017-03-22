@@ -4,41 +4,37 @@
 
 
 void BDList::addElementAt(type element, int position) {
-	// could hold some size variable and then based on position/size iterate from head or tail
-	BDListNode* newNode = new BDListNode(element);
-	if (position < 0) position = 0;
+	if (position <= 0)
+		addElementFront(element);
+	else if (position >= currentSize)
+		addElementEnd(element);
+	else {
+		BDListNode* newNode = new BDListNode(element);
+		BDListNode* iterator;
 
-	if (head == nullptr) {
-		head = newNode;
-		tail = newNode;
-		return;
-	}
+		if (position < currentSize / 2) {
+			iterator = head;
 
-	BDListNode* iterator = head;
+			while (position--) {
+				iterator = iterator->getNext();
+			}
+		}
+		else {
+			iterator = tail;
+	
+			position = currentSize - position - 1;
+			while (position--) {
+				iterator = iterator->getPrev();
+			}
+		}
 
-	while (iterator->getNext() != nullptr && position--) {
-		iterator = iterator->getNext();
-	}
-
-	if (iterator->getPrev() == nullptr) {
-		iterator->setPrev(newNode);
+		iterator->getPrev()->setNext(newNode);
 		newNode->setNext(iterator);
-		head = newNode;
-		return;
+		newNode->setPrev(iterator->getPrev());
+		iterator->setPrev(newNode);
+
+		currentSize++;
 	}
-
-	if (iterator->getNext() == nullptr && position != 0) {
-		iterator->setNext(newNode);
-		newNode->setPrev(iterator);
-		tail = newNode;
-		return;
-	}
-
-	iterator->getPrev()->setNext(newNode);
-	newNode->setNext(iterator);
-	newNode->setPrev(iterator->getPrev());
-	iterator->setPrev(newNode);
-
 }
 
 void BDList::addElementFront(type element) {
@@ -50,6 +46,7 @@ void BDList::addElementFront(type element) {
 	}
 	else {
 		newNode->setNext(head);
+		head->setPrev(newNode);
 		head = newNode;
 	}
 	currentSize++;
@@ -68,7 +65,6 @@ void BDList::addElementEnd(type element) {
 		tail = newNode;
 	}
 	currentSize++;
-
 }
 
 void BDList::addElementRandom(type element) {
@@ -79,52 +75,53 @@ void BDList::addElementRandom(type element) {
 }
 
 void BDList::deleteElementAt(int position) {
-	// could hold some size variable and then based on position/size iterate from head or tail
-
-	if (head == nullptr) {
+	if (position == 0)
+		deleteElementFront();
+	else if (position == currentSize - 1)
+		deleteElementEnd();
+	else if (position < 0 || position >= currentSize)
 		return;
-	}
+	else {
+		BDListNode* iterator;
 
-	BDListNode* iterator = head;
+		if (position < currentSize / 2) {
+			iterator = head;
 
-	while (iterator->getNext() != nullptr && position--) {
-		iterator = iterator->getNext();
-	}
-
-	if (iterator->getNext() == nullptr) {
-		if (iterator->getPrev() != nullptr) {
-			iterator->getPrev()->setNext(nullptr);
-			tail = iterator->getPrev();
+			while (position--) {
+				iterator = iterator->getNext();
+			}
 		}
 		else {
-			tail = head = nullptr;
+			iterator = tail;
+
+			position = currentSize - position - 1;
+			while (position--) {
+				iterator = iterator->getPrev();
+			}
 		}
-	} else if (iterator->getPrev() == nullptr) {
-		if (iterator->getNext() != nullptr) {
-			iterator->getNext()->setPrev(nullptr);
-			head = iterator->getNext();
-		}
-		else {
-			tail = head = nullptr;
-		}
-		
-	} else {
+
 		iterator->getNext()->setPrev(iterator->getPrev());
 		iterator->getPrev()->setNext(iterator->getNext());
-	}
 
-	delete iterator;
-	currentSize--;
+		delete iterator;
+		currentSize--;
+	}
 }
 
 void BDList::deleteElementFront() {
 	if (head == nullptr) {
 		return;
 	}
-
-	head = head->getNext();
-	delete head->getPrev();
-	head->setPrev(nullptr);
+	if (head->getNext() == nullptr) {
+		delete head;
+		head = nullptr;
+	}
+	else {
+		head = head->getNext();
+		delete head->getPrev();
+		head->setPrev(nullptr);
+	}
+	
 	currentSize--;
 }
 
@@ -140,13 +137,12 @@ void BDList::deleteElementEnd() {
 	currentSize--;
 }
 
-void BDList::deleteElementRandom()
-{
+void BDList::deleteElementRandom() {
+
 }
 
-int BDList::findElement(type element)
-{
-	return 0;
+int BDList::findElement(type element) {
+	return -1;
 }
 /**
  format: [32 <-> 23 <-> 32 <-> 32]
