@@ -45,6 +45,12 @@
     <ClCompile Include="FileReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BDList.cpp">
+      <Filter>Source Files\structures</Filter>
+    </ClCompile>
+    <ClCompile Include="BDListTesting.cpp">
+      <Filter>Source Files\tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h">
@@ -64,6 +70,15 @@
     </ClInclude>
     <ClInclude Include="FileReader.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BDList.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="BDListNode.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="BDListTesting.h">
+      <Filter>Header Files\tests</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
