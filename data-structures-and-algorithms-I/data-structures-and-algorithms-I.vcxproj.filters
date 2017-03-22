@@ -13,10 +13,57 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\structures">
+      <UniqueIdentifier>{e2e611ba-1522-4243-8c86-32b7fa8c63b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\structures">
+      <UniqueIdentifier>{2e11807c-0ca5-43db-9118-9241e357f71b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\tests">
+      <UniqueIdentifier>{1ca0fa3d-c668-4e21-a208-1645414c3a44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tests">
+      <UniqueIdentifier>{05e4cceb-7146-4f8f-b4fd-a05ceae2895a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Array.cpp">
+      <Filter>Source Files\structures</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrayTesting.cpp">
+      <Filter>Source Files\tests</Filter>
+    </ClCompile>
+    <ClCompile Include="CLInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Array.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayTesting.h">
+      <Filter>Header Files\tests</Filter>
+    </ClInclude>
+    <ClInclude Include="Type.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CLInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
