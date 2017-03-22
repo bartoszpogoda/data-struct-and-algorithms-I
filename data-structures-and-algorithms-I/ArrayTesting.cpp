@@ -2,7 +2,7 @@
 #include "Type.h"
 
 void ArrayTesting::runTests() {
-	std::cout << "Running tests for Array: \n";
+	std::cout << "\nRunning tests for Array: \n";
 	std::cout << "shouldAddFewItemsToArray: " << shouldAddFewItemsToArray() << std::endl;
 	std::cout << "shouldAddFewItemsToTheFrontOfArray: " << shouldAddFewItemsToTheFrontOfArray() << std::endl;
 	std::cout << "shouldAddElementAtSpecifiedPosition: " << shouldAddElementAtSpecifiedPosition() << std::endl;
@@ -17,6 +17,8 @@ void ArrayTesting::runTests() {
 	std::cout << "shouldFindElement: " << shouldFindElement() << std::endl;
 
 	std::cout << "shouldPrintEmptyArrayString: " << shouldPrintEmptyArrayString() << std::endl;
+
+	std::cout << std::endl;
 }
 
 bool ArrayTesting::shouldAddFewItemsToArray() {

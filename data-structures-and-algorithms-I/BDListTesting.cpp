@@ -3,7 +3,7 @@
 
 void BDListTesting::runTests() {
 
-	std::cout << "Running tests for BDList: \n";
+	std::cout << "\nRunning tests for BDList: \n";
 	std::cout << "shouldAddFewItemsToList: " << shouldAddFewItemsToList() << std::endl;
 	std::cout << "shouldAddFewItemsToTheFrontOfList: " << shouldAddFewItemsToTheFrontOfList() << std::endl;
 	std::cout << "shouldAddElementAtSpecifiedPosition: " << shouldAddElementAtSpecifiedPosition() << std::endl;
@@ -20,6 +20,8 @@ void BDListTesting::runTests() {
 	std::cout << "shouldFindElement: " << shouldFindElement() << std::endl;
 	
 	std::cout << "shouldPrintEmptyListString: " << shouldPrintEmptyListString() << std::endl;
+
+	std::cout << std::endl;
 }
 
 bool BDListTesting::shouldAddFewItemsToList() {

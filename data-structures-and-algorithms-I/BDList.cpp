@@ -70,8 +70,8 @@ void BDList::addElementEnd(type element) {
 void BDList::addElementRandom(type element) {
 	srand(time(NULL));
 
-	//int position = rand() % currentSize;
-	//addElementAt(element, position);
+	int position = rand() % currentSize;
+	addElementAt(element, position);
 }
 
 void BDList::deleteElementAt(int position) {
@@ -138,11 +138,22 @@ void BDList::deleteElementEnd() {
 }
 
 void BDList::deleteElementRandom() {
+	srand(time(NULL));
 
+	int position = rand() % currentSize;
+	deleteElementAt(position);
 }
 
 int BDList::findElement(type element) {
-	return -1;
+	BDListNode* iterator = head;
+	int indexCounter = 0;
+	while (iterator->getNext() != nullptr && iterator->getData() != element) {
+		iterator = iterator->getNext();
+		indexCounter++;
+	}
+
+	if (iterator->getData() == element)
+		return indexCounter;
 }
 /**
  format: [32 <-> 23 <-> 32 <-> 32]
