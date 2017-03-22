@@ -154,6 +154,7 @@ int BDList::findElement(type element) {
 
 	if (iterator->getData() == element)
 		return indexCounter;
+	else return -1;
 }
 /**
  format: [32 <-> 23 <-> 32 <-> 32]
