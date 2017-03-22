@@ -1,4 +1,5 @@
 #include "BDListTesting.h"
+#include "Type.h"
 
 void BDListTesting::runTests() {
 
@@ -7,15 +8,17 @@ void BDListTesting::runTests() {
 	std::cout << "shouldAddFewItemsToTheFrontOfList: " << shouldAddFewItemsToTheFrontOfList() << std::endl;
 	std::cout << "shouldAddElementAtSpecifiedPosition: " << shouldAddElementAtSpecifiedPosition() << std::endl;
 	std::cout << "shouldAddElementAtInCaseOfIncorrectPosition: " << shouldAddElementAtInCaseOfIncorrectPosition() << std::endl;
-
+	
 
 	std::cout << "shouldDeleteItemFromList: " << shouldDeleteItemFromList() << std::endl;
+	std::cout << "shouldDeleteItemFromListIndex0: " << shouldDeleteItemFromListIndex0() << std::endl;
+	std::cout << "shouldDeleteItemFromListIndex0SingleElement: " << shouldDeleteItemFromListIndex0SingleElement() << std::endl;
+	std::cout << "shouldDeleteItemFromListIndexLast: " << shouldDeleteItemFromListIndexLast() << std::endl;
 	std::cout << "shouldDeleteFirstItemFromList: " << shouldDeleteFirstItemFromList() << std::endl;
 	std::cout << "shouldDeleteLastItemFromList: " << shouldDeleteLastItemFromList() << std::endl;
 	std::cout << "shouldDeleteFewItemsFromList: " << shouldDeleteFewItemsFromList() << std::endl;
-
 	std::cout << "shouldFindElement: " << shouldFindElement() << std::endl;
-
+	
 	std::cout << "shouldPrintEmptyListString: " << shouldPrintEmptyListString() << std::endl;
 }
 
@@ -98,6 +101,57 @@ bool BDListTesting::shouldDeleteItemFromList() {
 
 	//then
 	if (myBDList.toString().compare("[1 <-> 3 <-> 4]") == 0)
+		return true;
+
+	return false;
+}
+
+bool BDListTesting::shouldDeleteItemFromListIndex0() {
+	//given
+	BDList myBDList = BDList();
+	myBDList.addElementEnd(1);
+	myBDList.addElementEnd(2);
+	myBDList.addElementEnd(3);
+	myBDList.addElementEnd(4);
+
+	//when
+	myBDList.deleteElementAt(0);
+
+	//then
+	if (myBDList.toString().compare("[2 <-> 3 <-> 4]") == 0)
+		return true;
+
+	return false;
+}
+
+bool BDListTesting::shouldDeleteItemFromListIndex0SingleElement() {
+	//given
+	BDList myBDList = BDList();
+	myBDList.addElementEnd(1);
+
+	//when
+	myBDList.deleteElementAt(0);
+
+	//then
+	if (myBDList.toString().compare("[empty]") == 0)
+		return true;
+
+	return false;
+}
+
+bool BDListTesting::shouldDeleteItemFromListIndexLast() {
+	//given
+	BDList myBDList = BDList();
+	myBDList.addElementEnd(1);
+	myBDList.addElementEnd(2);
+	myBDList.addElementEnd(3);
+	myBDList.addElementEnd(4);
+
+	//when
+	myBDList.deleteElementAt(3);
+
+	//then
+	if (myBDList.toString().compare("[1 <-> 2 <-> 3]") == 0)
 		return true;
 
 	return false;

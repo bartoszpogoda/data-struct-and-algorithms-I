@@ -1,5 +1,6 @@
 #pragma once
 #include "BDListNode.h"
+#include "Type.h"
 #include <iostream>
 
 class BDList {
@@ -7,6 +8,8 @@ class BDList {
 	BDListNode* tail;
 
 public:
+	BDList() : head(nullptr), tail(nullptr) {} 
+
 	BDListNode* getHead() { return head; }
 	void setHead(BDListNode* head) { this->head = head; }
 	BDListNode* getTail() { return tail; }

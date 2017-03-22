@@ -15,6 +15,9 @@ public:
 	static bool shouldDeleteFirstItemFromList();
 	static bool shouldDeleteLastItemFromList();
 	static bool shouldDeleteFewItemsFromList();
+	static bool shouldDeleteItemFromListIndex0();
+	static bool shouldDeleteItemFromListIndex0SingleElement();
+	static bool shouldDeleteItemFromListIndexLast();
 
 	static bool shouldFindElement();
 
