@@ -6,9 +6,12 @@
 class BDList {
 	BDListNode* head;
 	BDListNode* tail;
+	int currentSize;
 
 public:
-	BDList() : head(nullptr), tail(nullptr) {} 
+	BDList() : currentSize(0), head(nullptr), tail(nullptr) {} 
+
+	int size() { return currentSize; }
 
 	BDListNode* getHead() { return head; }
 	void setHead(BDListNode* head) { this->head = head; }

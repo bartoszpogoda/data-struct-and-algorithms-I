@@ -61,12 +61,13 @@ bool BDListTesting::shouldAddElementAtSpecifiedPosition() {
 	BDList myBDList = BDList();
 
 	//when
+	myBDList.addElementAt(3, 0);
+	myBDList.addElementAt(2, 0);
 	myBDList.addElementAt(1, 0);
-	myBDList.addElementAt(3, 1);
-	myBDList.addElementAt(2, 1);
+	myBDList.addElementAt(5, 1);
 
 	//then
-	if (myBDList.toString().compare("[1 <-> 2 <-> 3]") == 0)
+	if (myBDList.toString().compare("[1 <-> 5 <-> 2 <-> 3]") == 0)
 		return true;
 
 	return false;
@@ -80,7 +81,7 @@ bool BDListTesting::shouldAddElementAtInCaseOfIncorrectPosition() {
 	myBDList.addElementAt(3, 55);
 	myBDList.addElementAt(1, -30);
 	myBDList.addElementAt(2, 1);
-
+	
 	//then
 	if (myBDList.toString().compare("[1 <-> 2 <-> 3]") == 0)
 		return true;
