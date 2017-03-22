@@ -143,7 +143,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Array.cpp" />
-    <ClCompile Include="CLInterface.cpp" />
+    <ClCompile Include="BDList.cpp" />
+    <ClCompile Include="BDListTesting.cpp" />
+    <ClCompile Include="CLInterfaceBDList.cpp" />
+    <ClCompile Include="CLInterfaceCommon.cpp" />
+    <ClCompile Include="CLInterfaceArray.cpp" />
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="ArrayTesting.cpp" />
@@ -151,8 +155,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h" />
+    <ClInclude Include="BDList.h" />
+    <ClInclude Include="BDListNode.h" />
     <ClInclude Include="CLInterface.h" />
     <ClInclude Include="FileReader.h" />
+    <ClInclude Include="BDListTesting.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Type.h" />
     <ClInclude Include="ArrayTesting.h" />
