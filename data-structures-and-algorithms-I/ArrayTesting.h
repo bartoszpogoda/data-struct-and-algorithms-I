@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Array.h"
-#include "Printable.h"
 
 class ArrayTesting {
 public:

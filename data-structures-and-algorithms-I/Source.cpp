@@ -4,7 +4,7 @@
 
 using namespace std;
 
-const bool RUN_TESTS = true;
+const bool RUN_TESTS = false;
 
 
 //-------------------------------------------------------------------------

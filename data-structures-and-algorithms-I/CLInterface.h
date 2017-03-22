@@ -25,6 +25,9 @@ public:
 	static void viewMenuArray();
 	static void viewInputFilenameArray();
 	static void viewPrintedArray();
+	static void viewAddElementToArray();
+	static void viewDeleteElementFromArray();
+	static void viewFindElementInArray();
 
 	static int handleUserInput();
 };
