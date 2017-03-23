@@ -160,6 +160,7 @@
     <ClInclude Include="CLInterface.h" />
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="BDListTesting.h" />
+    <ClInclude Include="Heap.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Type.h" />
     <ClInclude Include="ArrayTesting.h" />

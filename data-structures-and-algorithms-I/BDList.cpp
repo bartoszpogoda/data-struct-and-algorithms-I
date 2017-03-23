@@ -3,6 +3,20 @@
 #include <string>
 
 
+BDList::~BDList() {
+	if (head == nullptr)
+		return;
+
+	BDListNode* iterator = tail;
+
+	while (iterator->getPrev() != nullptr) {
+		iterator = iterator->getPrev();
+		delete iterator->getNext();
+	}
+
+	delete iterator;
+}
+
 void BDList::addElementAt(type element, int position) {
 	if (position <= 0)
 		addElementFront(element);

@@ -92,5 +92,8 @@
     <ClInclude Include="CLInterface.h">
       <Filter>Header Files\interface</Filter>
     </ClInclude>
+    <ClInclude Include="Heap.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
