@@ -151,7 +151,6 @@
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="Heap.cpp" />
     <ClCompile Include="HeapTesting.cpp" />
-    <ClCompile Include="Printer.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="ArrayTesting.cpp" />
     <ClCompile Include="Timer.cpp" />

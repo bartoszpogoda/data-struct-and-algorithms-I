@@ -31,6 +31,12 @@
     <Filter Include="Source Files\interface">
       <UniqueIdentifier>{59f1f46b-62ba-4881-8eae-b0754194cf87}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\helper">
+      <UniqueIdentifier>{b3b12eab-fb31-4034-b48f-2742d26bd716}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\helper">
+      <UniqueIdentifier>{2f4c1640-0593-4179-84e4-e0e56dfcc92b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -41,12 +47,6 @@
     </ClCompile>
     <ClCompile Include="ArrayTesting.cpp">
       <Filter>Source Files\tests</Filter>
-    </ClCompile>
-    <ClCompile Include="Timer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FileReader.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BDList.cpp">
       <Filter>Source Files\structures</Filter>
@@ -63,6 +63,21 @@
     <ClCompile Include="CLInterfaceBDList.cpp">
       <Filter>Source Files\interface</Filter>
     </ClCompile>
+    <ClCompile Include="HeapTesting.cpp">
+      <Filter>Source Files\tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Heap.cpp">
+      <Filter>Source Files\structures</Filter>
+    </ClCompile>
+    <ClCompile Include="FileReader.cpp">
+      <Filter>Source Files\helper</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files\helper</Filter>
+    </ClCompile>
+    <ClCompile Include="Printer.cpp">
+      <Filter>Source Files\helper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h">
@@ -72,12 +87,6 @@
       <Filter>Header Files\tests</Filter>
     </ClInclude>
     <ClInclude Include="Type.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Timer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FileReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BDList.h">
@@ -94,6 +103,18 @@
     </ClInclude>
     <ClInclude Include="Heap.h">
       <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="HeapTesting.h">
+      <Filter>Header Files\tests</Filter>
+    </ClInclude>
+    <ClInclude Include="FileReader.h">
+      <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="Printer.h">
+      <Filter>Header Files\helper</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
