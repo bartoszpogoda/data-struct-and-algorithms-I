@@ -92,13 +92,13 @@ void Heap::deleteElementFromTop() {
 	if (elements == nullptr) 
 		return;
 
-	type* newElements = new type[currentSize-1];
+	type* newElements = new type[currentSize - 1];
 
 	// ostatni lisc staje sie korzeniem
 	newElements[0] = elements[currentSize - 1];
 
 	for (int i = 1; i < currentSize - 1; i++) {
-		newElements[i] = elements[i-1];
+		newElements[i] = elements[i];
 	}
 
 	delete[] elements;

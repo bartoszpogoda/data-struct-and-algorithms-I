@@ -10,7 +10,8 @@ public:
 	static bool shouldAddElement2();
 	static bool shouldAddElement3();
 
-	static bool shouldDeleteElementFromTop();
+	static bool shouldDeleteElementFromTop1();
+	static bool shouldDeleteElementFromTop2();
 
 	static bool shouldFindElement();
 

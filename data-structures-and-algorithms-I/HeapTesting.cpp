@@ -6,7 +6,8 @@ void HeapTesting::runTests() {
 	std::cout << "shouldAddElement2: " << shouldAddElement2() << std::endl;
 	std::cout << "shouldAddElement3: " << shouldAddElement3() << std::endl;
 
-	std::cout << "shouldDeleteElementFromTop: " << shouldDeleteElementFromTop() << std::endl;
+	std::cout << "shouldDeleteElementFromTop1: " << shouldDeleteElementFromTop1() << std::endl;
+	std::cout << "shouldDeleteElementFromTop2: " << shouldDeleteElementFromTop2() << std::endl;
 
 	std::cout << "shouldPrintEmptyHeapString: " << shouldPrintEmptyHeapString() << std::endl;
 
@@ -25,13 +26,12 @@ bool HeapTesting::shouldAddElement1() {
 
 	//then
 	if (myHeap.toStringTable().compare("[4 3 1 2]") == 0)
-		return true;
+		return true;				
 
 	return false;
 }
 
-bool HeapTesting::shouldAddElement2()
-{
+bool HeapTesting::shouldAddElement2() {
 	//given
 	Heap myHeap = Heap();
 
@@ -50,13 +50,11 @@ bool HeapTesting::shouldAddElement2()
 	return false;
 }
 
-bool HeapTesting::shouldAddElement3()
-{
+bool HeapTesting::shouldAddElement3() {
 	return false;
 }
 
-bool HeapTesting::shouldDeleteElementFromTop()
-{
+bool HeapTesting::shouldDeleteElementFromTop1() {
 	//given
 	Heap myHeap = Heap();
 	myHeap.addElement(3);
@@ -74,13 +72,31 @@ bool HeapTesting::shouldDeleteElementFromTop()
 	return false;
 }
 
-bool HeapTesting::shouldFindElement()
-{
+bool HeapTesting::shouldDeleteElementFromTop2() {
+	//given
+	Heap myHeap = Heap();
+	myHeap.addElement(3);
+	myHeap.addElement(2);
+	myHeap.addElement(1);
+	myHeap.addElement(4);
+	myHeap.addElement(6);
+	myHeap.addElement(8);
+
+	//when
+	myHeap.deleteElementFromTop();
+
+	//then
+	if (myHeap.toStringTable().compare("[6 4 1 2 3]") == 0)
+		return true;
+
 	return false;
 }
 
-bool HeapTesting::shouldPrintEmptyHeapString()
-{
+bool HeapTesting::shouldFindElement() {
+	return false;
+}
+
+bool HeapTesting::shouldPrintEmptyHeapString() {
 	//given
 	Heap myHeap = Heap();
 	// then
