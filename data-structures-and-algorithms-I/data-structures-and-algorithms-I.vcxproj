@@ -148,7 +148,11 @@
     <ClCompile Include="CLInterfaceBDList.cpp" />
     <ClCompile Include="CLInterfaceCommon.cpp" />
     <ClCompile Include="CLInterfaceArray.cpp" />
+    <ClCompile Include="CLInterfaceHeap.cpp" />
     <ClCompile Include="FileReader.cpp" />
+    <ClCompile Include="Heap.cpp" />
+    <ClCompile Include="HeapTesting.cpp" />
+    <ClCompile Include="Printer.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="ArrayTesting.cpp" />
     <ClCompile Include="Timer.cpp" />
@@ -160,6 +164,9 @@
     <ClInclude Include="CLInterface.h" />
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="BDListTesting.h" />
+    <ClInclude Include="Heap.h" />
+    <ClInclude Include="HeapTesting.h" />
+    <ClInclude Include="Printer.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Type.h" />
     <ClInclude Include="ArrayTesting.h" />

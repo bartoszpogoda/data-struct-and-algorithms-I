@@ -10,6 +10,7 @@ class BDList {
 
 public:
 	BDList() : currentSize(0), head(nullptr), tail(nullptr) {} 
+	~BDList();
 
 	int size() { return currentSize; }
 
