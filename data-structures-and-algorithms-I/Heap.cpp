@@ -117,18 +117,24 @@ int Heap::findElement(type element) {
 	int currentValue = 0;
 	int multiplier = 2;
 
+	bool wasBigger = false;
+
 	for (int i = 0; i < currentSize; i++) {
+
+		if (elements[i] == element)
+			return i;
+		else if (elements[i] > element)
+			wasBigger = true;
+
 		if (i == currentValue) {
-			if (elements[i] < element)
+			if (!wasBigger)
 				return -1;
 			else {
 				currentValue += multiplier;
 				multiplier *= 2;
+				wasBigger = false;
 			}
 		}
-
-		if (elements[i] == element)
-			return i;
 	}
 
 	return -1;

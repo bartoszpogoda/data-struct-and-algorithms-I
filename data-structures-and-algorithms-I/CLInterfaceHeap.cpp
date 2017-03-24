@@ -6,7 +6,7 @@ using namespace std;
 Heap* CLInterface::testHeap = nullptr;
 
 void CLInterface::viewMenuHeap() {
-	int selected = 0, max = 5, selectedDelta = 0;
+	int selected = 0, max = 6, selectedDelta = 0;
 
 	system("CLS");
 	while (selected != max) {
@@ -17,10 +17,11 @@ void CLInterface::viewMenuHeap() {
 			cout << "-- Kopiec: --" << endl << endl;
 			cout << ((selected == 0) ? " > " : "   ") << "Wczytaj z pliku" << endl;
 			cout << ((selected == 1) ? " > " : "   ") << "Wypisz kopiec na ekran" << endl;
-			cout << ((selected == 2) ? " > " : "   ") << "Dodaj element" << endl;
-			cout << ((selected == 3) ? " > " : "   ") << "Usun element ze szczytu" << endl;
-			cout << ((selected == 4) ? " > " : "   ") << "Znajdz element" << endl;
-			cout << ((selected == 5) ? " > " : "   ") << "Wyjscie" << endl;
+			cout << ((selected == 2) ? " > " : "   ") << "Wypisz kopiec na ekran - tablica" << endl;
+			cout << ((selected == 3) ? " > " : "   ") << "Dodaj element" << endl;
+			cout << ((selected == 4) ? " > " : "   ") << "Usun korzen" << endl;
+			cout << ((selected == 5) ? " > " : "   ") << "Znajdz element" << endl;
+			cout << ((selected == 6) ? " > " : "   ") << "Wyjscie" << endl;
 		} while ((selectedDelta = handleUserInput()) != 0);
 
 		if (selected == 0) {
@@ -30,16 +31,19 @@ void CLInterface::viewMenuHeap() {
 			viewPrintedHeap();
 		}
 		else if (selected == 2) {
+			viewPrintedHeapTable();
+		}
+		else if (selected == 3) {
 			viewAddElementToHeap();
 			viewPrintedHeap();
 		}
-		else if (selected == 3) {
+		else if (selected == 4) {
 			viewDeleteElementFromHeap();
 			viewPrintedHeap();
 		}
-		else if (selected == 4) {
+		else if (selected == 5) {
 			viewFindElementInHeap();
-			viewPrintedHeap();
+			viewPrintedHeapTable();
 		}
 	}
 
@@ -74,6 +78,19 @@ void CLInterface::viewPrintedHeap() {
 	else {
 		printer.print_heap(testHeap->getVector());
 	}
+
+	cout << endl << endl << "> Powrot: Enter";
+	handleUserInput();
+}
+
+void CLInterface::viewPrintedHeapTable() {
+	system("CLS");
+	cout << "-- Aktualna zawartosc kopca w postaci tablicowej: --" << endl << endl;
+
+	if (testHeap == nullptr)
+		testHeap = new Heap();
+
+	cout << testHeap->toStringTable();
 
 	cout << endl << endl << "> Powrot: Enter";
 	handleUserInput();
@@ -128,5 +145,29 @@ void CLInterface::viewDeleteElementFromHeap() {
 }
 
 void CLInterface::viewFindElementInHeap() {
+	system("CLS");
 
+	if (testHeap == nullptr) {
+		cout << " > Kopiec nie zostal zainicjalizowany" << endl;
+		handleUserInput();
+		return;
+	}
+
+	int element;
+
+	cout << "-- Znajdz indeks pierwszego (od strony pelnej) wystapienia elementu w kopcu: --" << endl << endl;
+	cout << " > Wprowadz element (liczba calkowita): ";
+	cin >> element;
+
+
+	int foundIndex = testHeap->findElement(element);
+
+	if (foundIndex == -1)
+		cout << " > Nie znaleziono elementu: " << element;
+	else {
+		cout << " > Element " << element << " wystapil na pozycji " << foundIndex;
+	}
+
+	cout << endl << endl << "> Powrot: Enter";
+	handleUserInput();
 }

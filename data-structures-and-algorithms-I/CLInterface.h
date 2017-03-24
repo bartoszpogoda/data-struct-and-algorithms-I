@@ -45,6 +45,7 @@ public:
 	static void viewMenuHeap();
 	static void viewInputFilenameHeap();
 	static void viewPrintedHeap();
+	static void viewPrintedHeapTable();
 	static void viewAddElementToHeap();
 	static void viewDeleteElementFromHeap();
 	static void viewFindElementInHeap();
