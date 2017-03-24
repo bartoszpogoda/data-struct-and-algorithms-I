@@ -149,6 +149,7 @@
     <ClCompile Include="CLInterfaceCommon.cpp" />
     <ClCompile Include="CLInterfaceArray.cpp" />
     <ClCompile Include="CLInterfaceHeap.cpp" />
+    <ClCompile Include="CLInterfaceTest.cpp" />
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="Heap.cpp" />
     <ClCompile Include="HeapTesting.cpp" />
