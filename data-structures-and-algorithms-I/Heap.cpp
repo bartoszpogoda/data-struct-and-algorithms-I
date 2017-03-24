@@ -3,18 +3,18 @@
 
 void Heap::fixUp(int nodeId) {
 	while (parent(nodeId) >= 0) {
-		// czy rodzic ma mniejsza wartosc
+		// if parent has less value
 		if (elements[parent(nodeId)] < elements[nodeId]) {
-			// zamiana z rodzicem
+			// swap with parent
 			type dataHolder = elements[nodeId];
 			elements[nodeId] = elements[parent(nodeId)];
 			elements[parent(nodeId)] = dataHolder;
 
-			// dla nastepnej iteracji
+			// for next iteration
 			nodeId = parent(nodeId);
 		}
 		else {
-			// kopiec naprawiony
+			// heap fixed
 			return;
 		}
 	}
@@ -22,40 +22,40 @@ void Heap::fixUp(int nodeId) {
 
 void Heap::fixDown(int nodeId) {
 	while (leftChild(nodeId) < currentSize) {
-		// czy lewe dziecko ma wieksza wartosc 
+		// if left child has bigger value
 		if (elements[leftChild(nodeId)] > elements[nodeId]) {
-			// czy prawe dziecko istnieje i ma wieksza wartosc od lewego
+			// if right child exists and has bigger value than left
 			if (rightChild(nodeId) < currentSize && elements[rightChild(nodeId)] > elements[leftChild(nodeId)]) {
-				// zamiana z prawym dzieckiem
+				// swap with right child
 				type dataHolder = elements[nodeId];
 				elements[nodeId] = elements[rightChild(nodeId)];
 				elements[rightChild(nodeId)] = dataHolder;
 
-				// dla nastepnej iteracji
+				// for next iteration
 				nodeId = rightChild(nodeId);
 			}
 			else {
-				// zamiana z lewym dzieckiem
+				// swap with left child
 				type dataHolder = elements[nodeId];
 				elements[nodeId] = elements[leftChild(nodeId)];
 				elements[leftChild(nodeId)] = dataHolder;
 
-				// dla nastepnej iteracji
+				// for next iteration
 				nodeId = leftChild(nodeId);
 			}
 
-		} // czy prawe dziecko istnieje i ma wieksza wartosc
+		} // if right child exists and has bigger value
 		else if (rightChild(nodeId) < currentSize && elements[rightChild(nodeId)] > elements[nodeId]) {
-			// zamiana z prawym dzieckiem
+			// swap with right child
 			type dataHolder = elements[nodeId];
 			elements[nodeId] = elements[rightChild(nodeId)];
 			elements[rightChild(nodeId)] = dataHolder;
 
-			// dla nastepnej iteracji
+			// for next iteration
 			nodeId = rightChild(nodeId);
 		}
 		else {
-			// kopiec naprawiony
+			// heap fixed
 			return;
 		}
 	}
@@ -97,7 +97,7 @@ void Heap::deleteElementFromTop() {
 
 	type* newElements = new type[currentSize - 1];
 
-	// ostatni lisc staje sie korzeniem
+	// last node becomes root
 	newElements[0] = elements[currentSize - 1];
 
 	for (int i = 1; i < currentSize - 1; i++) {
@@ -113,7 +113,25 @@ void Heap::deleteElementFromTop() {
 }
 
 int Heap::findElement(type element) {
-	return 0;
+	// for 0, 2, 6, 14, ... iteration (last indexes on heap levels)
+	int currentValue = 0;
+	int multiplier = 2;
+
+	for (int i = 0; i < currentSize; i++) {
+		if (i == currentValue) {
+			if (elements[i] < element)
+				return -1;
+			else {
+				currentValue += multiplier;
+				multiplier *= 2;
+			}
+		}
+
+		if (elements[i] == element)
+			return i;
+	}
+
+	return -1;
 }
 
 std::string Heap::toStringTable() {
