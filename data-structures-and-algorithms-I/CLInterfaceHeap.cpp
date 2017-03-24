@@ -56,6 +56,8 @@ void CLInterface::viewInputFilenameHeap() {
 	cin >> filename;
 
 	cout << "Wynik: " << fileReader.readHeap(filename, CLInterface::testHeap);
+
+	cout << endl << endl << "> Powrot: Enter";
 	handleUserInput();
 }
 
@@ -73,6 +75,7 @@ void CLInterface::viewPrintedHeap() {
 		printer.print_heap(testHeap->getVector());
 	}
 
+	cout << endl << endl << "> Powrot: Enter";
 	handleUserInput();
 }
 
@@ -89,8 +92,9 @@ void CLInterface::viewAddElementToHeap() {
 
 	testHeap->addElement(element);
 
-	cout << " > Element " << element << " dodany do kopca" << endl;
+	cout << " > Element " << element << " dodany do kopca";
 
+	cout << endl << endl << "> Powrot: Enter";
 	handleUserInput();
 }
 
@@ -113,12 +117,13 @@ void CLInterface::viewDeleteElementFromHeap() {
 
 	if (decision == 'T' || decision == 't') {
 		testHeap->deleteElementFromTop();
-		cout << " > Korzen zostal usuniety." << endl;
+		cout << " > Korzen zostal usuniety.";
 	}
 	else {
-		cout << " > Operacja anulowana" << endl;
+		cout << " > Operacja anulowana";
 	}
 
+	cout << endl << endl << "> Powrot: Enter";
 	handleUserInput();
 }
 

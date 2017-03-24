@@ -56,6 +56,8 @@ void CLInterface::viewInputFilenameBDList() {
 	cin >> filename;
 
 	cout << "Wynik: " << fileReader.readBDList(filename, CLInterface::testBDList);
+
+	cout << endl << endl << "> Powrot: Enter";
 	handleUserInput();
 }
 
@@ -68,6 +70,7 @@ void CLInterface::viewPrintedBDList() {
 
 	cout << testBDList->toString();
 
+	cout << endl << endl << "> Powrot: Enter";
 	handleUserInput();
 }
 
@@ -90,8 +93,9 @@ void CLInterface::viewAddElementToBDList() {
 
 	testBDList->addElementAt(element, index);
 
-	cout << " > Element " << element << " dodany na pozycji " << index << endl;
+	cout << " > Element " << element << " dodany na pozycji " << index;
 
+	cout << endl << endl << "> Powrot: Enter";
 	handleUserInput();
 }
 
@@ -112,12 +116,13 @@ void CLInterface::viewDeleteElementFromBDList() {
 
 
 	if (index < 0 || index >= testBDList->size())
-		cout << " > Nie znaleziono elementu o indeksie " << index << endl;
+		cout << " > Nie znaleziono elementu o indeksie " << index;
 	else {
 		testBDList->deleteElementAt(index);
-		cout << " > Element z pozycji " << index << " zostal usuniety." << endl;
+		cout << " > Element z pozycji " << index << " zostal usuniety.";
 	}
 
+	cout << endl << endl << "> Powrot: Enter";
 	handleUserInput();
 }
 
@@ -140,11 +145,12 @@ void CLInterface::viewFindElementInBDList() {
 	int foundIndex = testBDList->findElement(element);
 
 	if (foundIndex == -1)
-		cout << " > Nie znaleziono elementu: " << element << endl;
+		cout << " > Nie znaleziono elementu: " << element;
 	else {
-		cout << " > Element " << element << " wystapil na pozycji " << foundIndex << endl;
+		cout << " > Element " << element << " wystapil na pozycji " << foundIndex;
 	}
 
+	cout << endl << endl << "> Powrot: Enter";
 	handleUserInput();
 }
 

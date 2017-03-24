@@ -55,7 +55,9 @@ void CLInterface::viewInputFilenameArray() {
 	cout << " > Podaj nazwe pliku: ";
 	cin >> filename;
 
-	cout << "Wynik: " << fileReader.readArray(filename, CLInterface::testArray);
+	cout << "Wynik: " << fileReader.readArray(filename, CLInterface::testArray) << endl << endl;
+
+	cout << "> Powrot: Enter";
 	handleUserInput();
 }
 
@@ -68,8 +70,9 @@ void CLInterface::viewPrintedArray() {
 	if (testArray == nullptr)
 		testArray = new Array();
 
-	cout << testArray->toString();
+	cout << testArray->toString() << endl << endl;
 
+	cout << "> Powrot: Enter";
 	handleUserInput();
 }
 
@@ -92,8 +95,9 @@ void CLInterface::viewAddElementToArray() {
 
 	testArray->addElementAt(element, index);
 
-	cout << " > Element " << element << " dodany na pozycji " << index << endl;
+	cout << " > Element " << element << " dodany na pozycji " << index << endl << endl;
 
+	cout << "> Powrot: Enter";
 	handleUserInput();
 }
 
@@ -114,12 +118,13 @@ void CLInterface::viewDeleteElementFromArray() {
 
 
 	if (index < 0 || index >= testArray->size())
-		cout << " > Nie znaleziono elementu o indeksie " << index << endl;
+		cout << " > Nie znaleziono elementu o indeksie " << index << endl << endl;
 	else {
 		testArray->deleteElementAt(index);
-		cout << " > Element z pozycji " << index << " zostal usuniety." << endl;
+		cout << " > Element z pozycji " << index << " zostal usuniety." << endl << endl;
 	}
 
+	cout << "> Powrot: Enter";
 	handleUserInput();
 }
 
@@ -142,10 +147,11 @@ void CLInterface::viewFindElementInArray() {
 	int foundIndex = testArray->findElement(element);
 
 	if (foundIndex == -1)
-		cout << " > Nie znaleziono elementu: " << element << endl;
+		cout << " > Nie znaleziono elementu: " << element << endl << endl;
 	else {
-		cout << " > Element " << element << " wystapil na pozycji " << foundIndex << endl;
+		cout << " > Element " << element << " wystapil na pozycji " << foundIndex << endl << endl;
 	}
 
+	cout << "> Powrot: Enter";
 	handleUserInput();
 }
