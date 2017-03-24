@@ -62,7 +62,10 @@ void Heap::fixDown(int nodeId) {
 }
 
 Heap::~Heap() {
+	if (elements == nullptr)
+		return;
 
+	delete[] elements;
 }
 
 void Heap::addElement(type element) {
@@ -129,4 +132,12 @@ std::string Heap::toStringTable() {
 	result += "]";
 
 	return result;
+}
+
+std::vector<type> Heap::getVector() {
+	if (elements == nullptr) return std::vector<type>();
+
+	std::vector<type> myHeapVector;
+	myHeapVector.assign(elements, elements + currentSize);
+	return myHeapVector;
 }

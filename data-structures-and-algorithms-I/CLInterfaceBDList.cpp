@@ -147,3 +147,4 @@ void CLInterface::viewFindElementInBDList() {
 
 	handleUserInput();
 }
+

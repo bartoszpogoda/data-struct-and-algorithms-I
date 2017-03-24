@@ -1,6 +1,7 @@
 #pragma once
 #include "Type.h"
 #include <iostream>
+#include <vector>
 
 class Heap {
 
@@ -27,4 +28,5 @@ public:
 	int findElement(type element);
 
 	std::string toStringTable();
+	std::vector<type> getVector();
 };
