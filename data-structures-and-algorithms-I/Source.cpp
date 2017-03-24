@@ -1,20 +1,20 @@
-﻿#include "ArrayTesting.h"
-#include "BDListTesting.h"
-#include "HeapTesting.h"
+﻿#include "ArrayUnitTesting.h"
+#include "BDListUnitTesting.h"
+#include "HeapUnitTesting.h"
 #include "CLInterface.h"
 
 using namespace std;
 
-const bool RUN_TESTS = true;
+const bool RUN_TESTS = false;
 
 //-------------------------------------------------------------------------
 
 int main() {
 	
 	if (RUN_TESTS) {
-		ArrayTesting::runTests();
-		BDListTesting::runTests();
-		HeapTesting::runTests();
+		ArrayUnitTesting::runTests();
+		BDListUnitTesting::runTests();
+		HeapUnitTesting::runTests();
 
 		std::cout << "Timer memory test, time should be 2s, then 1,5s" << std::endl;
 		Timer timer = Timer();

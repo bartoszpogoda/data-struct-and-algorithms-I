@@ -2,7 +2,7 @@
 
 #include "Array.h"
 
-class ArrayTesting {
+class ArrayUnitTesting {
 public:
 	static void runTests();
 

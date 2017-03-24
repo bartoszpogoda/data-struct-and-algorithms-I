@@ -2,7 +2,7 @@
 
 #include "Heap.h"
 
-class HeapTesting {
+class HeapUnitTesting {
 public:
 	static void runTests();
 

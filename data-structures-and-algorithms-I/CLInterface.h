@@ -3,6 +3,7 @@
 #include "Timer.h"
 #include "FileReader.h"
 #include "Printer.h"
+#include "PerformanceTester.h"
 #include "Array.h"
 #include "BDList.h"
 #include "Heap.h"
@@ -15,9 +16,9 @@
 
 class CLInterface {
 private:
-	static Timer timer;
 	static FileReader fileReader;
 	static Printer printer;
+	static PerformanceTester performanceTester;
 
 	static Array *testArray; 
 	static BDList *testBDList;
@@ -49,6 +50,12 @@ public:
 	static void viewAddElementToHeap();
 	static void viewDeleteElementFromHeap();
 	static void viewFindElementInHeap();
+
+
+	static void viewTestMenu();
+	static void viewTestArray();
+	static void viewTestBDList();
+	static void viewTestHeap();
 
 	static int handleUserInput();
 };

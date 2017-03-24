@@ -2,7 +2,7 @@
 
 #include "BDList.h"
 
-class BDListTesting {
+class BDListUnitTesting {
 public:
 	static void runTests();
 

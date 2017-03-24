@@ -1,7 +1,7 @@
-#include "BDListTesting.h"
+#include "BDListUnitTesting.h"
 #include "Type.h"
 
-void BDListTesting::runTests() {
+void BDListUnitTesting::runTests() {
 
 	std::cout << "\nRunning tests for BDList: \n";
 	std::cout << "shouldAddFewItemsToList: " << shouldAddFewItemsToList() << std::endl;
@@ -24,7 +24,7 @@ void BDListTesting::runTests() {
 	std::cout << std::endl;
 }
 
-bool BDListTesting::shouldAddFewItemsToList() {
+bool BDListUnitTesting::shouldAddFewItemsToList() {
 	//given
 	BDList myBDList = BDList();
 
@@ -41,7 +41,7 @@ bool BDListTesting::shouldAddFewItemsToList() {
 	return false;
 }
 
-bool BDListTesting::shouldAddFewItemsToTheFrontOfList() {
+bool BDListUnitTesting::shouldAddFewItemsToTheFrontOfList() {
 	//given
 	BDList myBDList = BDList();
 
@@ -58,7 +58,7 @@ bool BDListTesting::shouldAddFewItemsToTheFrontOfList() {
 	return false;
 }
 
-bool BDListTesting::shouldAddElementAtSpecifiedPosition() {
+bool BDListUnitTesting::shouldAddElementAtSpecifiedPosition() {
 	//given
 	BDList myBDList = BDList();
 
@@ -75,7 +75,7 @@ bool BDListTesting::shouldAddElementAtSpecifiedPosition() {
 	return false;
 }
 
-bool BDListTesting::shouldAddElementAtInCaseOfIncorrectPosition() {
+bool BDListUnitTesting::shouldAddElementAtInCaseOfIncorrectPosition() {
 	//given
 	BDList myBDList = BDList();
 
@@ -91,7 +91,7 @@ bool BDListTesting::shouldAddElementAtInCaseOfIncorrectPosition() {
 	return false;
 }
 
-bool BDListTesting::shouldDeleteItemFromList() {
+bool BDListUnitTesting::shouldDeleteItemFromList() {
 	//given
 	BDList myBDList = BDList();
 	myBDList.addElementEnd(1);
@@ -109,7 +109,7 @@ bool BDListTesting::shouldDeleteItemFromList() {
 	return false;
 }
 
-bool BDListTesting::shouldDeleteItemFromListIndex0() {
+bool BDListUnitTesting::shouldDeleteItemFromListIndex0() {
 	//given
 	BDList myBDList = BDList();
 	myBDList.addElementEnd(1);
@@ -127,7 +127,7 @@ bool BDListTesting::shouldDeleteItemFromListIndex0() {
 	return false;
 }
 
-bool BDListTesting::shouldDeleteItemFromListIndex0SingleElement() {
+bool BDListUnitTesting::shouldDeleteItemFromListIndex0SingleElement() {
 	//given
 	BDList myBDList = BDList();
 	myBDList.addElementEnd(1);
@@ -142,7 +142,7 @@ bool BDListTesting::shouldDeleteItemFromListIndex0SingleElement() {
 	return false;
 }
 
-bool BDListTesting::shouldDeleteItemFromListIndexLast() {
+bool BDListUnitTesting::shouldDeleteItemFromListIndexLast() {
 	//given
 	BDList myBDList = BDList();
 	myBDList.addElementEnd(1);
@@ -160,7 +160,7 @@ bool BDListTesting::shouldDeleteItemFromListIndexLast() {
 	return false;
 }
 
-bool BDListTesting::shouldDeleteFirstItemFromList() {
+bool BDListUnitTesting::shouldDeleteFirstItemFromList() {
 	//given
 	BDList myBDList = BDList();
 	myBDList.addElementEnd(1);
@@ -178,7 +178,7 @@ bool BDListTesting::shouldDeleteFirstItemFromList() {
 	return false;
 }
 
-bool BDListTesting::shouldDeleteLastItemFromList() {
+bool BDListUnitTesting::shouldDeleteLastItemFromList() {
 	//given
 	BDList myBDList = BDList();
 	myBDList.addElementEnd(1);
@@ -196,7 +196,7 @@ bool BDListTesting::shouldDeleteLastItemFromList() {
 	return false;;
 }
 
-bool BDListTesting::shouldDeleteFewItemsFromList() {
+bool BDListUnitTesting::shouldDeleteFewItemsFromList() {
 	//given
 	BDList myBDList = BDList();
 	myBDList.addElementEnd(1);
@@ -217,7 +217,7 @@ bool BDListTesting::shouldDeleteFewItemsFromList() {
 	return false;
 }
 
-bool BDListTesting::shouldFindElement() {
+bool BDListUnitTesting::shouldFindElement() {
 	//given
 	BDList myBDList = BDList();
 	myBDList.addElementEnd(1);
@@ -236,7 +236,7 @@ bool BDListTesting::shouldFindElement() {
 	return false;
 }
 
-bool BDListTesting::shouldPrintEmptyListString() {
+bool BDListUnitTesting::shouldPrintEmptyListString() {
 	//given
 	BDList myBDList = BDList();
 	// then

@@ -3,7 +3,6 @@
 
 using namespace std;
 
-Timer CLInterface::timer = Timer();
 FileReader CLInterface::fileReader = FileReader();
 Printer CLInterface::printer = Printer();
 
@@ -12,7 +11,7 @@ void CLInterface::enterCLI() {
 }
 
 void CLInterface::viewMenuStructures() {
-	int selected = 0, max = 3, selectedDelta = 0;
+	int selected = 0, max = 4, selectedDelta = 0;
 
 	system("CLS");
 	while (selected != max) {
@@ -24,7 +23,8 @@ void CLInterface::viewMenuStructures() {
 			cout << ((selected == 0) ? " > " : "   ") << "Tablica" << endl;
 			cout << ((selected == 1) ? " > " : "   ") << "Lista" << endl;
 			cout << ((selected == 2) ? " > " : "   ") << "Kopiec" << endl;
-			cout << ((selected == 3) ? " > " : "   ") << "Wyjscie" << endl;
+			cout << ((selected == 3) ? " > " : "   ") << "Eksperymenty" << endl;
+			cout << ((selected == 4) ? " > " : "   ") << "Wyjscie" << endl;
 		} while ((selectedDelta = handleUserInput()) != 0);
 
 		if (selected == 0) {
@@ -48,6 +48,9 @@ void CLInterface::viewMenuStructures() {
 		}
 		else if (selected == 2) {
 			viewMenuHeap();
+		}
+		else if (selected == 3) {
+			viewTestMenu();
 		}
 	}
 }

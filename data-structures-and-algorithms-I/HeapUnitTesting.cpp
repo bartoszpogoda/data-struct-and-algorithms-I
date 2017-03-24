@@ -1,6 +1,6 @@
-#include "HeapTesting.h"
+#include "HeapUnitTesting.h"
 
-void HeapTesting::runTests() {
+void HeapUnitTesting::runTests() {
 	std::cout << "\nRunning tests for Heap: \n";
 	std::cout << "shouldAddElement1: " << shouldAddElement1() << std::endl;
 	std::cout << "shouldAddElement2: " << shouldAddElement2() << std::endl;
@@ -16,7 +16,7 @@ void HeapTesting::runTests() {
 	std::cout << std::endl;
 }
 
-bool HeapTesting::shouldAddElement1() {
+bool HeapUnitTesting::shouldAddElement1() {
 	//given
 	Heap myHeap = Heap();
 
@@ -33,7 +33,7 @@ bool HeapTesting::shouldAddElement1() {
 	return false;
 }
 
-bool HeapTesting::shouldAddElement2() {
+bool HeapUnitTesting::shouldAddElement2() {
 	//given
 	Heap myHeap = Heap();
 
@@ -52,7 +52,7 @@ bool HeapTesting::shouldAddElement2() {
 	return false;
 }
 
-bool HeapTesting::shouldAddElement3() {
+bool HeapUnitTesting::shouldAddElement3() {
 	//given
 	Heap myHeap = Heap();
 
@@ -71,7 +71,7 @@ bool HeapTesting::shouldAddElement3() {
 	return false;
 }
 
-bool HeapTesting::shouldDeleteElementFromTop1() {
+bool HeapUnitTesting::shouldDeleteElementFromTop1() {
 	//given
 	Heap myHeap = Heap();
 	myHeap.addElement(3);
@@ -89,7 +89,7 @@ bool HeapTesting::shouldDeleteElementFromTop1() {
 	return false;
 }
 
-bool HeapTesting::shouldDeleteElementFromTop2() {
+bool HeapUnitTesting::shouldDeleteElementFromTop2() {
 	//given
 	Heap myHeap = Heap();
 	myHeap.addElement(3);
@@ -109,7 +109,7 @@ bool HeapTesting::shouldDeleteElementFromTop2() {
 	return false;
 }
 
-bool HeapTesting::shouldFindElement() {
+bool HeapUnitTesting::shouldFindElement() {
 	//given "[8 4 6 2 3 1]"
 	Heap myHeap = Heap();
 	myHeap.addElement(3);
@@ -128,7 +128,7 @@ bool HeapTesting::shouldFindElement() {
 	return false;
 }
 
-bool HeapTesting::shouldPrintEmptyHeapString() {
+bool HeapUnitTesting::shouldPrintEmptyHeapString() {
 	//given
 	Heap myHeap = Heap();
 	// then

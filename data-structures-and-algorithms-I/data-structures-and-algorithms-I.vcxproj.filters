@@ -19,12 +19,6 @@
     <Filter Include="Source Files\structures">
       <UniqueIdentifier>{2e11807c-0ca5-43db-9118-9241e357f71b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\tests">
-      <UniqueIdentifier>{1ca0fa3d-c668-4e21-a208-1645414c3a44}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\tests">
-      <UniqueIdentifier>{05e4cceb-7146-4f8f-b4fd-a05ceae2895a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\interface">
       <UniqueIdentifier>{3d4ce671-4ffd-453a-ac5b-9957e9cc66db}</UniqueIdentifier>
     </Filter>
@@ -37,6 +31,12 @@
     <Filter Include="Source Files\helper">
       <UniqueIdentifier>{2f4c1640-0593-4179-84e4-e0e56dfcc92b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\unit">
+      <UniqueIdentifier>{05e4cceb-7146-4f8f-b4fd-a05ceae2895a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\unit">
+      <UniqueIdentifier>{1ca0fa3d-c668-4e21-a208-1645414c3a44}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -45,14 +45,8 @@
     <ClCompile Include="Array.cpp">
       <Filter>Source Files\structures</Filter>
     </ClCompile>
-    <ClCompile Include="ArrayTesting.cpp">
-      <Filter>Source Files\tests</Filter>
-    </ClCompile>
     <ClCompile Include="BDList.cpp">
       <Filter>Source Files\structures</Filter>
-    </ClCompile>
-    <ClCompile Include="BDListTesting.cpp">
-      <Filter>Source Files\tests</Filter>
     </ClCompile>
     <ClCompile Include="CLInterfaceCommon.cpp">
       <Filter>Source Files\interface</Filter>
@@ -62,9 +56,6 @@
     </ClCompile>
     <ClCompile Include="CLInterfaceBDList.cpp">
       <Filter>Source Files\interface</Filter>
-    </ClCompile>
-    <ClCompile Include="HeapTesting.cpp">
-      <Filter>Source Files\tests</Filter>
     </ClCompile>
     <ClCompile Include="Heap.cpp">
       <Filter>Source Files\structures</Filter>
@@ -84,13 +75,22 @@
     <ClCompile Include="CLInterfaceTest.cpp">
       <Filter>Source Files\interface</Filter>
     </ClCompile>
+    <ClCompile Include="ArrayUnitTesting.cpp">
+      <Filter>Source Files\unit</Filter>
+    </ClCompile>
+    <ClCompile Include="BDListUnitTesting.cpp">
+      <Filter>Source Files\unit</Filter>
+    </ClCompile>
+    <ClCompile Include="HeapUnitTesting.cpp">
+      <Filter>Source Files\unit</Filter>
+    </ClCompile>
+    <ClCompile Include="PerformanceTester.cpp">
+      <Filter>Source Files\helper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h">
       <Filter>Header Files\structures</Filter>
-    </ClInclude>
-    <ClInclude Include="ArrayTesting.h">
-      <Filter>Header Files\tests</Filter>
     </ClInclude>
     <ClInclude Include="Type.h">
       <Filter>Header Files</Filter>
@@ -101,17 +101,11 @@
     <ClInclude Include="BDListNode.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
-    <ClInclude Include="BDListTesting.h">
-      <Filter>Header Files\tests</Filter>
-    </ClInclude>
     <ClInclude Include="CLInterface.h">
       <Filter>Header Files\interface</Filter>
     </ClInclude>
     <ClInclude Include="Heap.h">
       <Filter>Header Files\structures</Filter>
-    </ClInclude>
-    <ClInclude Include="HeapTesting.h">
-      <Filter>Header Files\tests</Filter>
     </ClInclude>
     <ClInclude Include="FileReader.h">
       <Filter>Header Files\helper</Filter>
@@ -120,6 +114,18 @@
       <Filter>Header Files\helper</Filter>
     </ClInclude>
     <ClInclude Include="Printer.h">
+      <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayUnitTesting.h">
+      <Filter>Header Files\unit</Filter>
+    </ClInclude>
+    <ClInclude Include="BDListUnitTesting.h">
+      <Filter>Header Files\unit</Filter>
+    </ClInclude>
+    <ClInclude Include="HeapUnitTesting.h">
+      <Filter>Header Files\unit</Filter>
+    </ClInclude>
+    <ClInclude Include="PerformanceTester.h">
       <Filter>Header Files\helper</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,7 +1,7 @@
-#include "ArrayTesting.h"
+#include "ArrayUnitTesting.h"
 #include "Type.h"
 
-void ArrayTesting::runTests() {
+void ArrayUnitTesting::runTests() {
 	std::cout << "\nRunning tests for Array: \n";
 	std::cout << "shouldAddFewItemsToArray: " << shouldAddFewItemsToArray() << std::endl;
 	std::cout << "shouldAddFewItemsToTheFrontOfArray: " << shouldAddFewItemsToTheFrontOfArray() << std::endl;
@@ -21,7 +21,7 @@ void ArrayTesting::runTests() {
 	std::cout << std::endl;
 }
 
-bool ArrayTesting::shouldAddFewItemsToArray() {
+bool ArrayUnitTesting::shouldAddFewItemsToArray() {
 
 	Array myArray = Array();
 	myArray.addElementEnd(32);
@@ -35,7 +35,7 @@ bool ArrayTesting::shouldAddFewItemsToArray() {
 	return false;
 }
 
-bool ArrayTesting::shouldAddFewItemsToTheFrontOfArray() {
+bool ArrayUnitTesting::shouldAddFewItemsToTheFrontOfArray() {
 
 	Array myArray = Array();
 	myArray.addElementFront(4);
@@ -49,7 +49,7 @@ bool ArrayTesting::shouldAddFewItemsToTheFrontOfArray() {
 	return false;
 }
 
-bool ArrayTesting::shouldAddElementAtSpecifiedPosition()
+bool ArrayUnitTesting::shouldAddElementAtSpecifiedPosition()
 {
 	Array myArray = Array();
 	myArray.addElementAt(1, 0);
@@ -62,7 +62,7 @@ bool ArrayTesting::shouldAddElementAtSpecifiedPosition()
 	return false;
 }
 
-bool ArrayTesting::shouldAddElementAtInCaseOfIncorrectPosition() {
+bool ArrayUnitTesting::shouldAddElementAtInCaseOfIncorrectPosition() {
 
 	Array myArray = Array();
 	myArray.addElementAt(3, 55);
@@ -75,7 +75,7 @@ bool ArrayTesting::shouldAddElementAtInCaseOfIncorrectPosition() {
 	return false;
 }
 
-bool ArrayTesting::shouldDeleteItemFromArray()
+bool ArrayUnitTesting::shouldDeleteItemFromArray()
 {
 	Array myArray = Array();
 	myArray.addElementEnd(1);
@@ -91,7 +91,7 @@ bool ArrayTesting::shouldDeleteItemFromArray()
 	return false;
 }
 
-bool ArrayTesting::shouldDeleteFirstItemFromArray()
+bool ArrayUnitTesting::shouldDeleteFirstItemFromArray()
 {
 	Array myArray = Array();
 	myArray.addElementEnd(1);
@@ -107,7 +107,7 @@ bool ArrayTesting::shouldDeleteFirstItemFromArray()
 	return false;
 }
 
-bool ArrayTesting::shouldDeleteLastItemFromArray()
+bool ArrayUnitTesting::shouldDeleteLastItemFromArray()
 {
 	Array myArray = Array();
 	myArray.addElementEnd(1);
@@ -123,7 +123,7 @@ bool ArrayTesting::shouldDeleteLastItemFromArray()
 	return false;
 }
 
-bool ArrayTesting::shouldDeleteFewItemsFromArray()
+bool ArrayUnitTesting::shouldDeleteFewItemsFromArray()
 {
 	Array myArray = Array();
 	myArray.addElementEnd(1);
@@ -142,7 +142,7 @@ bool ArrayTesting::shouldDeleteFewItemsFromArray()
 	return false;
 }
 
-bool ArrayTesting::shouldFindElement() {
+bool ArrayUnitTesting::shouldFindElement() {
 	Array myArray = Array();
 	myArray.addElementEnd(1);
 	myArray.addElementEnd(2);
@@ -158,7 +158,7 @@ bool ArrayTesting::shouldFindElement() {
 	return false;
 }
 
-bool ArrayTesting::shouldPrintEmptyArrayString() {
+bool ArrayUnitTesting::shouldPrintEmptyArrayString() {
 
 	Array myArray = Array();
 
