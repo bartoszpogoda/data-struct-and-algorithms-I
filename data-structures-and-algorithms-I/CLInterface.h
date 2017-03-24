@@ -26,7 +26,7 @@ private:
 
 	CLInterface() {};
 public:
-	static void enterCLI();
+	static void enterCLI(bool fileOutput);
 	static void viewMenuStructures();
 
 	static void viewMenuArray();

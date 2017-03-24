@@ -6,8 +6,15 @@ using namespace std;
 FileReader CLInterface::fileReader = FileReader();
 Printer CLInterface::printer = Printer();
 
-void CLInterface::enterCLI() {
-	viewMenuStructures();
+void CLInterface::enterCLI(bool fileOutput) {
+	if (fileOutput) {
+		performanceTester.setFileOutput(true);
+		//CLInterface::viewTestArray();
+		//CLInterface::viewTestBDList();
+		CLInterface::viewTestHeap();
+	} 
+	else
+		viewMenuStructures();
 }
 
 void CLInterface::viewMenuStructures() {
