@@ -9,9 +9,15 @@ Printer CLInterface::printer = Printer();
 void CLInterface::enterCLI(bool fileOutput) {
 	if (fileOutput) {
 		performanceTester.setFileOutput(true);
-		//CLInterface::viewTestArray();
-		//CLInterface::viewTestBDList();
+		CLInterface::viewTestArray();
+		cout << endl << endl << "> Powrot: Enter";
+		handleUserInput();
+		CLInterface::viewTestBDList();
+		cout << endl << endl << "> Powrot: Enter";
+		handleUserInput();
 		CLInterface::viewTestHeap();
+		cout << endl << endl << "> Powrot: Enter";
+		handleUserInput();
 	} 
 	else
 		viewMenuStructures();

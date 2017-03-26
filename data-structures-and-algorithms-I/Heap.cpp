@@ -68,7 +68,7 @@ Heap::~Heap() {
 	delete[] elements;
 }
 
-void Heap::addElement(type element) {
+void Heap::add(type element) {
 	if (elements == nullptr) {
 		elements = new type[1];
 		elements[0] = element;
@@ -91,8 +91,8 @@ void Heap::addElement(type element) {
 	currentSize++;
 }
 
-void Heap::deleteElementFromTop() {
-	if (elements == nullptr) 
+void Heap::deleteRoot() {
+	if (elements == nullptr)
 		return;
 
 	type* newElements = new type[currentSize - 1];
@@ -112,7 +112,7 @@ void Heap::deleteElementFromTop() {
 	currentSize--;
 }
 
-int Heap::findElement(type element) {
+int Heap::find(type element) {
 	// for 0, 2, 6, 14, ... iteration (last indexes on heap levels)
 	int currentValue = 0;
 	int multiplier = 2;
@@ -164,4 +164,25 @@ std::vector<type> Heap::getVector() {
 	std::vector<type> myHeapVector;
 	myHeapVector.assign(elements, elements + currentSize);
 	return myHeapVector;
+}
+
+bool Heap::validate(int node) {
+	bool childsGood = true;
+
+	if (leftChild(node) < currentSize) {
+		if (elements[leftChild(node)] <= elements[node])
+			childsGood = childsGood && validate(leftChild(node));
+		else
+			return false;
+	}
+
+	if (rightChild(node) < currentSize) {
+		if (elements[rightChild(node)] <= elements[node])
+			childsGood = childsGood && validate(rightChild(node));
+		else
+			return false;
+	}
+
+	return childsGood;
+
 }

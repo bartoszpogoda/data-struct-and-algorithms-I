@@ -22,10 +22,13 @@ public:
 
 	int size() { return currentSize; }
 
-	void addElement(type element);
-	void deleteElementFromTop();
+	void add(type element);
+	void deleteRoot();
 
-	int findElement(type element);
+	int find(type element);
+	int get(int position) { return elements[position]; }
+
+	bool validate(int node);
 
 	std::string toStringTable();
 	std::vector<type> getVector();

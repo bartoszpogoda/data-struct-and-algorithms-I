@@ -13,12 +13,12 @@ void PerformanceTester::addElementToFrontOfArray(int arraySize, type valuesMin, 
 		Array* testArray = new Array();
 
 		for (int j = 0; j < arraySize; j++)
-			testArray->addElementEnd(valuesMin + rand() % valuesMax);
+			testArray->addEnd(valuesMin + rand() % valuesMax);
 
 		type elementToAdd = valuesMin + rand() % valuesMax;
 
 		timer.startTimer();
-		testArray->addElementFront(elementToAdd);
+		testArray->addFront(elementToAdd);
 		timer.endTimer();
 
 		delete testArray;
@@ -37,12 +37,12 @@ void PerformanceTester::addElementToTheEndOfArray(int arraySize, type valuesMin,
 		Array* testArray = new Array();
 
 		for (int j = 0; j < arraySize; j++)
-			testArray->addElementEnd(valuesMin + rand() % valuesMax);
+			testArray->addEnd(valuesMin + rand() % valuesMax);
 
 		type elementToAdd = valuesMin + rand() % valuesMax;
 
 		timer.startTimer();
-		testArray->addElementEnd(elementToAdd);
+		testArray->addEnd(elementToAdd);
 		timer.endTimer();
 
 		delete testArray;
@@ -61,13 +61,13 @@ void PerformanceTester::addElementToTheRandomOfArray(int arraySize, type valuesM
 		Array* testArray = new Array();
 
 		for (int j = 0; j < arraySize; j++)
-			testArray->addElementEnd(valuesMin + rand() % valuesMax);
+			testArray->addEnd(valuesMin + rand() % valuesMax);
 
 		type elementToAdd = valuesMin + rand() % valuesMax;
 		int randomPosition = rand() % arraySize;
 
 		timer.startTimer();
-		testArray->addElementAt(elementToAdd, randomPosition);
+		testArray->addAt(elementToAdd, randomPosition);
 		timer.endTimer();
 
 		delete testArray;
@@ -86,10 +86,10 @@ void PerformanceTester::deleteElementFromTheFrontOfArray(int arraySize, type val
 		Array* testArray = new Array();
 
 		for (int j = 0; j < arraySize; j++)
-			testArray->addElementEnd(valuesMin + rand() % valuesMax);
+			testArray->addEnd(valuesMin + rand() % valuesMax);
 
 		timer.startTimer();
-		testArray->deleteElementFront();
+		testArray->deleteFront();
 		timer.endTimer();
 
 		delete testArray;
@@ -108,10 +108,10 @@ void PerformanceTester::deleteElementFromTheEndOfArray(int arraySize, type value
 		Array* testArray = new Array();
 
 		for (int j = 0; j < arraySize; j++)
-			testArray->addElementEnd(valuesMin + rand() % valuesMax);
+			testArray->addEnd(valuesMin + rand() % valuesMax);
 
 		timer.startTimer();
-		testArray->deleteElementEnd();
+		testArray->deleteEnd();
 		timer.endTimer();
 
 		delete testArray;
@@ -130,13 +130,13 @@ void PerformanceTester::deleteElementFromTheRandomOfArray(int arraySize, type va
 		Array* testArray = new Array();
 
 		for (int j = 0; j < arraySize; j++)
-			testArray->addElementEnd(valuesMin + rand() % valuesMax);
+			testArray->addEnd(valuesMin + rand() % valuesMax);
 
 		type elementToAdd = valuesMin + rand() % valuesMax;
 		int randomPosition = rand() % arraySize;
 
 		timer.startTimer();
-		testArray->deleteElementAt(randomPosition);
+		testArray->deleteAt(randomPosition);
 		timer.endTimer();
 
 		delete testArray;
@@ -161,12 +161,12 @@ void PerformanceTester::findElementInArray(int arraySize, type valuesMin, int it
 
 		std::shuffle(dataVec.begin(), dataVec.end(), engine);
 		for (int j = 0; j < arraySize; j++)
-			testArray->addElementEnd(dataVec[j]);
+			testArray->addEnd(dataVec[j]);
 
 		type randomElement = dataVec[rand() % arraySize];
 
 		timer.startTimer();
-		int result = testArray->findElement(randomElement);
+		int result = testArray->find(randomElement);
 		timer.endTimer();
 
 		delete testArray;

@@ -20,6 +20,7 @@ public:
 	static bool shouldDeleteItemFromListIndexLast();
 
 	static bool shouldFindElement();
+	static bool shouldGetElement();
 
 	static bool shouldPrintEmptyListString();
 };

@@ -254,12 +254,13 @@ void CLInterface::viewTestHeap() {
 
 	srand(time(NULL));
 	//int minSize = 10000, maxSize = 50000, sizeIteration = 10000;
-	int minSize = 1000, maxSize = 10000, sizeIteration = 250;
+	int minSize = 1000, maxSize = 5000, sizeIteration = 250;
 
 	//--------------------------------------3.1.
 	cout << endl << "3.1.a) " << endl;
+	cout << endl << "3.1.b)" << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
-		performanceTester.addElementToTheHeap(size, 0, 10, 100);
+		performanceTester.addElementToTheHeap(size, 0, 2147483647, 100);
 
 	cout << endl << "3.1.b)" << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)

@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <random>
+#include "Printer.h"
 #include <algorithm>
 
 
@@ -13,13 +14,17 @@ void PerformanceTester::addElementToTheHeap(int arraySize, type valuesMin, type 
 		Heap* testHeap = new Heap();
 
 		for (int j = 0; j < arraySize; j++)
-			testHeap->addElement(valuesMin + rand() % valuesMax);
+			testHeap->add(valuesMin + rand() % valuesMax);
+
 
 		type elementToAdd = valuesMin + rand() % valuesMax;
 
-		timer.startTimer();
-		testHeap->addElement(elementToAdd);
+		timer.startTimer(); 
+		testHeap->add(elementToAdd);
 		timer.endTimer();
+
+		if (testHeap->validate(0) == false)
+			std::cout << "Blad!";
 
 		delete testHeap;
 	}
@@ -37,10 +42,10 @@ void PerformanceTester::deleteRootFromTheHeap(int arraySize, type valuesMin, typ
 		Heap* testHeap = new Heap();
 
 		for (int j = 0; j < arraySize; j++)
-			testHeap->addElement(valuesMin + rand() % valuesMax);
+			testHeap->add(valuesMin + rand() % valuesMax);
 
 		timer.startTimer();
-		testHeap->deleteElementFromTop();
+		testHeap->deleteRoot();
 		timer.endTimer();
 
 		delete testHeap;
@@ -65,13 +70,14 @@ void PerformanceTester::findElementInHeap(int arraySize, type valuesMin, int ite
 
 		std::shuffle(dataVec.begin(), dataVec.end(), engine);
 		for (int j = 0; j < arraySize; j++)
-			testHeap->addElement(dataVec[j]);
+			testHeap->add(dataVec[j]);
 
 		type randomElement = dataVec[rand() % arraySize];
 
 		timer.startTimer();
-		int found = testHeap->findElement(randomElement);
+		int found = testHeap->find(randomElement);
 		timer.endTimer();
+
 
 		delete testHeap;
 	}

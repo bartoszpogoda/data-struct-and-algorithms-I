@@ -17,7 +17,9 @@ void BDListUnitTesting::runTests() {
 	std::cout << "shouldDeleteFirstItemFromList: " << shouldDeleteFirstItemFromList() << std::endl;
 	std::cout << "shouldDeleteLastItemFromList: " << shouldDeleteLastItemFromList() << std::endl;
 	std::cout << "shouldDeleteFewItemsFromList: " << shouldDeleteFewItemsFromList() << std::endl;
+
 	std::cout << "shouldFindElement: " << shouldFindElement() << std::endl;
+	std::cout << "shouldGetElement: " << shouldGetElement() << std::endl;
 	
 	std::cout << "shouldPrintEmptyListString: " << shouldPrintEmptyListString() << std::endl;
 
@@ -29,10 +31,10 @@ bool BDListUnitTesting::shouldAddFewItemsToList() {
 	BDList myBDList = BDList();
 
 	//when
-	myBDList.addElementEnd(32);
-	myBDList.addElementEnd(23);
-	myBDList.addElementEnd(32);
-	myBDList.addElementEnd(32);
+	myBDList.addEnd(32);
+	myBDList.addEnd(23);
+	myBDList.addEnd(32);
+	myBDList.addEnd(32);
 
 	//then
 	if (myBDList.toString().compare("[32 <-> 23 <-> 32 <-> 32]") == 0)
@@ -46,10 +48,10 @@ bool BDListUnitTesting::shouldAddFewItemsToTheFrontOfList() {
 	BDList myBDList = BDList();
 
 	//when
-	myBDList.addElementFront(4);
-	myBDList.addElementFront(3);
-	myBDList.addElementFront(2);
-	myBDList.addElementFront(1);
+	myBDList.addFront(4);
+	myBDList.addFront(3);
+	myBDList.addFront(2);
+	myBDList.addFront(1);
 
 	//then
 	if (myBDList.toString().compare("[1 <-> 2 <-> 3 <-> 4]") == 0)
@@ -63,10 +65,10 @@ bool BDListUnitTesting::shouldAddElementAtSpecifiedPosition() {
 	BDList myBDList = BDList();
 
 	//when
-	myBDList.addElementAt(3, 0);
-	myBDList.addElementAt(2, 0);
-	myBDList.addElementAt(1, 0);
-	myBDList.addElementAt(5, 1);
+	myBDList.addAt(3, 0);
+	myBDList.addAt(2, 0);
+	myBDList.addAt(1, 0);
+	myBDList.addAt(5, 1);
 
 	//then
 	if (myBDList.toString().compare("[1 <-> 5 <-> 2 <-> 3]") == 0)
@@ -80,9 +82,9 @@ bool BDListUnitTesting::shouldAddElementAtInCaseOfIncorrectPosition() {
 	BDList myBDList = BDList();
 
 	//when
-	myBDList.addElementAt(3, 55);
-	myBDList.addElementAt(1, -30);
-	myBDList.addElementAt(2, 1);
+	myBDList.addAt(3, 55);
+	myBDList.addAt(1, -30);
+	myBDList.addAt(2, 1);
 	
 	//then
 	if (myBDList.toString().compare("[1 <-> 2 <-> 3]") == 0)
@@ -94,13 +96,13 @@ bool BDListUnitTesting::shouldAddElementAtInCaseOfIncorrectPosition() {
 bool BDListUnitTesting::shouldDeleteItemFromList() {
 	//given
 	BDList myBDList = BDList();
-	myBDList.addElementEnd(1);
-	myBDList.addElementEnd(2);
-	myBDList.addElementEnd(3);
-	myBDList.addElementEnd(4);
+	myBDList.addEnd(1);
+	myBDList.addEnd(2);
+	myBDList.addEnd(3);
+	myBDList.addEnd(4);
 
 	//when
-	myBDList.deleteElementAt(1);
+	myBDList.deleteAt(1);
 
 	//then
 	if (myBDList.toString().compare("[1 <-> 3 <-> 4]") == 0)
@@ -112,13 +114,13 @@ bool BDListUnitTesting::shouldDeleteItemFromList() {
 bool BDListUnitTesting::shouldDeleteItemFromListIndex0() {
 	//given
 	BDList myBDList = BDList();
-	myBDList.addElementEnd(1);
-	myBDList.addElementEnd(2);
-	myBDList.addElementEnd(3);
-	myBDList.addElementEnd(4);
+	myBDList.addEnd(1);
+	myBDList.addEnd(2);
+	myBDList.addEnd(3);
+	myBDList.addEnd(4);
 
 	//when
-	myBDList.deleteElementAt(0);
+	myBDList.deleteAt(0);
 
 	//then
 	if (myBDList.toString().compare("[2 <-> 3 <-> 4]") == 0)
@@ -130,10 +132,10 @@ bool BDListUnitTesting::shouldDeleteItemFromListIndex0() {
 bool BDListUnitTesting::shouldDeleteItemFromListIndex0SingleElement() {
 	//given
 	BDList myBDList = BDList();
-	myBDList.addElementEnd(1);
+	myBDList.addEnd(1);
 
 	//when
-	myBDList.deleteElementAt(0);
+	myBDList.deleteAt(0);
 
 	//then
 	if (myBDList.toString().compare("[empty]") == 0)
@@ -145,13 +147,13 @@ bool BDListUnitTesting::shouldDeleteItemFromListIndex0SingleElement() {
 bool BDListUnitTesting::shouldDeleteItemFromListIndexLast() {
 	//given
 	BDList myBDList = BDList();
-	myBDList.addElementEnd(1);
-	myBDList.addElementEnd(2);
-	myBDList.addElementEnd(3);
-	myBDList.addElementEnd(4);
+	myBDList.addEnd(1);
+	myBDList.addEnd(2);
+	myBDList.addEnd(3);
+	myBDList.addEnd(4);
 
 	//when
-	myBDList.deleteElementAt(3);
+	myBDList.deleteAt(3);
 
 	//then
 	if (myBDList.toString().compare("[1 <-> 2 <-> 3]") == 0)
@@ -163,13 +165,13 @@ bool BDListUnitTesting::shouldDeleteItemFromListIndexLast() {
 bool BDListUnitTesting::shouldDeleteFirstItemFromList() {
 	//given
 	BDList myBDList = BDList();
-	myBDList.addElementEnd(1);
-	myBDList.addElementEnd(2);
-	myBDList.addElementEnd(3);
-	myBDList.addElementEnd(4);
+	myBDList.addEnd(1);
+	myBDList.addEnd(2);
+	myBDList.addEnd(3);
+	myBDList.addEnd(4);
 
 	//when
-	myBDList.deleteElementFront();
+	myBDList.deleteFront();
 
 	//then
 	if (myBDList.toString().compare("[2 <-> 3 <-> 4]") == 0)
@@ -181,13 +183,13 @@ bool BDListUnitTesting::shouldDeleteFirstItemFromList() {
 bool BDListUnitTesting::shouldDeleteLastItemFromList() {
 	//given
 	BDList myBDList = BDList();
-	myBDList.addElementEnd(1);
-	myBDList.addElementEnd(2);
-	myBDList.addElementEnd(3);
-	myBDList.addElementEnd(4);
+	myBDList.addEnd(1);
+	myBDList.addEnd(2);
+	myBDList.addEnd(3);
+	myBDList.addEnd(4);
 
 	//when
-	myBDList.deleteElementEnd();
+	myBDList.deleteEnd();
 
 	//then
 	if (myBDList.toString().compare("[1 <-> 2 <-> 3]") == 0)
@@ -199,16 +201,16 @@ bool BDListUnitTesting::shouldDeleteLastItemFromList() {
 bool BDListUnitTesting::shouldDeleteFewItemsFromList() {
 	//given
 	BDList myBDList = BDList();
-	myBDList.addElementEnd(1);
-	myBDList.addElementEnd(2);
-	myBDList.addElementEnd(3);
-	myBDList.addElementEnd(4);
-	myBDList.addElementEnd(5);
+	myBDList.addEnd(1);
+	myBDList.addEnd(2);
+	myBDList.addEnd(3);
+	myBDList.addEnd(4);
+	myBDList.addEnd(5);
 
 	//when
-	myBDList.deleteElementAt(1);
-	myBDList.deleteElementAt(1);
-	myBDList.deleteElementAt(2);
+	myBDList.deleteAt(1);
+	myBDList.deleteAt(1);
+	myBDList.deleteAt(2);
 
 	//then
 	if (myBDList.toString().compare("[1 <-> 4]") == 0)
@@ -220,17 +222,36 @@ bool BDListUnitTesting::shouldDeleteFewItemsFromList() {
 bool BDListUnitTesting::shouldFindElement() {
 	//given
 	BDList myBDList = BDList();
-	myBDList.addElementEnd(1);
-	myBDList.addElementEnd(2);
-	myBDList.addElementEnd(3);
-	myBDList.addElementEnd(4);
-	myBDList.addElementEnd(5);
+	myBDList.addEnd(1);
+	myBDList.addEnd(2);
+	myBDList.addEnd(3);
+	myBDList.addEnd(4);
+	myBDList.addEnd(5);
 	
 	//when
-	int position = myBDList.findElement(3);
+	int position = myBDList.find(3);
 
 	//then
 	if (position == 2)
+		return true;
+
+	return false;
+}
+
+bool BDListUnitTesting::shouldGetElement() {
+	//given
+	BDList myBDList = BDList();
+	myBDList.addEnd(1);
+	myBDList.addEnd(2);
+	myBDList.addEnd(3);
+	myBDList.addEnd(4);
+	myBDList.addEnd(5);
+
+	//when
+	type element = myBDList.get(2);
+
+	//then
+	if (element == 3)
 		return true;
 
 	return false;

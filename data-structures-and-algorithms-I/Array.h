@@ -2,7 +2,6 @@
 #include "Type.h"
 #include <iostream>
 
-
 class Array{
 
 private:
@@ -15,17 +14,18 @@ public:
 
 	int size();
 
-	void addElementAt(type element, int position);
-	void addElementFront(type element);
-	void addElementEnd(type element);
-	void addElementRandom(type element);
+	void addAt(type element, int position);
+	void addFront(type element);
+	void addEnd(type element);
+	void addAtRandom(type element);
 
-	void deleteElementAt(int position);
-	void deleteElementFront();
-	void deleteElementEnd();
-	void deleteElementRandom();
+	void deleteAt(int position);
+	void deleteFront();
+	void deleteEnd();
+	void deleteRandom();
 
-	int findElement(type element);
+	int find(type element);
+	type get(int position) { return elements[position]; }
 
 	std::string toString();
 

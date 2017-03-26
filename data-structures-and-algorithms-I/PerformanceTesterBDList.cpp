@@ -14,12 +14,12 @@ void PerformanceTester::addElementToFrontOfBDList(int arraySize, type valuesMin,
 		BDList* testBDList = new BDList();
 
 		for (int j = 0; j < arraySize; j++)
-			testBDList->addElementEnd(valuesMin + rand() % valuesMax);
+			testBDList->addEnd(valuesMin + rand() % valuesMax);
 
 		type elementToAdd = valuesMin + rand() % valuesMax;
 
 		timer.startTimer();
-		testBDList->addElementFront(elementToAdd);
+		testBDList->addFront(elementToAdd);
 		timer.endTimer();
 
 		delete testBDList;
@@ -38,12 +38,12 @@ void PerformanceTester::addElementToTheEndOfBDList(int arraySize, type valuesMin
 		BDList* testBDList = new BDList();
 
 		for (int j = 0; j < arraySize; j++)
-			testBDList->addElementEnd(valuesMin + rand() % valuesMax);
+			testBDList->addEnd(valuesMin + rand() % valuesMax);
 
 		type elementToAdd = valuesMin + rand() % valuesMax;
 
 		timer.startTimer();
-		testBDList->addElementEnd(elementToAdd);
+		testBDList->addEnd(elementToAdd);
 		timer.endTimer();
 
 		delete testBDList;
@@ -62,13 +62,13 @@ void PerformanceTester::addElementToTheRandomOfBDList(int arraySize, type values
 		BDList* testBDList = new BDList();
 
 		for (int j = 0; j < arraySize; j++)
-			testBDList->addElementEnd(valuesMin + rand() % valuesMax);
+			testBDList->addEnd(valuesMin + rand() % valuesMax);
 
 		type elementToAdd = valuesMin + rand() % valuesMax;
 		int randomPosition = rand() % arraySize;
 
 		timer.startTimer();
-		testBDList->addElementAt(elementToAdd, randomPosition);
+		testBDList->addAt(elementToAdd, randomPosition);
 		timer.endTimer();
 
 		delete testBDList;
@@ -87,10 +87,10 @@ void PerformanceTester::deleteElementFromTheFrontOfBDList(int arraySize, type va
 		BDList* testBDList = new BDList();
 
 		for (int j = 0; j < arraySize; j++)
-			testBDList->addElementEnd(valuesMin + rand() % valuesMax);
+			testBDList->addEnd(valuesMin + rand() % valuesMax);
 
 		timer.startTimer();
-		testBDList->deleteElementFront();
+		testBDList->deleteFront();
 		timer.endTimer();
 
 		delete testBDList;
@@ -109,10 +109,10 @@ void PerformanceTester::deleteElementFromTheEndOfBDList(int arraySize, type valu
 		BDList* testBDList = new BDList();
 
 		for (int j = 0; j < arraySize; j++)
-			testBDList->addElementEnd(valuesMin + rand() % valuesMax);
+			testBDList->addEnd(valuesMin + rand() % valuesMax);
 
 		timer.startTimer();
-		testBDList->deleteElementEnd();
+		testBDList->deleteEnd();
 		timer.endTimer();
 
 		delete testBDList;
@@ -131,13 +131,13 @@ void PerformanceTester::deleteElementFromTheRandomOfBDList(int arraySize, type v
 		BDList* testBDList = new BDList();
 
 		for (int j = 0; j < arraySize; j++)
-			testBDList->addElementEnd(valuesMin + rand() % valuesMax);
+			testBDList->addEnd(valuesMin + rand() % valuesMax);
 
 		type elementToAdd = valuesMin + rand() % valuesMax;
 		int randomPosition = rand() % arraySize;
 
 		timer.startTimer();
-		testBDList->deleteElementAt(randomPosition);
+		testBDList->deleteAt(randomPosition);
 		timer.endTimer();
 
 		delete testBDList;
@@ -162,12 +162,12 @@ void PerformanceTester::findElementInBDList(int arraySize, type valuesMin, int i
 
 		std::shuffle(dataVec.begin(), dataVec.end(), engine);
 		for (int j = 0; j < arraySize; j++)
-			testBDList->addElementEnd(dataVec[j]);
+			testBDList->addEnd(dataVec[j]);
 
 		type randomElement = dataVec[rand() % arraySize];
 
 		timer.startTimer();
-		int found = testBDList->findElement(randomElement);
+		int found = testBDList->find(randomElement);
 		timer.endTimer();
 
 		delete testBDList;

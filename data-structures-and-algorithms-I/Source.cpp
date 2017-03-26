@@ -5,7 +5,7 @@
 
 using namespace std;
 
-const bool RUN_TESTS = false;
+const bool RUN_TESTS = true;
 bool FILE_OUTPUT_RUN = false;
 //-------------------------------------------------------------------------
 
@@ -28,5 +28,7 @@ int main(int argc, char* argv[]) {
 	CLInterface::enterCLI(FILE_OUTPUT_RUN);
 
 	//CLI END
+
+	
 
 }

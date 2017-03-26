@@ -91,7 +91,7 @@ void CLInterface::viewAddElementToBDList() {
 	if (index < 0 || index >= testBDList->size())
 		index = testBDList->size();
 
-	testBDList->addElementAt(element, index);
+	testBDList->addAt(element, index);
 
 	cout << " > Element " << element << " dodany na pozycji " << index;
 
@@ -118,7 +118,7 @@ void CLInterface::viewDeleteElementFromBDList() {
 	if (index < 0 || index >= testBDList->size())
 		cout << " > Nie znaleziono elementu o indeksie " << index;
 	else {
-		testBDList->deleteElementAt(index);
+		testBDList->deleteAt(index);
 		cout << " > Element z pozycji " << index << " zostal usuniety.";
 	}
 
@@ -142,7 +142,7 @@ void CLInterface::viewFindElementInBDList() {
 	cin >> element;
 
 
-	int foundIndex = testBDList->findElement(element);
+	int foundIndex = testBDList->find(element);
 
 	if (foundIndex == -1)
 		cout << " > Nie znaleziono elementu: " << element;
