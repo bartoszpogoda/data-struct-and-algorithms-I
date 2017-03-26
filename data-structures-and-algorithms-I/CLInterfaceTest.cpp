@@ -258,13 +258,11 @@ void CLInterface::viewTestHeap() {
 
 	//--------------------------------------3.1.
 	cout << endl << "3.1.a) " << endl;
-	cout << endl << "3.1.b)" << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
-		performanceTester.addElementToTheHeap(size, 0, 2147483647, 100);
-
-	cout << endl << "3.1.b)" << endl;
+		performanceTester.addElementToTheHeap(size, 0, 10, 100);
+	/*cout << endl << "3.1.b)" << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
-		performanceTester.addElementToTheHeap(size, 100000, 1000000, 100);
+		performanceTester.addElementToTheHeap(size, 100000, 1000000, 100);*/
 
 	cout << endl << "3.1.c) " << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
@@ -275,9 +273,9 @@ void CLInterface::viewTestHeap() {
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
 		performanceTester.deleteRootFromTheHeap(size, 0, 10, 100);
 
-	cout << endl << "3.2.b)" << endl;
+	/*cout << endl << "3.2.b)" << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
-		performanceTester.deleteRootFromTheHeap(size, 100000, 1000000, 100);
+		performanceTester.deleteRootFromTheHeap(size, 100000, 1000000, 100);*/
 
 	cout << endl << "3.2.c) " << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
@@ -288,9 +286,9 @@ void CLInterface::viewTestHeap() {
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
 		performanceTester.findElementInHeap(size, 0, 100);
 
-	cout << endl << "3.3.b)" << endl;
+	/*cout << endl << "3.3.b)" << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
-		performanceTester.findElementInHeap(size, 100000, 100);
+		performanceTester.findElementInHeap(size, 100000, 100);*/
 
 	cout << endl << "3.3.c) " << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)

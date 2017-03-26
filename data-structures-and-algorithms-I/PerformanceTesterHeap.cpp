@@ -14,10 +14,10 @@ void PerformanceTester::addElementToTheHeap(int arraySize, type valuesMin, type 
 		Heap* testHeap = new Heap();
 
 		for (int j = 0; j < arraySize; j++)
-			testHeap->add(valuesMin + rand() % valuesMax);
+			testHeap->add(valuesMin + (bigNumberDist(gen) % (valuesMax - valuesMin)));
 
 
-		type elementToAdd = valuesMin + rand() % valuesMax;
+		type elementToAdd = valuesMin + (bigNumberDist(gen) % (valuesMax - valuesMin));
 
 		timer.startTimer(); 
 		testHeap->add(elementToAdd);
@@ -42,7 +42,7 @@ void PerformanceTester::deleteRootFromTheHeap(int arraySize, type valuesMin, typ
 		Heap* testHeap = new Heap();
 
 		for (int j = 0; j < arraySize; j++)
-			testHeap->add(valuesMin + rand() % valuesMax);
+			testHeap->add(valuesMin + (bigNumberDist(gen) % (valuesMax - valuesMin)));
 
 		timer.startTimer();
 		testHeap->deleteRoot();
@@ -72,7 +72,7 @@ void PerformanceTester::findElementInHeap(int arraySize, type valuesMin, int ite
 		for (int j = 0; j < arraySize; j++)
 			testHeap->add(dataVec[j]);
 
-		type randomElement = dataVec[rand() % arraySize];
+		type randomElement = dataVec[bigNumberDist(gen) % arraySize];
 
 		timer.startTimer();
 		int found = testHeap->find(randomElement);

@@ -1,12 +1,15 @@
 #pragma once
 #include "Timer.h"
 #include "Type.h"
+#include <random>
 
 class PerformanceTester {
 	Timer timer;
 	bool fileOutput;
+	std::mt19937 gen; 
+	std::uniform_int_distribution<> bigNumberDist; 
 public:
-	PerformanceTester() : timer(Timer()), fileOutput(false) { };
+	PerformanceTester() : timer(Timer()), fileOutput(false), gen(123456789), bigNumberDist(0, 2147483646) { };
 	void setFileOutput(bool fileOutput) { this->fileOutput = fileOutput; }
 
 	// array
