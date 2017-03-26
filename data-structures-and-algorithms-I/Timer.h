@@ -1,17 +1,16 @@
 #pragma once
-#pragma once
 #include <iostream>
 
 class Timer {
 private:
-	long long int frequency, start, elapsed, memory;
+	volatile long long int frequency, start, elapsed, memory, operationCounter;
 public:
-	Timer() : frequency(0), start(0), elapsed(0), memory(0) { };
+	Timer() : frequency(0), start(0), elapsed(0), memory(0), operationCounter(0) { };
 	long long int read_QPC();
 
 	void startTimer();
 	void endTimer();
-	void resetMemory() { memory = 0; }
+	void resetMemory();
 	void divideMemory(int divisor) { memory /= divisor; }
 
 	std::string timeSeconds();

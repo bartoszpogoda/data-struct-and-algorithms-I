@@ -24,10 +24,10 @@ void ArrayUnitTesting::runTests() {
 bool ArrayUnitTesting::shouldAddFewItemsToArray() {
 
 	Array myArray = Array();
-	myArray.addElementEnd(32);
-	myArray.addElementEnd(23);
-	myArray.addElementEnd(32);
-	myArray.addElementEnd(32);
+	myArray.addEnd(32);
+	myArray.addEnd(23);
+	myArray.addEnd(32);
+	myArray.addEnd(32);
 
 	if (myArray.toString().compare("[32 23 32 32]") == 0)
 		return true;
@@ -38,10 +38,10 @@ bool ArrayUnitTesting::shouldAddFewItemsToArray() {
 bool ArrayUnitTesting::shouldAddFewItemsToTheFrontOfArray() {
 
 	Array myArray = Array();
-	myArray.addElementFront(4);
-	myArray.addElementFront(3);
-	myArray.addElementFront(2);
-	myArray.addElementFront(1);
+	myArray.addFront(4);
+	myArray.addFront(3);
+	myArray.addFront(2);
+	myArray.addFront(1);
 
 	if (myArray.toString().compare("[1 2 3 4]") == 0)
 		return true;
@@ -52,9 +52,9 @@ bool ArrayUnitTesting::shouldAddFewItemsToTheFrontOfArray() {
 bool ArrayUnitTesting::shouldAddElementAtSpecifiedPosition()
 {
 	Array myArray = Array();
-	myArray.addElementAt(1, 0);
-	myArray.addElementAt(3, 1);
-	myArray.addElementAt(2, 1);
+	myArray.addAt(1, 0);
+	myArray.addAt(3, 1);
+	myArray.addAt(2, 1);
 
 	if (myArray.toString().compare("[1 2 3]") == 0)
 		return true;
@@ -65,9 +65,9 @@ bool ArrayUnitTesting::shouldAddElementAtSpecifiedPosition()
 bool ArrayUnitTesting::shouldAddElementAtInCaseOfIncorrectPosition() {
 
 	Array myArray = Array();
-	myArray.addElementAt(3, 55);
-	myArray.addElementAt(1, -30);
-	myArray.addElementAt(2, 1);
+	myArray.addAt(3, 55);
+	myArray.addAt(1, -30);
+	myArray.addAt(2, 1);
 
 	if (myArray.toString().compare("[1 2 3]") == 0)
 		return true;
@@ -78,12 +78,12 @@ bool ArrayUnitTesting::shouldAddElementAtInCaseOfIncorrectPosition() {
 bool ArrayUnitTesting::shouldDeleteItemFromArray()
 {
 	Array myArray = Array();
-	myArray.addElementEnd(1);
-	myArray.addElementEnd(2);
-	myArray.addElementEnd(3);
-	myArray.addElementEnd(4);
+	myArray.addEnd(1);
+	myArray.addEnd(2);
+	myArray.addEnd(3);
+	myArray.addEnd(4);
 
-	myArray.deleteElementAt(1);
+	myArray.deleteAt(1);
 
 	if (myArray.toString().compare("[1 3 4]") == 0)
 		return true;
@@ -94,12 +94,12 @@ bool ArrayUnitTesting::shouldDeleteItemFromArray()
 bool ArrayUnitTesting::shouldDeleteFirstItemFromArray()
 {
 	Array myArray = Array();
-	myArray.addElementEnd(1);
-	myArray.addElementEnd(2);
-	myArray.addElementEnd(3);
-	myArray.addElementEnd(4);
+	myArray.addEnd(1);
+	myArray.addEnd(2);
+	myArray.addEnd(3);
+	myArray.addEnd(4);
 
-	myArray.deleteElementFront();
+	myArray.deleteFront();
 
 	if (myArray.toString().compare("[2 3 4]") == 0)
 		return true;
@@ -110,12 +110,12 @@ bool ArrayUnitTesting::shouldDeleteFirstItemFromArray()
 bool ArrayUnitTesting::shouldDeleteLastItemFromArray()
 {
 	Array myArray = Array();
-	myArray.addElementEnd(1);
-	myArray.addElementEnd(2);
-	myArray.addElementEnd(3);
-	myArray.addElementEnd(4);
+	myArray.addEnd(1);
+	myArray.addEnd(2);
+	myArray.addEnd(3);
+	myArray.addEnd(4);
 
-	myArray.deleteElementEnd();
+	myArray.deleteEnd();
 
 	if (myArray.toString().compare("[1 2 3]") == 0)
 		return true;
@@ -126,15 +126,15 @@ bool ArrayUnitTesting::shouldDeleteLastItemFromArray()
 bool ArrayUnitTesting::shouldDeleteFewItemsFromArray()
 {
 	Array myArray = Array();
-	myArray.addElementEnd(1);
-	myArray.addElementEnd(2);
-	myArray.addElementEnd(3);
-	myArray.addElementEnd(4);
-	myArray.addElementEnd(5);
+	myArray.addEnd(1);
+	myArray.addEnd(2);
+	myArray.addEnd(3);
+	myArray.addEnd(4);
+	myArray.addEnd(5);
 
-	myArray.deleteElementAt(1);
-	myArray.deleteElementAt(1);
-	myArray.deleteElementAt(2);
+	myArray.deleteAt(1);
+	myArray.deleteAt(1);
+	myArray.deleteAt(2);
 
 	if (myArray.toString().compare("[1 4]") == 0)
 		return true;
@@ -144,13 +144,13 @@ bool ArrayUnitTesting::shouldDeleteFewItemsFromArray()
 
 bool ArrayUnitTesting::shouldFindElement() {
 	Array myArray = Array();
-	myArray.addElementEnd(1);
-	myArray.addElementEnd(2);
-	myArray.addElementEnd(3);
-	myArray.addElementEnd(4);
-	myArray.addElementEnd(5);
+	myArray.addEnd(1);
+	myArray.addEnd(2);
+	myArray.addEnd(3);
+	myArray.addEnd(4);
+	myArray.addEnd(5);
 
-	int position = myArray.findElement(3);
+	int position = myArray.find(3);
 
 	if (position == 2)
 		return true;

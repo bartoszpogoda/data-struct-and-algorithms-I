@@ -7,11 +7,14 @@
 
 long long int Timer::read_QPC() {
 	LARGE_INTEGER count;
+	DWORD_PTR oldmask = SetThreadAffinityMask(GetCurrentThread(), 0);
 	QueryPerformanceCounter(&count);
+	SetThreadAffinityMask(GetCurrentThread(), oldmask);
 	return((long long int)count.QuadPart);
 }
 
 void Timer::startTimer() {
+	operationCounter++;
 	QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
 
 	LARGE_INTEGER count;
@@ -25,6 +28,15 @@ void Timer::endTimer() {
 	elapsed = ((long long int)count.QuadPart) - start;
 
 	memory += elapsed;
+	operationCounter++;
+}
+
+void Timer::resetMemory() {
+	memory = 0;
+	start = 0;
+	elapsed = 0;
+	operationCounter++;
+	//std::cout << "Timer op counter on reset: " << operationCounter << std::endl;
 }
 
 std::string Timer::timeSeconds() {

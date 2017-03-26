@@ -20,13 +20,13 @@ private:
 	static Printer printer;
 	static PerformanceTester performanceTester;
 
-	static Array *testArray; 
-	static BDList *testBDList;
+	static Array* testArray; 
+	static BDList* testBDList;
 	static Heap* testHeap;
 
 	CLInterface() {};
 public:
-	static void enterCLI();
+	static void enterCLI(bool fileOutput);
 	static void viewMenuStructures();
 
 	static void viewMenuArray();
@@ -50,7 +50,6 @@ public:
 	static void viewAddElementToHeap();
 	static void viewDeleteElementFromHeap();
 	static void viewFindElementInHeap();
-
 
 	static void viewTestMenu();
 	static void viewTestArray();

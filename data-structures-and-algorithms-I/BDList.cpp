@@ -17,11 +17,11 @@ BDList::~BDList() {
 	delete iterator;
 }
 
-void BDList::addElementAt(type element, int position) {
+void BDList::addAt(type element, int position) {
 	if (position <= 0)
-		addElementFront(element);
+		addFront(element);
 	else if (position >= currentSize)
-		addElementEnd(element);
+		addEnd(element);
 	else {
 		BDListNode* newNode = new BDListNode(element);
 		BDListNode* iterator;
@@ -51,7 +51,7 @@ void BDList::addElementAt(type element, int position) {
 	}
 }
 
-void BDList::addElementFront(type element) {
+void BDList::addFront(type element) {
 	BDListNode* newNode = new BDListNode(element);
 	
 	if (head == nullptr) {
@@ -66,7 +66,7 @@ void BDList::addElementFront(type element) {
 	currentSize++;
 }
 
-void BDList::addElementEnd(type element) {
+void BDList::addEnd(type element) {
 	BDListNode* newNode = new BDListNode(element);
 
 	if (head == nullptr) {
@@ -81,18 +81,18 @@ void BDList::addElementEnd(type element) {
 	currentSize++;
 }
 
-void BDList::addElementRandom(type element) {
+void BDList::addRandom(type element) {
 	srand(time(NULL));
 
 	int position = rand() % currentSize;
-	addElementAt(element, position);
+	addAt(element, position);
 }
 
-void BDList::deleteElementAt(int position) {
+void BDList::deleteAt(int position) {
 	if (position == 0)
-		deleteElementFront();
+		deleteFront();
 	else if (position == currentSize - 1)
-		deleteElementEnd();
+		deleteEnd();
 	else if (position < 0 || position >= currentSize)
 		return;
 	else {
@@ -122,7 +122,7 @@ void BDList::deleteElementAt(int position) {
 	}
 }
 
-void BDList::deleteElementFront() {
+void BDList::deleteFront() {
 	if (head == nullptr) {
 		return;
 	}
@@ -139,7 +139,7 @@ void BDList::deleteElementFront() {
 	currentSize--;
 }
 
-void BDList::deleteElementEnd() {
+void BDList::deleteEnd() {
 
 	if (head == nullptr) {
 		return;
@@ -151,14 +151,14 @@ void BDList::deleteElementEnd() {
 	currentSize--;
 }
 
-void BDList::deleteElementRandom() {
+void BDList::deleteRandom() {
 	srand(time(NULL));
 
 	int position = rand() % currentSize;
-	deleteElementAt(position);
+	deleteAt(position);
 }
 
-int BDList::findElement(type element) {
+int BDList::find(type element) {
 	BDListNode* iterator = head;
 	int indexCounter = 0;
 	while (iterator->getNext() != nullptr && iterator->getData() != element) {
@@ -169,6 +169,19 @@ int BDList::findElement(type element) {
 	if (iterator->getData() == element)
 		return indexCounter;
 	else return -1;
+}
+
+type BDList::get(int position) {
+	if (currentSize == 0 || position >= currentSize)
+		return 0;
+
+	BDListNode* iterator = head;
+
+	while (position--)
+		iterator = iterator->getNext();
+
+	return iterator->getData();
+	
 }
 /**
  format: [32 <-> 23 <-> 32 <-> 32]

@@ -107,7 +107,7 @@ void CLInterface::viewAddElementToHeap() {
 	if (testHeap == nullptr)
 		testHeap = new Heap();
 
-	testHeap->addElement(element);
+	testHeap->add(element);
 
 	cout << " > Element " << element << " dodany do kopca";
 
@@ -133,7 +133,7 @@ void CLInterface::viewDeleteElementFromHeap() {
 
 
 	if (decision == 'T' || decision == 't') {
-		testHeap->deleteElementFromTop();
+		testHeap->deleteRoot();
 		cout << " > Korzen zostal usuniety.";
 	}
 	else {
@@ -160,7 +160,7 @@ void CLInterface::viewFindElementInHeap() {
 	cin >> element;
 
 
-	int foundIndex = testHeap->findElement(element);
+	int foundIndex = testHeap->find(element);
 
 	if (foundIndex == -1)
 		cout << " > Nie znaleziono elementu: " << element;

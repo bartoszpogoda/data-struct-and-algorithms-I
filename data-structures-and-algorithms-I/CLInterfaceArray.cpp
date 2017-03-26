@@ -93,7 +93,7 @@ void CLInterface::viewAddElementToArray() {
 	if (index < 0 || index >= testArray->size())
 		index = testArray->size();
 
-	testArray->addElementAt(element, index);
+	testArray->addAt(element, index);
 
 	cout << " > Element " << element << " dodany na pozycji " << index << endl << endl;
 
@@ -120,7 +120,7 @@ void CLInterface::viewDeleteElementFromArray() {
 	if (index < 0 || index >= testArray->size())
 		cout << " > Nie znaleziono elementu o indeksie " << index << endl << endl;
 	else {
-		testArray->deleteElementAt(index);
+		testArray->deleteAt(index);
 		cout << " > Element z pozycji " << index << " zostal usuniety." << endl << endl;
 	}
 
@@ -144,7 +144,7 @@ void CLInterface::viewFindElementInArray() {
 	cin >> element;
 
 
-	int foundIndex = testArray->findElement(element);
+	int foundIndex = testArray->find(element);
 
 	if (foundIndex == -1)
 		cout << " > Nie znaleziono elementu: " << element << endl << endl;

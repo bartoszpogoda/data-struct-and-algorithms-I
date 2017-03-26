@@ -28,7 +28,7 @@ std::string FileReader::readArray(std::string filename, Array* &array) {
 					break;
 				}
 				else
-					array->addElementEnd(val);
+					array->addEnd(val);
 			}
 		file.close();
 	}
@@ -64,7 +64,7 @@ std::string FileReader::readBDList(std::string filename, BDList *& bdList) {
 					break;
 				}
 				else
-					bdList->addElementEnd(val);
+					bdList->addEnd(val);
 			}
 		file.close();
 	}
@@ -100,7 +100,7 @@ std::string FileReader::readHeap(std::string filename, Heap *& heap) {
 					break;
 				}
 				else
-					heap->addElement(val);
+					heap->add(val);
 			}
 		file.close();
 	}
