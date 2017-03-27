@@ -214,6 +214,7 @@
     <ClCompile Include="Array.cpp" />
     <ClCompile Include="BDList.cpp" />
     <ClCompile Include="BDListUnitTesting.cpp" />
+    <ClCompile Include="BRTree.cpp" />
     <ClCompile Include="CLInterfaceBDList.cpp" />
     <ClCompile Include="CLInterfaceCommon.cpp" />
     <ClCompile Include="CLInterfaceArray.cpp" />
@@ -234,6 +235,8 @@
     <ClInclude Include="Array.h" />
     <ClInclude Include="BDList.h" />
     <ClInclude Include="BDListNode.h" />
+    <ClInclude Include="BRTree.h" />
+    <ClInclude Include="BRTreeNode.h" />
     <ClInclude Include="CLInterface.h" />
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="BDListUnitTesting.h" />
