@@ -34,6 +34,75 @@ void BRTree::rotateLeft(BRTreeNode * A) {
 	B->setLeftChild(A);
 }
 
+BRTreeNode * BRTree::min(BRTreeNode * node) {
+	while (node->getLeftChild() != nullptr) {
+		node = node->getLeftChild();
+	}
+	return node;
+}
+
+BRTreeNode * BRTree::max(BRTreeNode * node) {
+	while (node->getRightChild() != nullptr) {
+		node = node->getRightChild();
+	}
+	return node;
+}
+
+BRTreeNode * BRTree::successor(BRTreeNode * node) {
+	if (node->getRightChild() == nullptr) {
+
+		BRTreeNode* parent = node->getParent();
+		while (parent != nullptr && parent->getLeftChild() != node) {
+			node = parent;
+			parent = parent->getParent();
+		} 
+		return parent;
+	}
+	else
+		return min(node->getRightChild());
+
+}
+
+BRTreeNode * BRTree::predecessor(BRTreeNode * node) {
+	if (node->getLeftChild() == nullptr) {
+
+		BRTreeNode* parent = node->getParent();
+		while (parent != nullptr && parent->getRightChild() != node) {
+			node = parent;
+			parent = parent->getParent();
+		}
+		return parent;
+	}
+	else
+		return max(node->getLeftChild());
+}
+
+void BRTree::add(BRTreeNode * node) {
+	BRTreeNode* parent = nullptr;
+	BRTreeNode* iterator = root;
+
+	while (iterator != nullptr) {
+		parent = iterator;
+
+		if (node->getData() < iterator->getData())
+			iterator = iterator->getLeftChild();
+		else
+			iterator = iterator->getRightChild();
+	}
+
+	node->setParent(parent);
+
+	if (parent == nullptr) { // tree was empty
+		root = node;
+	}
+	else {
+		if (node->getData() < parent->getData())
+			parent->setLeftChild(node);
+		else
+			parent->setRightChild(node);
+	}
+}
+
 void BRTree::rotateRight(BRTreeNode * A) {
 	if (A == nullptr || A->getLeftChild() == nullptr)
 		return;

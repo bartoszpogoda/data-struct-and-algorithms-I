@@ -37,49 +37,26 @@ int main(int argc, char* argv[]) {
 	CLInterface::enterCLI(FILE_OUTPUT_RUN);
 
 	//CLI END
-
+	// temp visual tests
 
 	system("PAUSE");
-
-	BRTree* brTree = new BRTree();
-
-	BRTreeNode* A = new BRTreeNode(6);
-	BRTreeNode* B = new BRTreeNode(4);
-	BRTreeNode* BL = new BRTreeNode(3);
-	BRTreeNode* BR = new BRTreeNode(5);
-	BRTreeNode* AR = new BRTreeNode(7);
-	BRTreeNode* ARL = new BRTreeNode(6);
-	BRTreeNode* ARR = new BRTreeNode(8);
-
-
-	A->setLeftChild(B);
-	A->setRightChild(AR);
-	B->setLeftChild(BL);
-	B->setRightChild(BR);
-	B->setParent(A);
-	AR->setParent(A);
-	BL->setParent(B);
-	BR->setParent(B);
-
-	ARL->setParent(AR);
-	ARR->setParent(AR);
-	AR->setLeftChild(ARL);
-	AR->setRightChild(ARR);
-
 	Printer pr;
-	pr.print_tree(A);
+
+	cout << "Test add elements to BST: " << endl;
+	BRTree* newTree = new BRTree();
+	newTree->add(5);
+	newTree->add(1);
+	newTree->add(8);
+	newTree->add(7);
+	newTree->add(6);
+	newTree->add(2);
+
+	pr.print_tree(newTree->getRoot());
+	 
+	system("PAUSE");
+	cout << "Test rotate right at root: " << endl;
+	newTree->rotateRight(newTree->getRoot());
+	pr.print_tree(newTree->getRoot());
 
 	system("PAUSE");
-	brTree->rotateRight(A);
-	brTree->rotateLeft(B);
-	brTree->rotateLeft(B);
-	brTree->rotateLeft(B);
-	brTree->rotateLeft(B);
-	brTree->rotateLeft(B);
-	brTree->rotateLeft(B);
-
-	pr.print_tree(A);
-
-	system("PAUSE");
-
 }

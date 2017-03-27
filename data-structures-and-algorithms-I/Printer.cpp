@@ -42,6 +42,7 @@ std::string Printer::printLevel(BRTreeNode * root, int level, std::string gap) {
 		}
 
 		std::stringstream out;
+		//out << (root->isBlack() ? ("." + std::to_string(root->getData())) : std::to_string(root->getData())); // black ones are [val]
 		out << root->getData();
 		return gap + out.str() + gap;
 	}
