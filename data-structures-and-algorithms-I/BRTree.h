@@ -21,6 +21,8 @@ public:
 
 	void add(BRTreeNode* node);
 
+	void fix(BRTreeNode* node);
+
 	// temp for test
 	void setRoot(BRTreeNode* root) { this->root = root; }
 };

@@ -38,12 +38,12 @@ int Printer::max_depth(BRTreeNode * n) {
 std::string Printer::printLevel(BRTreeNode * root, int level, std::string gap) {
 	if (level == 1) {
 		if (root == 0) {
-			return gap + "-" + gap;
+			return gap + " - " + gap;
 		}
 
 		std::stringstream out;
-		//out << (root->isBlack() ? ("." + std::to_string(root->getData())) : std::to_string(root->getData())); // black ones are [val]
-		out << root->getData();
+		out << (root->isBlack() ? ("(" + std::to_string(root->getData()) + ")") : (" " + std::to_string(root->getData()) + " ")); // black ones are [val]
+		//out << root->getData();
 		return gap + out.str() + gap;
 	}
 	else if (level>1) {
@@ -72,7 +72,7 @@ void Printer::print_tree(BRTreeNode * root) {
 	for (int i = 1; i <= depth; i++) {
 		std::string gap = "";
 		for (int j = 0; j<pow(2, depth - i) - 1; j++) {
-			gap += " ";
+			gap += "  ";
 		}
 		std::string levelNodes = printLevel(root, i, gap);
 		std::cout << levelNodes << std::endl;

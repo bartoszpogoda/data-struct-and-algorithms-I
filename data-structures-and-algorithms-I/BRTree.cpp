@@ -80,6 +80,7 @@ BRTreeNode * BRTree::predecessor(BRTreeNode * node) {
 void BRTree::add(BRTreeNode * node) {
 	BRTreeNode* parent = nullptr;
 	BRTreeNode* iterator = root;
+	node->setRed(); // new node should be initially red 
 
 	while (iterator != nullptr) {
 		parent = iterator;
@@ -100,6 +101,53 @@ void BRTree::add(BRTreeNode * node) {
 			parent->setLeftChild(node);
 		else
 			parent->setRightChild(node);
+	}
+
+	fix(node);
+}
+
+void BRTree::fix(BRTreeNode * node) { 
+	if (node == root && node->isRed()) // root should be black
+		node->setBlack();
+	else {
+		if (node->getParent()->isRed()) { // parent is also red - can't be
+		// red parent means that was not the root so parent->getParent() shouldnt return null
+	
+		bool parentIsLeftChild = node->getParent()->getParent()->getLeftChild() == node->getParent();
+		// find uncle
+		BRTreeNode* uncle = parentIsLeftChild ?  node->getParent()->getParent()->getRightChild() : node->getParent()->getParent()->getLeftChild();
+		if (uncle != nullptr && uncle->isRed()) { // uncle also red case
+			// change parent and uncle color to black, grandpa to red
+			node->getParent()->setBlack();
+			uncle->setBlack();
+			uncle->getParent()->setRed();
+			// fix further
+			fix(uncle->getParent());
+		} 
+		else { // uncle is black (null is also black)
+			if (parentIsLeftChild && node->getParent()->getRightChild() == node) { // uncle black and node is right child
+				rotateLeft(node->getParent()); // rotate left on parent
+				node = node->getLeftChild();
+			}
+			else if (!parentIsLeftChild && node->getParent()->getLeftChild() == node) {
+				rotateRight(node->getParent());
+				node = node->getRightChild();
+			}
+
+			if (parentIsLeftChild) {
+				rotateRight(node->getParent()->getParent());
+				node->getParent()->setBlack();
+				//if (node->getParent()->getRightChild() != nullptr) // should not be needed
+				node->getParent()->getRightChild()->setRed();
+			}
+			else {
+				rotateLeft(node->getParent()->getParent());
+				node->getParent()->setBlack();
+				//if (node->getParent()->getLeftChild() != nullptr) // should not be needed
+				node->getParent()->getLeftChild()->setRed();
+			}
+		}
+		}
 	}
 }
 
