@@ -26,8 +26,9 @@ void BRTree::rotateLeft(BRTreeNode * A) {
 	// transfer BL to AR - ok with nullptr
 	A->setRightChild(B->getLeftChild());
 
-	// change BL parent
-	A->getRightChild()->setParent(A);
+	// change BL parent if it exists
+	if(A->getRightChild() != nullptr)
+		A->getRightChild()->setParent(A);
 
 	// set A as B left child
 	B->setLeftChild(A);
@@ -57,21 +58,10 @@ void BRTree::rotateRight(BRTreeNode * A) {
 	// transfer BR to AL - ok with nullptr
 	A->setLeftChild(B->getRightChild()); 
 
-	// change BR parent
-	A->getLeftChild()->setParent(A);
+	// change BR parent if it exists
+	if (A->getLeftChild() != nullptr)
+		A->getLeftChild()->setParent(A);
 
 	// set A as B right child
 	B->setRightChild(A);
-}
-
-void BRTree::postorder(BRTreeNode* p, int indent)
-{
-	if (p != NULL) {
-		if (p->getLeftChild()) postorder(p->getLeftChild(), indent + 4);
-		if (p->getRightChild()) postorder(p->getRightChild(), indent + 4);
-		if (indent) {
-			std::cout << std::setw(indent) << ' ';
-		}
-		std::cout << p->getData() << "\n ";
-	}
 }

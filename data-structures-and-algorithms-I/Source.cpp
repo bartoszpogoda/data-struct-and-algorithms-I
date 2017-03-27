@@ -72,6 +72,11 @@ int main(int argc, char* argv[]) {
 	system("PAUSE");
 	brTree->rotateRight(A);
 	brTree->rotateLeft(B);
+	brTree->rotateLeft(B);
+	brTree->rotateLeft(B);
+	brTree->rotateLeft(B);
+	brTree->rotateLeft(B);
+	brTree->rotateLeft(B);
 
 	pr.print_tree(A);
 
