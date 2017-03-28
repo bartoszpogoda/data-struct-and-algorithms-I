@@ -5,11 +5,7 @@
 
 class BRTree {
 	BRTreeNode* root;
-public:
-	BRTreeNode* getRoot() { return root; }
-	void add(type value) { add(new BRTreeNode(value)); }
 
-	// public for test
 	void rotateRight(BRTreeNode* node);
 	void rotateLeft(BRTreeNode* node);
 
@@ -20,9 +16,11 @@ public:
 	BRTreeNode* predecessor(BRTreeNode* node);
 
 	void add(BRTreeNode* node);
-
 	void fix(BRTreeNode* node);
+public:
+	BRTreeNode* getRoot() { return root; }
 
-	// temp for test
-	void setRoot(BRTreeNode* root) { this->root = root; }
+	void add(type value) { add(new BRTreeNode(value)); }
+	void remove(type value);
+	void find(type value);
 };

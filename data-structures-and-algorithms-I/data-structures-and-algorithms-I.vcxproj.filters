@@ -96,6 +96,9 @@
     <ClCompile Include="BRTree.cpp">
       <Filter>Source Files\structures</Filter>
     </ClCompile>
+    <ClCompile Include="CLInterfaceBRTree.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h">

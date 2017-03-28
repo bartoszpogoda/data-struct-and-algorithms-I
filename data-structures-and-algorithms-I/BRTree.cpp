@@ -151,6 +151,14 @@ void BRTree::fix(BRTreeNode * node) {
 	}
 }
 
+void BRTree::remove(type value) {
+
+}
+
+void BRTree::find(type value) {
+
+}
+
 void BRTree::rotateRight(BRTreeNode * A) {
 	if (A == nullptr || A->getLeftChild() == nullptr)
 		return;

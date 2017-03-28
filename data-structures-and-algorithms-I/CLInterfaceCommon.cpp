@@ -24,7 +24,7 @@ void CLInterface::enterCLI(bool fileOutput) {
 }
 
 void CLInterface::viewMenuStructures() {
-	int selected = 0, max = 4, selectedDelta = 0;
+	int selected = 0, max = 5, selectedDelta = 0;
 
 	system("CLS");
 	while (selected != max) {
@@ -36,8 +36,9 @@ void CLInterface::viewMenuStructures() {
 			cout << ((selected == 0) ? " > " : "   ") << "Tablica" << endl;
 			cout << ((selected == 1) ? " > " : "   ") << "Lista" << endl;
 			cout << ((selected == 2) ? " > " : "   ") << "Kopiec" << endl;
-			cout << ((selected == 3) ? " > " : "   ") << "Eksperymenty" << endl;
-			cout << ((selected == 4) ? " > " : "   ") << "Wyjscie" << endl;
+			cout << ((selected == 3) ? " > " : "   ") << "Drzewo czerwono-czarne" << endl;
+			cout << ((selected == 4) ? " > " : "   ") << "Eksperymenty" << endl;
+			cout << ((selected == 5) ? " > " : "   ") << "Wyjscie" << endl;
 		} while ((selectedDelta = handleUserInput()) != 0);
 
 		if (selected == 0) {
@@ -45,24 +46,14 @@ void CLInterface::viewMenuStructures() {
 		}
 		else if (selected == 1) {
 			viewMenuBDList();
-			/*
-			Array myarray = Array();
-			
-			timer.startTimer();
-
-			for (int i = 0; i < 50000; i++)
-				myarray.addElementEnd(1);
-
-			timer.endTimer();
-			cout << "Time elapsed [us] is " << timer.timeMicroSeconds();
-			cout << "Time elapsed [ms] is " << timer.timeMiliSeconds();
-			cout << "Time elapsed [s] is " << timer.timeSeconds();*/
-
 		}
 		else if (selected == 2) {
 			viewMenuHeap();
 		}
 		else if (selected == 3) {
+			viewMenuBRTree();
+		}
+		else if (selected == 4) {
 			viewTestMenu();
 		}
 	}
