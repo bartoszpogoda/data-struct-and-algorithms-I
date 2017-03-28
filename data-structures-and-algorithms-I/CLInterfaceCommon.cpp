@@ -10,14 +10,8 @@ void CLInterface::enterCLI(bool fileOutput) {
 	if (fileOutput) {
 		performanceTester.setFileOutput(true);
 		CLInterface::viewTestArray();
-		cout << endl << endl << "> Powrot: Enter";
-		handleUserInput();
 		CLInterface::viewTestBDList();
-		cout << endl << endl << "> Powrot: Enter";
-		handleUserInput();
 		CLInterface::viewTestHeap();
-		cout << endl << endl << "> Powrot: Enter";
-		handleUserInput();
 	} 
 	else
 		viewMenuStructures();

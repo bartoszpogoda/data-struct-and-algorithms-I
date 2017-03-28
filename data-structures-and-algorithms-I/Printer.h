@@ -10,6 +10,7 @@
 
 // implementation of tree printing:
 // author: raven_raven, modified by Matthieu M. http://stackoverflow.com/a/15854194
+// and then modified by me for BRT needs
 class Printer {
 private:
 	std::string do_padding(unsigned index, unsigned mlength);
