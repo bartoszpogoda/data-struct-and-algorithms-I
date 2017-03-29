@@ -27,6 +27,9 @@ public:
 	bool isRed() { return !black; }
 	void setRed() { black = false; }
 
+	bool getColor() { return black; }
+	void setColor(bool black) { this->black = black; }
+
 	void changeColor() { black = !black; }
 
 	type getData() { return data; }

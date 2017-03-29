@@ -63,7 +63,8 @@ public:
 	static void viewTestMenu();
 	static void viewTestArray();
 	static void viewTestBDList();
-	static void viewTestHeap();
+	static void viewTestHeap(); 
+	static void viewTestBRTree();
 
 	static int handleUserInput();
 };

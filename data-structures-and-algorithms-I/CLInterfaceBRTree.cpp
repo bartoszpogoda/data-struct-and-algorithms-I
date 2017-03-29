@@ -94,7 +94,25 @@ void CLInterface::viewAddElementToBRTree() {
 }
 
 void CLInterface::viewDeleteElementFromBRTree() {
+	system("CLS");
 
+	if (testBRTree == nullptr) {
+		cout << " > Drzewo czerwono-czarne nie zostalo zainicjalizowane" << endl;
+		handleUserInput();
+		return;
+	}
+
+	type val;
+
+	cout << "-- Usun element z drzewa czerwono-czarnego: --" << endl << endl;
+	cout << " > Wprowadz wartosc elementu (usuniety zostanie pierwszy znaleziony): ";
+	cin >> val;
+
+	bool removed = testBRTree->remove(val);
+	cout << " > Element  " << val << (removed ? " zostal usuniety." : " nie zostal odnaleziony.");
+
+	cout << endl << endl << "> Powrot: Enter";
+	handleUserInput();
 }
 
 void CLInterface::viewFindElementInBRTree() {

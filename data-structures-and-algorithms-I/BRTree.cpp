@@ -77,6 +77,28 @@ BRTreeNode * BRTree::predecessor(BRTreeNode * node) {
 		return max(node->getLeftChild());
 }
 
+BRTreeNode * BRTree::findNode(type value) {
+	BRTreeNode* iterator = root;
+	if (iterator == nullptr)
+		return nullptr;
+
+	while (iterator->getData() != value) {
+		if (iterator->getData() < value) {
+			if (iterator->getRightChild() == nullptr)
+				return nullptr;
+			else
+				iterator = iterator->getRightChild();
+		}
+		else {
+			if (iterator->getLeftChild() == nullptr)
+				return nullptr;
+			else
+				iterator = iterator->getLeftChild();
+		}
+	}
+	return iterator;
+}
+
 void BRTree::add(BRTreeNode * node) {
 	BRTreeNode* parent = nullptr;
 	BRTreeNode* iterator = root;
@@ -103,10 +125,10 @@ void BRTree::add(BRTreeNode * node) {
 			parent->setRightChild(node);
 	}
 
-	fix(node);
+	fixAdd(node);
 }
 
-void BRTree::fix(BRTreeNode * node) { 
+void BRTree::fixAdd(BRTreeNode * node) { 
 	if (node == root && node->isRed()) // root should be black
 		node->setBlack();
 	else {
@@ -122,7 +144,7 @@ void BRTree::fix(BRTreeNode * node) {
 			uncle->setBlack();
 			uncle->getParent()->setRed();
 			// fix further
-			fix(uncle->getParent());
+			fixAdd(uncle->getParent());
 		} 
 		else { // uncle is black (null is also black)
 			if (parentIsLeftChild && node->getParent()->getRightChild() == node) { // uncle black and node is right child
@@ -137,13 +159,11 @@ void BRTree::fix(BRTreeNode * node) {
 			if (parentIsLeftChild) {
 				rotateRight(node->getParent()->getParent());
 				node->getParent()->setBlack();
-				//if (node->getParent()->getRightChild() != nullptr) // should not be needed
 				node->getParent()->getRightChild()->setRed();
 			}
 			else {
 				rotateLeft(node->getParent()->getParent());
 				node->getParent()->setBlack();
-				//if (node->getParent()->getLeftChild() != nullptr) // should not be needed
 				node->getParent()->getLeftChild()->setRed();
 			}
 		}
@@ -151,12 +171,26 @@ void BRTree::fix(BRTreeNode * node) {
 	}
 }
 
-void BRTree::remove(type value) {
+bool BRTree::find(type value) {
+	BRTreeNode* iterator = root;
+	if (iterator == nullptr)
+		return false;
 
-}
-
-void BRTree::find(type value) {
-
+	while (iterator->getData() != value) {
+		if (iterator->getData() < value) {
+			if (iterator->getRightChild() == nullptr)
+				return false;
+			else
+				iterator = iterator->getRightChild();
+		}
+		else {
+			if (iterator->getLeftChild() == nullptr)
+				return false;
+			else
+				iterator = iterator->getLeftChild();
+		}
+	}
+	return true;
 }
 
 void BRTree::rotateRight(BRTreeNode * A) {

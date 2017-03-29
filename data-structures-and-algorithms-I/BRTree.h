@@ -14,13 +14,13 @@ class BRTree {
 
 	BRTreeNode* successor(BRTreeNode* node);
 	BRTreeNode* predecessor(BRTreeNode* node);
+	BRTreeNode* findNode(type value);
 
 	void add(BRTreeNode* node);
-	void fix(BRTreeNode* node);
+	void fixAdd(BRTreeNode* node);
 public:
 	BRTreeNode* getRoot() { return root; }
 
 	void add(type value) { add(new BRTreeNode(value)); }
-	void remove(type value);
-	void find(type value);
+	bool find(type value);
 };

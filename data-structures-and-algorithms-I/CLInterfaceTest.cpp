@@ -11,7 +11,7 @@ using namespace std;
 PerformanceTester CLInterface::performanceTester = PerformanceTester();
 
 void CLInterface::viewTestMenu() {
-	int selected = 0, max = 3, selectedDelta = 0;
+	int selected = 0, max = 4, selectedDelta = 0;
 
 	system("CLS");
 	while (selected != max) {
@@ -23,6 +23,7 @@ void CLInterface::viewTestMenu() {
 			cout << ((selected == 0) ? " > " : "   ") << "Wykonaj eksperymenty na tablicy" << endl;
 			cout << ((selected == 1) ? " > " : "   ") << "Wykonaj eksperymenty na liscie dwukierunkowej" << endl;
 			cout << ((selected == 2) ? " > " : "   ") << "Wykonaj eksperymenty na kopcu" << endl;
+			cout << ((selected == 3) ? " > " : "   ") << "Wykonaj eksperymenty na drzewie czerwono-czarnym" << endl;
 		} while ((selectedDelta = handleUserInput()) != 0);
 
 		if (selected == 0) {
@@ -39,6 +40,12 @@ void CLInterface::viewTestMenu() {
 		}
 		else if (selected == 2) {
 			viewTestHeap();
+
+			cout << endl << endl << "> Powrot: Enter";
+			handleUserInput();
+		}
+		else if (selected == 3) {
+			viewTestBRTree();
 
 			cout << endl << endl << "> Powrot: Enter";
 			handleUserInput();
@@ -293,5 +300,14 @@ void CLInterface::viewTestHeap() {
 	cout << endl << "3.3.c) " << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
 		performanceTester.findElementInHeap(size, 1294967295, 100);
+
+}
+
+void CLInterface::viewTestBRTree() {
+	system("CLS");
+	cout << "-- Eksperymenty na drzewie czerwono-czarnym: --" << endl << endl;
+
+	cout << " NOT YET IMPLEMENTED " << endl;
+
 
 }

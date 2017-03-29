@@ -163,10 +163,12 @@
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -226,6 +228,7 @@
     <ClCompile Include="HeapUnitTesting.cpp" />
     <ClCompile Include="PerformanceTester.cpp" />
     <ClCompile Include="PerformanceTesterBDList.cpp" />
+    <ClCompile Include="PerformanceTesterBRTree.cpp" />
     <ClCompile Include="PerformanceTesterHeap.cpp" />
     <ClCompile Include="Printer.cpp" />
     <ClCompile Include="Source.cpp" />
