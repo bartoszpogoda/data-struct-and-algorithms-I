@@ -14,11 +14,6 @@ public:
 
 	int size() { return currentSize; }
 
-	BDListNode* getHead() { return head; }
-	void setHead(BDListNode* head) { this->head = head; }
-	BDListNode* getTail() { return tail; }
-	void setTail(BDListNode* tail) { this->tail = tail; }
-
 	void addAt(type element, int position);
 	void addFront(type element);
 	void addEnd(type element);

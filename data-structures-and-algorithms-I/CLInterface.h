@@ -29,8 +29,10 @@ private:
 	CLInterface() {};
 public:
 	static void enterCLI(bool fileOutput);
-	static void viewMenuStructures();
+	static int handleUserInput();
 
+	static void viewMenuStructures();
+	
 	static void viewMenuArray();
 	static void viewInputFilenameArray();
 	static void viewPrintedArray();
@@ -57,7 +59,6 @@ public:
 	static void viewInputFilenameBRTree();
 	static void viewPrintedBRTree();
 	static void viewAddElementToBRTree();
-	static void viewDeleteElementFromBRTree();
 	static void viewFindElementInBRTree();
 
 	static void viewTestMenu();
@@ -65,6 +66,4 @@ public:
 	static void viewTestBDList();
 	static void viewTestHeap(); 
 	static void viewTestBRTree();
-
-	static int handleUserInput();
 };

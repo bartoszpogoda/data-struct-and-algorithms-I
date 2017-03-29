@@ -11,7 +11,12 @@ void CLInterface::viewMenuHeap() {
 	system("CLS");
 	while (selected != max) {
 		do {
-			if (selected + selectedDelta >= 0 && selected + selectedDelta <= max) selected += selectedDelta;
+			if (selected + selectedDelta < 0)
+				selected = max;
+			else if (selected + selectedDelta > max)
+				selected = 0;
+			else
+				selected += selectedDelta;
 
 			system("CLS");
 			cout << "-- Kopiec: --" << endl << endl;
@@ -26,6 +31,7 @@ void CLInterface::viewMenuHeap() {
 
 		if (selected == 0) {
 			viewInputFilenameHeap();
+			viewPrintedHeap();
 		}
 		else if (selected == 1) {
 			viewPrintedHeap();
@@ -121,6 +127,7 @@ void CLInterface::viewDeleteElementFromHeap() {
 
 	if (testHeap == nullptr) {
 		cout << " > Kopiec nie zostal zainicjalizowany" << endl;
+		cout << endl << "> Powrot: Enter";
 		handleUserInput();
 		return;
 	}
@@ -149,6 +156,7 @@ void CLInterface::viewFindElementInHeap() {
 
 	if (testHeap == nullptr) {
 		cout << " > Kopiec nie zostal zainicjalizowany" << endl;
+		cout << endl << "> Powrot: Enter";
 		handleUserInput();
 		return;
 	}

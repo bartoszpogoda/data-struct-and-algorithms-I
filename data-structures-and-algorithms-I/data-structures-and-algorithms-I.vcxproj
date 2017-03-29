@@ -226,7 +226,7 @@
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="Heap.cpp" />
     <ClCompile Include="HeapUnitTesting.cpp" />
-    <ClCompile Include="PerformanceTester.cpp" />
+    <ClCompile Include="PerformanceTesterArray.cpp" />
     <ClCompile Include="PerformanceTesterBDList.cpp" />
     <ClCompile Include="PerformanceTesterBRTree.cpp" />
     <ClCompile Include="PerformanceTesterHeap.cpp" />

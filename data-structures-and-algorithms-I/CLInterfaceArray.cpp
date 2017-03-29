@@ -11,7 +11,12 @@ void CLInterface::viewMenuArray() {
 	system("CLS");
 	while (selected != max) {
 		do {
-			if (selected + selectedDelta >= 0 && selected + selectedDelta <= max) selected += selectedDelta;
+			if (selected + selectedDelta < 0)
+				selected = max;
+			else if (selected + selectedDelta > max)
+				selected = 0;
+			else
+				selected += selectedDelta;
 
 			system("CLS");
 			cout << "-- Tablica: --" << endl << endl;
@@ -25,6 +30,7 @@ void CLInterface::viewMenuArray() {
 
 		if (selected == 0) {
 			viewInputFilenameArray();
+			viewPrintedArray();
 		}
 		else if (selected == 1) {
 			viewPrintedArray();
@@ -106,6 +112,7 @@ void CLInterface::viewDeleteElementFromArray() {
 
 	if (testArray == nullptr) {
 		cout << " > Tablica nie zostala zainicjalizowana" << endl;
+		cout << endl << "> Powrot: Enter";
 		handleUserInput();
 		return;
 	}
@@ -133,6 +140,7 @@ void CLInterface::viewFindElementInArray() {
 
 	if (testArray == nullptr) {
 		cout << " > Tablica nie zostala zainicjalizowana" << endl;
+		cout << endl << "> Powrot: Enter";
 		handleUserInput();
 		return;
 	}

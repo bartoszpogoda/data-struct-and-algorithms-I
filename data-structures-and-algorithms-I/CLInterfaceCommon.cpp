@@ -23,7 +23,12 @@ void CLInterface::viewMenuStructures() {
 	system("CLS");
 	while (selected != max) {
 		 do {
-			if (selected + selectedDelta >= 0 && selected + selectedDelta <= max) selected += selectedDelta;
+			 if (selected + selectedDelta < 0)
+				 selected = max;
+			 else if (selected + selectedDelta > max)
+				 selected = 0;
+			 else
+				 selected += selectedDelta;
 	
 			system("CLS");
 			cout << "-- Struktury danych: --" << endl << endl;

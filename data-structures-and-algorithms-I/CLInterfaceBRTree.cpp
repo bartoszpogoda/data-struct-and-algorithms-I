@@ -5,25 +5,30 @@ using namespace std;
 BRTree* CLInterface::testBRTree = nullptr;
 
 void CLInterface::viewMenuBRTree() {
-	int selected = 0, max = 5, selectedDelta = 0;
+	int selected = 0, max = 4, selectedDelta = 0;
 
 	system("CLS");
 	while (selected != max) {
 		do {
-			if (selected + selectedDelta >= 0 && selected + selectedDelta <= max) selected += selectedDelta;
+			if (selected + selectedDelta < 0)
+				selected = max;
+			else if (selected + selectedDelta > max)
+				selected = 0;
+			else
+				selected += selectedDelta;
 
 			system("CLS");
 			cout << "-- Drzewo czerwono-czarne: --" << endl << endl;
 			cout << ((selected == 0) ? " > " : "   ") << "Wczytaj z pliku" << endl;
 			cout << ((selected == 1) ? " > " : "   ") << "Wypisz drzewo" << endl;
 			cout << ((selected == 2) ? " > " : "   ") << "Dodaj element" << endl;
-			cout << ((selected == 3) ? " > " : "   ") << "Usun element" << endl;
-			cout << ((selected == 4) ? " > " : "   ") << "Znajdz element" << endl;
-			cout << ((selected == 5) ? " > " : "   ") << "Wyjscie" << endl;
+			cout << ((selected == 3) ? " > " : "   ") << "Znajdz element" << endl;
+			cout << ((selected == 4) ? " > " : "   ") << "Wyjscie" << endl;
 		} while ((selectedDelta = handleUserInput()) != 0);
 
 		if (selected == 0) {
 			viewInputFilenameBRTree();
+			viewPrintedBRTree();
 		}
 		else if (selected == 1) {
 			viewPrintedBRTree();
@@ -33,11 +38,7 @@ void CLInterface::viewMenuBRTree() {
 			viewPrintedBRTree();
 		}
 		else if (selected == 3) {
-			viewDeleteElementFromBRTree();
-			viewPrintedBRTree();
-		}
-		else if (selected == 4) {
-			viewFindElementInHeap();
+			viewFindElementInBRTree();
 			viewPrintedBRTree();
 		}
 	}
@@ -93,28 +94,31 @@ void CLInterface::viewAddElementToBRTree() {
 	handleUserInput();
 }
 
-void CLInterface::viewDeleteElementFromBRTree() {
+void CLInterface::viewFindElementInBRTree() {
 	system("CLS");
 
 	if (testBRTree == nullptr) {
 		cout << " > Drzewo czerwono-czarne nie zostalo zainicjalizowane" << endl;
+		cout << endl << "> Powrot: Enter";
 		handleUserInput();
 		return;
 	}
 
-	type val;
+	int element;
 
-	cout << "-- Usun element z drzewa czerwono-czarnego: --" << endl << endl;
-	cout << " > Wprowadz wartosc elementu (usuniety zostanie pierwszy znaleziony): ";
-	cin >> val;
+	cout << "-- Znajdz element w drzewie czerwono-czarnym: --" << endl << endl;
+	cout << " > Wprowadz element (liczba calkowita): ";
+	cin >> element;
 
-	bool removed = testBRTree->remove(val);
-	cout << " > Element  " << val << (removed ? " zostal usuniety." : " nie zostal odnaleziony.");
+
+	bool found = testBRTree->find(element);
+
+	if (found)
+		cout << " > Element " << element << " zostal odnaleziony ";
+	else {
+		cout << " > Nie znaleziono elementu: " << element;
+	}
 
 	cout << endl << endl << "> Powrot: Enter";
 	handleUserInput();
-}
-
-void CLInterface::viewFindElementInBRTree() {
-
 }

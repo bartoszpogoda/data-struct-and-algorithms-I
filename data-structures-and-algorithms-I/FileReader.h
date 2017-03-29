@@ -5,6 +5,8 @@
 #include "Heap.h"
 #include "BRTree.h"
 
+// source: http://staff.iiar.pwr.wroc.pl/antoni.sterna/sdizo/SDiZO_file.pdf
+
 class FileReader {
 public:
 	std::string readArray(std::string filename, Array* &array);

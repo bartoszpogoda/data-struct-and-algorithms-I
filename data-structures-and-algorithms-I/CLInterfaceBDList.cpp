@@ -11,7 +11,12 @@ void CLInterface::viewMenuBDList() {
 	system("CLS");
 	while (selected != max) {
 		do {
-			if (selected + selectedDelta >= 0 && selected + selectedDelta <= max) selected += selectedDelta;
+			if (selected + selectedDelta < 0)
+				selected = max;
+			else if (selected + selectedDelta > max)
+				selected = 0;
+			else
+				selected += selectedDelta;
 
 			system("CLS");
 			cout << "-- Lista dwukierunkowa: --" << endl << endl;
@@ -25,6 +30,7 @@ void CLInterface::viewMenuBDList() {
 
 		if (selected == 0) {
 			viewInputFilenameBDList();
+			viewPrintedBDList();
 		}
 		else if (selected == 1) {
 			viewPrintedBDList();
@@ -103,7 +109,8 @@ void CLInterface::viewDeleteElementFromBDList() {
 	system("CLS");
 
 	if (testBDList == nullptr) {
-		cout << " > Lista nie zostala zainicjalizowana" << endl;
+		cout << " > Lista dwukierunkowa nie zostala zainicjalizowana" << endl;
+		cout << endl << "> Powrot: Enter";
 		handleUserInput();
 		return;
 	}
@@ -131,6 +138,7 @@ void CLInterface::viewFindElementInBDList() {
 
 	if (testBDList == nullptr) {
 		cout << " > Lista dwukierunkowa nie zostala zainicjalizowana" << endl;
+		cout << endl << "> Powrot: Enter";
 		handleUserInput();
 		return;
 	}

@@ -37,6 +37,12 @@
     <Filter Include="Header Files\unit">
       <UniqueIdentifier>{1ca0fa3d-c668-4e21-a208-1645414c3a44}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\performance">
+      <UniqueIdentifier>{cee599c4-2fb3-4c6c-974b-5d4292638db1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\performance">
+      <UniqueIdentifier>{b26fc887-4f79-4846-91ab-bf855b44b080}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -84,31 +90,28 @@
     <ClCompile Include="HeapUnitTesting.cpp">
       <Filter>Source Files\unit</Filter>
     </ClCompile>
-    <ClCompile Include="PerformanceTester.cpp">
-      <Filter>Source Files\helper</Filter>
-    </ClCompile>
-    <ClCompile Include="PerformanceTesterBDList.cpp">
-      <Filter>Source Files\helper</Filter>
-    </ClCompile>
-    <ClCompile Include="PerformanceTesterHeap.cpp">
-      <Filter>Source Files\helper</Filter>
-    </ClCompile>
     <ClCompile Include="BRTree.cpp">
       <Filter>Source Files\structures</Filter>
     </ClCompile>
     <ClCompile Include="CLInterfaceBRTree.cpp">
       <Filter>Source Files\interface</Filter>
     </ClCompile>
+    <ClCompile Include="PerformanceTesterHeap.cpp">
+      <Filter>Source Files\performance</Filter>
+    </ClCompile>
+    <ClCompile Include="PerformanceTesterBDList.cpp">
+      <Filter>Source Files\performance</Filter>
+    </ClCompile>
     <ClCompile Include="PerformanceTesterBRTree.cpp">
-      <Filter>Source Files\helper</Filter>
+      <Filter>Source Files\performance</Filter>
+    </ClCompile>
+    <ClCompile Include="PerformanceTesterArray.cpp">
+      <Filter>Source Files\performance</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h">
       <Filter>Header Files\structures</Filter>
-    </ClInclude>
-    <ClInclude Include="Type.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BDList.h">
       <Filter>Header Files\structures</Filter>
@@ -140,13 +143,16 @@
     <ClInclude Include="HeapUnitTesting.h">
       <Filter>Header Files\unit</Filter>
     </ClInclude>
-    <ClInclude Include="PerformanceTester.h">
-      <Filter>Header Files\helper</Filter>
-    </ClInclude>
     <ClInclude Include="BRTree.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
     <ClInclude Include="BRTreeNode.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="PerformanceTester.h">
+      <Filter>Header Files\performance</Filter>
+    </ClInclude>
+    <ClInclude Include="Type.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
   </ItemGroup>
