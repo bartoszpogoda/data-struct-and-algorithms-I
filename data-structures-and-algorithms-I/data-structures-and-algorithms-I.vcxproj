@@ -163,10 +163,12 @@
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -214,7 +216,9 @@
     <ClCompile Include="Array.cpp" />
     <ClCompile Include="BDList.cpp" />
     <ClCompile Include="BDListUnitTesting.cpp" />
+    <ClCompile Include="BRTree.cpp" />
     <ClCompile Include="CLInterfaceBDList.cpp" />
+    <ClCompile Include="CLInterfaceBRTree.cpp" />
     <ClCompile Include="CLInterfaceCommon.cpp" />
     <ClCompile Include="CLInterfaceArray.cpp" />
     <ClCompile Include="CLInterfaceHeap.cpp" />
@@ -224,6 +228,7 @@
     <ClCompile Include="HeapUnitTesting.cpp" />
     <ClCompile Include="PerformanceTester.cpp" />
     <ClCompile Include="PerformanceTesterBDList.cpp" />
+    <ClCompile Include="PerformanceTesterBRTree.cpp" />
     <ClCompile Include="PerformanceTesterHeap.cpp" />
     <ClCompile Include="Printer.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -234,6 +239,8 @@
     <ClInclude Include="Array.h" />
     <ClInclude Include="BDList.h" />
     <ClInclude Include="BDListNode.h" />
+    <ClInclude Include="BRTree.h" />
+    <ClInclude Include="BRTreeNode.h" />
     <ClInclude Include="CLInterface.h" />
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="BDListUnitTesting.h" />

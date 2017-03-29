@@ -5,17 +5,16 @@
 
 using namespace std;
 
-const bool RUN_TESTS = true;
-bool FILE_OUTPUT_RUN = false;
-//-------------------------------------------------------------------------
+bool FILE_OUTPUT_FORMAT = false, RUN_UNIT_TESTS = false;
 
 int main(int argc, char* argv[]) {
 
-	if (argc == 2 && argv[1][0] == 'D')
-		FILE_OUTPUT_RUN = true;
+	if (argc == 2 && argv[1][0] == 'F')
+		FILE_OUTPUT_FORMAT = true;
+	else if (argc == 2 && argv[1][0] == 'U')
+		RUN_UNIT_TESTS = true;
 	
-	
-	if (RUN_TESTS) {
+	if (RUN_UNIT_TESTS) {
 		ArrayUnitTesting::runTests();
 		BDListUnitTesting::runTests();
 		HeapUnitTesting::runTests();
@@ -23,12 +22,5 @@ int main(int argc, char* argv[]) {
 		system("PAUSE");
 	}
 
-	//CLI 
-
-	CLInterface::enterCLI(FILE_OUTPUT_RUN);
-
-	//CLI END
-
-	
-
+	CLInterface::enterCLI(FILE_OUTPUT_FORMAT);
 }

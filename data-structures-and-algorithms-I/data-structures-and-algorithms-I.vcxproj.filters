@@ -93,6 +93,15 @@
     <ClCompile Include="PerformanceTesterHeap.cpp">
       <Filter>Source Files\helper</Filter>
     </ClCompile>
+    <ClCompile Include="BRTree.cpp">
+      <Filter>Source Files\structures</Filter>
+    </ClCompile>
+    <ClCompile Include="CLInterfaceBRTree.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="PerformanceTesterBRTree.cpp">
+      <Filter>Source Files\helper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h">
@@ -133,6 +142,12 @@
     </ClInclude>
     <ClInclude Include="PerformanceTester.h">
       <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="BRTree.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="BRTreeNode.h">
+      <Filter>Header Files\structures</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

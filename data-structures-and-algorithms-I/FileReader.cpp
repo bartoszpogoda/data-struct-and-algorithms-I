@@ -109,3 +109,39 @@ std::string FileReader::readHeap(std::string filename, Heap *& heap) {
 
 	return "Sukces! Dane wczytane.";
 }
+
+std::string FileReader::readBRTree(std::string filename, BRTree *& brTree) {
+
+	std::ifstream file = std::ifstream("data/" + filename);
+
+	if (brTree == nullptr) {
+		brTree = new BRTree();
+	}
+
+	int size;
+	type val;
+
+	if (file.is_open())
+	{
+		file >> size;
+		if (file.fail())
+			return "Blad odczytu pliku - wielkosc danych";
+		else
+			for (int i = 0; i < size; i++)
+			{
+				file >> val;
+				if (file.fail())
+				{
+					return "Blad odczytu pliku - dane";
+					break;
+				}
+				else
+					brTree->add(val);
+			}
+		file.close();
+	}
+	else
+		return "Blad odczytu pliku - otwarcie pliku";
+
+	return "Sukces! Dane wczytane.";
+}
