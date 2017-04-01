@@ -110,12 +110,12 @@ std::string FileReader::readHeap(std::string filename, Heap *& heap) {
 	return "Sukces! Dane wczytane.";
 }
 
-std::string FileReader::readBRTree(std::string filename, BRTree *& brTree) {
+std::string FileReader::readBSTree(std::string filename, BSTree *& brTree) {
 
 	std::ifstream file = std::ifstream("data/" + filename);
 
 	if (brTree == nullptr) {
-		brTree = new BRTree();
+		brTree = new BSTree();
 	}
 
 	int size;

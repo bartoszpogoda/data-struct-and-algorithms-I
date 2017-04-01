@@ -2,9 +2,9 @@
 
 using namespace std;
 
-BRTree* CLInterface::testBRTree = nullptr;
+BSTree* CLInterface::testBSTree = nullptr;
 
-void CLInterface::viewMenuBRTree() {
+void CLInterface::viewMenuBSTree() {
 	int selected = 0, max = 4, selectedDelta = 0;
 
 	system("CLS");
@@ -27,27 +27,27 @@ void CLInterface::viewMenuBRTree() {
 		} while ((selectedDelta = handleUserInput()) != 0);
 
 		if (selected == 0) {
-			viewInputFilenameBRTree();
-			viewPrintedBRTree();
+			viewInputFilenameBSTree();
+			viewPrintedBSTree();
 		}
 		else if (selected == 1) {
-			viewPrintedBRTree();
+			viewPrintedBSTree();
 		}
 		else if (selected == 2) {
-			viewAddElementToBRTree();
-			viewPrintedBRTree();
+			viewAddElementToBSTree();
+			viewPrintedBSTree();
 		}
 		else if (selected == 3) {
-			viewFindElementInBRTree();
-			viewPrintedBRTree();
+			viewFindElementInBSTree();
+			viewPrintedBSTree();
 		}
 	}
 
-	delete testBRTree;
-	testBRTree = nullptr;
+	delete testBSTree;
+	testBSTree = nullptr;
 }
 
-void CLInterface::viewInputFilenameBRTree() {
+void CLInterface::viewInputFilenameBSTree() {
 	string filename = " ";
 
 	system("CLS");
@@ -55,27 +55,26 @@ void CLInterface::viewInputFilenameBRTree() {
 	cout << " > Podaj nazwe pliku: ";
 	cin >> filename;
 
-	cout << "Wynik: " << fileReader.readBRTree(filename, CLInterface::testBRTree);
+	cout << "Wynik: " << fileReader.readBSTree(filename, CLInterface::testBSTree);
 
 	cout << endl << endl << "> Powrot: Enter";
 	handleUserInput();
 }
 
-void CLInterface::viewPrintedBRTree() {
+void CLInterface::viewPrintedBSTree() {
 	system("CLS");
-	cout << "-- Aktualna zawartosc drzewa czerwono-czarnego: --" << endl 
-		<< " (Czarne wezly) , Czerwone wezly " << endl << endl;
+	cout << "-- Aktualna zawartosc drzewa czerwono-czarnego: --" << endl;
 
-	if (testBRTree == nullptr)
-		testBRTree = new BRTree();
+	if (testBSTree == nullptr)
+		testBSTree = new BSTree();
 
-	printer.print_tree(testBRTree->getRoot());
+	printer.print_tree("","",testBSTree->getRoot());
 
 	cout << endl << endl << "> Powrot: Enter";
 	handleUserInput();
 }
 
-void CLInterface::viewAddElementToBRTree() {
+void CLInterface::viewAddElementToBSTree() {
 	system("CLS");
 	type element;
 
@@ -83,10 +82,10 @@ void CLInterface::viewAddElementToBRTree() {
 	cout << " > Wprowadz element (liczba calkowita): ";
 	cin >> element;
 
-	if (testBRTree == nullptr)
-		testBRTree = new BRTree();
+	if (testBSTree == nullptr)
+		testBSTree = new BSTree();
 
-	testBRTree->add(element);
+	testBSTree->add(element);
 
 	cout << " > Element " << element << " dodany do drzewa czerwono-czarnego";
 
@@ -94,10 +93,10 @@ void CLInterface::viewAddElementToBRTree() {
 	handleUserInput();
 }
 
-void CLInterface::viewFindElementInBRTree() {
+void CLInterface::viewFindElementInBSTree() {
 	system("CLS");
 
-	if (testBRTree == nullptr) {
+	if (testBSTree == nullptr) {
 		cout << " > Drzewo czerwono-czarne nie zostalo zainicjalizowane" << endl;
 		cout << endl << "> Powrot: Enter";
 		handleUserInput();
@@ -111,7 +110,7 @@ void CLInterface::viewFindElementInBRTree() {
 	cin >> element;
 
 
-	bool found = testBRTree->find(element);
+	bool found = testBSTree->find(element);
 
 	if (found)
 		cout << " > Element " << element << " zostal odnaleziony ";

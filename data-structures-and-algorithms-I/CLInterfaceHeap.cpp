@@ -82,7 +82,7 @@ void CLInterface::viewPrintedHeap() {
 		cout << testHeap->toStringTable();
 	}
 	else {
-		printer.print_heap(testHeap->getVector());
+		printer.print_heap("","",testHeap,0);
 	}
 
 	cout << endl << endl << "> Powrot: Enter";

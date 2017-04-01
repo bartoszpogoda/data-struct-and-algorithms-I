@@ -28,7 +28,7 @@ void CLInterface::viewTestMenu() {
 			cout << ((selected == 0) ? " > " : "   ") << "Wykonaj eksperymenty na tablicy" << endl;
 			cout << ((selected == 1) ? " > " : "   ") << "Wykonaj eksperymenty na liscie dwukierunkowej" << endl;
 			cout << ((selected == 2) ? " > " : "   ") << "Wykonaj eksperymenty na kopcu" << endl;
-			cout << ((selected == 3) ? " > " : "   ") << "Wykonaj eksperymenty na drzewie czerwono-czarnym" << endl;
+			cout << ((selected == 3) ? " > " : "   ") << "Wykonaj eksperymenty na drzewie BST" << endl;
 			cout << ((selected == 4) ? " > " : "   ") << "Wyjscie" << endl;
 		} while ((selectedDelta = handleUserInput()) != 0);
 
@@ -51,7 +51,7 @@ void CLInterface::viewTestMenu() {
 			handleUserInput();
 		}
 		else if (selected == 3) {
-			viewTestBRTree();
+			viewTestBSTree();
 
 			cout << endl << endl << "> Powrot: Enter";
 			handleUserInput();
@@ -239,9 +239,9 @@ void CLInterface::viewTestHeap() {
 
 }
 
-void CLInterface::viewTestBRTree() {
+void CLInterface::viewTestBSTree() {
 	system("CLS");
-	cout << "-- Eksperymenty na drzewie czerwono-czarnym: --" << endl << endl;
+	cout << "-- Eksperymenty na drzewie BST: --" << endl << endl;
 
 	cout << " NOT YET IMPLEMENTED " << endl;
 

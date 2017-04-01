@@ -50,7 +50,7 @@ void CLInterface::viewMenuStructures() {
 			viewMenuHeap();
 		}
 		else if (selected == 3) {
-			viewMenuBRTree();
+			viewMenuBSTree();
 		}
 		else if (selected == 4) {
 			viewTestMenu();

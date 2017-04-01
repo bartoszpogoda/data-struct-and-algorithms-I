@@ -7,7 +7,7 @@
 #include "Array.h"
 #include "BDList.h"
 #include "Heap.h"
-#include "BRTree.h"
+#include "BSTree.h"
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -24,7 +24,7 @@ private:
 	static Array* testArray; 
 	static BDList* testBDList;
 	static Heap* testHeap;
-	static BRTree* testBRTree;
+	static BSTree* testBSTree;
 
 	CLInterface() {};
 public:
@@ -55,15 +55,15 @@ public:
 	static void viewDeleteElementFromHeap();
 	static void viewFindElementInHeap();
 
-	static void viewMenuBRTree();
-	static void viewInputFilenameBRTree();
-	static void viewPrintedBRTree();
-	static void viewAddElementToBRTree();
-	static void viewFindElementInBRTree();
+	static void viewMenuBSTree();
+	static void viewInputFilenameBSTree();
+	static void viewPrintedBSTree();
+	static void viewAddElementToBSTree();
+	static void viewFindElementInBSTree();
 
 	static void viewTestMenu();
 	static void viewTestArray();
 	static void viewTestBDList();
 	static void viewTestHeap(); 
-	static void viewTestBRTree();
+	static void viewTestBSTree();
 };

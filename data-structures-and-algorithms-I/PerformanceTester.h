@@ -39,7 +39,4 @@ public:
 	void deleteRootFromTheHeap(int arraySize, type valuesMin, type valuesMax, int iterations);
 	void findElementInHeap(int arraySize, type valuesMin, int iterations);
 
-	//BRTree
-	void addElementToBRTree(int size, type valuesMin, type valuesMax, int iterations);
-	void findElementInBRTree(int arraySize, type valuesMin, int iterations);
 };
