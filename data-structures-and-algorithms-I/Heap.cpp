@@ -95,7 +95,8 @@ void Heap::deleteRoot() {
 	if (elements == nullptr)
 		return;
 
-	type* newElements = new type[currentSize - 1];
+	type* newElements = nullptr;	
+	newElements = new type[currentSize - 1];
 
 	// last node becomes root
 	newElements[0] = elements[currentSize - 1];
@@ -107,9 +108,9 @@ void Heap::deleteRoot() {
 	delete[] elements;
 	elements = newElements;
 
-	fixDown(0);
-
+	// currentSize must be decreased before fixDown
 	currentSize--;
+	fixDown(0);
 }
 
 int Heap::find(type element) {
