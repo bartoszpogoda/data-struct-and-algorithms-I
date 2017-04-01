@@ -35,7 +35,7 @@ void CLInterface::viewMenuStructures() {
 			cout << ((selected == 0) ? " > " : "   ") << "Tablica" << endl;
 			cout << ((selected == 1) ? " > " : "   ") << "Lista" << endl;
 			cout << ((selected == 2) ? " > " : "   ") << "Kopiec" << endl;
-			cout << ((selected == 3) ? " > " : "   ") << "Drzewo czerwono-czarne" << endl;
+			cout << ((selected == 3) ? " > " : "   ") << "Drzewo BST" << endl;
 			cout << ((selected == 4) ? " > " : "   ") << "Eksperymenty" << endl;
 			cout << ((selected == 5) ? " > " : "   ") << "Wyjscie" << endl;
 		} while ((selectedDelta = handleUserInput()) != 0);

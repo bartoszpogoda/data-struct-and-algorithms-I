@@ -159,6 +159,10 @@ void BDList::deleteRandom() {
 }
 
 int BDList::find(type element) {
+
+	if (head == nullptr)
+		return -1;
+
 	BDListNode* iterator = head;
 	int indexCounter = 0;
 	while (iterator->getNext() != nullptr && iterator->getData() != element) {
@@ -184,7 +188,7 @@ type BDList::get(int position) {
 	
 }
 /**
- format: [32 <-> 23 <-> 32 <-> 32]
+ format: [32 23 32 32]
 */
 std::string BDList::toString() {
 	std::string result = "[";
@@ -200,7 +204,7 @@ std::string BDList::toString() {
 
 	while (iterator->getNext() != nullptr) {
 		iterator = iterator->getNext();
-		result += " <-> " + std::to_string(iterator->getData());
+		result += " " + std::to_string(iterator->getData());
 	}
 
 	result += "]";

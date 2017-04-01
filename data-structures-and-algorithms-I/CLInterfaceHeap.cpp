@@ -25,7 +25,7 @@ void CLInterface::viewMenuHeap() {
 			cout << ((selected == 2) ? " > " : "   ") << "Wypisz kopiec na ekran - tablica" << endl;
 			cout << ((selected == 3) ? " > " : "   ") << "Dodaj element" << endl;
 			cout << ((selected == 4) ? " > " : "   ") << "Usun korzen" << endl;
-			cout << ((selected == 5) ? " > " : "   ") << "Znajdz element" << endl;
+			cout << ((selected == 5) ? " > " : "   ") << "Znajdz element" << endl << endl;
 			cout << ((selected == 6) ? " > " : "   ") << "Wyjscie" << endl;
 		} while ((selectedDelta = handleUserInput()) != 0);
 
@@ -125,10 +125,7 @@ void CLInterface::viewDeleteElementFromHeap() {
 
 	system("CLS");
 
-	if (testHeap == nullptr) {
-		cout << " > Kopiec nie zostal zainicjalizowany" << endl;
-		cout << endl << "> Powrot: Enter";
-		handleUserInput();
+	if (testHeap == nullptr || testHeap->size() == 0) {
 		return;
 	}
 
@@ -154,10 +151,7 @@ void CLInterface::viewDeleteElementFromHeap() {
 void CLInterface::viewFindElementInHeap() {
 	system("CLS");
 
-	if (testHeap == nullptr) {
-		cout << " > Kopiec nie zostal zainicjalizowany" << endl;
-		cout << endl << "> Powrot: Enter";
-		handleUserInput();
+	if (testHeap == nullptr || testHeap->size() == 0) {
 		return;
 	}
 

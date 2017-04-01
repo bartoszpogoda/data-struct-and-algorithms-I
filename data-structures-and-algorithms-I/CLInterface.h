@@ -37,14 +37,22 @@ public:
 	static void viewInputFilenameArray();
 	static void viewPrintedArray();
 	static void viewAddElementToArray();
+	static void viewAddElementToArrayFront();
+	static void viewAddElementToArrayEnd();
 	static void viewDeleteElementFromArray();
+	static void viewDeleteElementFromArrayFront();
+	static void viewDeleteElementFromArrayEnd();
 	static void viewFindElementInArray();
 
 	static void viewMenuBDList();
 	static void viewInputFilenameBDList();
 	static void viewPrintedBDList();
 	static void viewAddElementToBDList();
+	static void viewAddElementToBDListFront();
+	static void viewAddElementToBDListEnd();
 	static void viewDeleteElementFromBDList();
+	static void viewDeleteElementFromBDListFront();
+	static void viewDeleteElementFromBDListEnd();
 	static void viewFindElementInBDList();
 
 	static void viewMenuHeap();

@@ -6,7 +6,7 @@ using namespace std;
 Array* CLInterface::testArray = nullptr;
 
 void CLInterface::viewMenuArray() {
-	int selected = 0, max = 5, selectedDelta = 0;
+	int selected = 0, max = 9, selectedDelta = 0;
 
 	system("CLS");
 	while (selected != max) {
@@ -22,10 +22,16 @@ void CLInterface::viewMenuArray() {
 			cout << "-- Tablica: --" << endl << endl;
 			cout << ((selected == 0) ? " > " : "   ") << "Wczytaj z pliku" << endl;
 			cout << ((selected == 1) ? " > " : "   ") << "Wypisz tablice na ekran" << endl;
-			cout << ((selected == 2) ? " > " : "   ") << "Dodaj element" << endl;
-			cout << ((selected == 3) ? " > " : "   ") << "Usun element" << endl;
-			cout << ((selected == 4) ? " > " : "   ") << "Znajdz element" << endl;
-			cout << ((selected == 5) ? " > " : "   ") << "Wyjscie" << endl;
+			cout << "   " << "Dodaj element:" << endl;
+			cout << ((selected == 2) ? "    > " : "      ") << "Indeks" << endl;
+			cout << ((selected == 3) ? "    > " : "      ") << "Poczatek" << endl;
+			cout << ((selected == 4) ? "    > " : "      ") << "Koniec" << endl;
+			cout << "   " << "Usun element:" << endl;
+			cout << ((selected == 5) ? "    > " : "      ") << "Indeks" << endl;
+			cout << ((selected == 6) ? "    > " : "      ") << "Poczatek" << endl;
+			cout << ((selected == 7) ? "    > " : "      ") << "Koniec" << endl;
+			cout << ((selected == 8) ? " > " : "   ") << "Znajdz element" << endl << endl;
+			cout << ((selected == 9) ? " > " : "   ") << "Wyjscie" << endl;
 		} while ((selectedDelta = handleUserInput()) != 0);
 
 		if (selected == 0) {
@@ -40,10 +46,26 @@ void CLInterface::viewMenuArray() {
 			viewPrintedArray();
 		}
 		else if (selected == 3) {
-			viewDeleteElementFromArray();
+			viewAddElementToArrayFront();
 			viewPrintedArray();
 		}
 		else if (selected == 4) {
+			viewAddElementToArrayEnd();
+			viewPrintedArray();
+		}
+		else if (selected == 5) {
+			viewDeleteElementFromArray();
+			viewPrintedArray();
+		}
+		else if (selected == 6) {
+			viewDeleteElementFromArrayFront();
+			viewPrintedArray();
+		}
+		else if (selected == 7) {
+			viewDeleteElementFromArrayEnd();
+			viewPrintedArray();
+		}
+		else if (selected == 8) {
 			viewFindElementInArray();
 			viewPrintedArray();
 		}
@@ -107,13 +129,48 @@ void CLInterface::viewAddElementToArray() {
 	handleUserInput();
 }
 
+void CLInterface::viewAddElementToArrayFront() {
+	system("CLS");
+	type element;
+
+	cout << "-- Dodaj element do tablicy - poczatek: --" << endl << endl;
+	cout << " > Wprowadz element (liczba calkowita): ";
+	cin >> element;
+
+	if (testArray == nullptr)
+		testArray = new Array();
+
+	testArray->addFront(element);
+
+	cout << " > Element " << element << " dodany na pierwszej pozycji " << endl << endl;
+
+	cout << "> Powrot: Enter";
+	handleUserInput();
+}
+
+void CLInterface::viewAddElementToArrayEnd() {
+	system("CLS");
+	type element;
+
+	cout << "-- Dodaj element do tablicy - koniec: --" << endl << endl;
+	cout << " > Wprowadz element (liczba calkowita): ";
+	cin >> element;
+
+	if (testArray == nullptr)
+		testArray = new Array();
+
+	testArray->addEnd(element);
+
+	cout << " > Element " << element << " dodany na ostatniej pozycji " << endl << endl;
+
+	cout << "> Powrot: Enter";
+	handleUserInput();
+}
+
 void CLInterface::viewDeleteElementFromArray() {
 	system("CLS");
 
-	if (testArray == nullptr) {
-		cout << " > Tablica nie zostala zainicjalizowana" << endl;
-		cout << endl << "> Powrot: Enter";
-		handleUserInput();
+	if (testArray == nullptr || testArray->size() == 0) {
 		return;
 	}
 
@@ -135,13 +192,62 @@ void CLInterface::viewDeleteElementFromArray() {
 	handleUserInput();
 }
 
+void CLInterface::viewDeleteElementFromArrayFront() {
+	system("CLS");
+
+	if (testArray == nullptr ||  testArray->size() == 0) {
+		return;
+	}
+
+	cout << "-- Usun element z tablicy - poczatek: --" << endl << endl;
+
+	char decision;
+
+	cout << " > Potwierdzenie operacji T/N: ";
+	cin >> decision;
+
+	if (decision == 'T' || decision == 't') {
+		testArray->deleteFront();
+		cout << " > Element z poczatkowej pozycji zostal usuniety.";
+	}
+	else {
+		cout << " > Operacja anulowana";
+	}
+
+	cout << endl << endl << "> Powrot: Enter";
+	handleUserInput();
+}
+
+void CLInterface::viewDeleteElementFromArrayEnd() {
+	system("CLS");
+
+	if (testArray == nullptr || testArray->size() == 0) {
+		return;
+	}
+
+	cout << "-- Usun element z tablicy - koniec: --" << endl << endl;
+
+	char decision;
+
+	cout << " > Potwierdzenie operacji T/N: ";
+	cin >> decision;
+
+	if (decision == 'T' || decision == 't') {
+		testArray->deleteEnd();
+		cout << " > Element z koncowej pozycji zostal usuniety.";
+	}
+	else {
+		cout << " > Operacja anulowana" << endl;
+	}
+
+	cout << endl << endl << "> Powrot: Enter";
+	handleUserInput();
+}
+
 void CLInterface::viewFindElementInArray() {
 	system("CLS");
 
-	if (testArray == nullptr) {
-		cout << " > Tablica nie zostala zainicjalizowana" << endl;
-		cout << endl << "> Powrot: Enter";
-		handleUserInput();
+	if (testArray == nullptr || testArray->size() == 0) {
 		return;
 	}
 
