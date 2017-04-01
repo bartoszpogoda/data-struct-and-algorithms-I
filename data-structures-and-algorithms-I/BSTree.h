@@ -5,6 +5,7 @@
 
 class BSTree {
 	BSTreeNode* root;
+	int nodeCounter;
 
 	void rotateRight(BSTreeNode* node);
 	void rotateLeft(BSTreeNode* node);
@@ -16,10 +17,21 @@ class BSTree {
 	BSTreeNode* predecessor(BSTreeNode* node);
 	BSTreeNode* findNode(type value);
 
-	void add(BSTreeNode* node);
-public:
-	BSTreeNode* getRoot() { return root; }
+	void straighten();
+	void balance();
 
-	void add(type value) { add(new BSTreeNode(value)); }
-	bool find(type value);
+	void addNode(BSTreeNode* node);
+	void removeNode(BSTreeNode* node);
+public:
+	BSTree() : root(nullptr), nodeCounter(0) {}
+	BSTreeNode* getRoot() { return root; }
+	bool isEmpty() { return root == nullptr;  }
+
+	void add(type value) { addNode(new BSTreeNode(value)); }
+	bool remove(type value);
+	bool find(type value) { return findNode(value) != nullptr; }
+
+	bool rotateLeftAt(type value);
+	bool rotateRightAt(type value);
+	void performDSW();
 };

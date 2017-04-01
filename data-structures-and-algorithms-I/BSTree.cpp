@@ -1,6 +1,5 @@
 #include "BSTree.h"
-#include <iostream>
-#include <iomanip>
+#include <math.h>
 
 void BSTree::rotateRight(BSTreeNode * A) {
 	if (A == nullptr || A->getLeftChild() == nullptr)
@@ -131,7 +130,40 @@ BSTreeNode * BSTree::findNode(type value) {
 	return iterator;
 }
 
-void BSTree::add(BSTreeNode * node) {
+void BSTree::straighten() {
+	BSTreeNode* iterator = root;
+
+	while (iterator != nullptr) {
+		while (iterator->getLeftChild() != nullptr) {
+			rotateRight(iterator);
+			iterator = iterator->getParent();
+		}
+		iterator = iterator->getRightChild();
+	}
+}
+
+void BSTree::balance(){
+	int m = pow(2, (int)log2(nodeCounter + 1)) - 1;
+
+	BSTreeNode* iterator = root;
+	for (int i = 0; i < nodeCounter - m; i++) {
+		// nodeCounter - m  rotations
+		rotateLeft(iterator);
+		iterator = iterator->getParent()->getRightChild();
+	}
+
+	while (m > 1) {
+		m = m / 2;
+		iterator = root;
+		for (int i = 0; i < m; i++) {
+			// m  rotations
+			rotateLeft(iterator);
+			iterator = iterator->getParent()->getRightChild();
+		}
+	}
+}
+
+void BSTree::addNode(BSTreeNode * node) {
 	BSTreeNode* parent = nullptr;
 	BSTreeNode* iterator = root;
 
@@ -156,27 +188,88 @@ void BSTree::add(BSTreeNode * node) {
 			parent->setRightChild(node);
 	}
 
+	nodeCounter++;
 }
 
-bool BSTree::find(type value) {
-	BSTreeNode* iterator = root;
-	if (iterator == nullptr)
-		return false;
+void BSTree::removeNode(BSTreeNode * node) {
+	if (node->getLeftChild() != nullptr && node->getRightChild() != nullptr) {	// both childs
 
-	while (iterator->getData() != value) {
-		if (iterator->getData() < value) {
-			if (iterator->getRightChild() == nullptr)
-				return false;
-			else
-				iterator = iterator->getRightChild();
-		}
-		else {
-			if (iterator->getLeftChild() == nullptr)
-				return false;
-			else
-				iterator = iterator->getLeftChild();
-		}
+		BSTreeNode* succ = successor(node);
+		node->setData(succ->getData());
+		removeNode(succ);
+		return;
+	} 
+	else if (node->getLeftChild() != nullptr) { // only left child
+
+		if (node->getParent() == nullptr)
+			root = node->getLeftChild();
+		else if (node->getParent()->getLeftChild() == node)
+			node->getParent()->setLeftChild(node->getLeftChild());
+		else
+			node->getParent()->setRightChild(node->getLeftChild());
+
+		node->getLeftChild()->setParent(node->getParent());
+		delete node;
 	}
+	else if (node->getRightChild() != nullptr) { // only right child
+
+		if (node->getParent() == nullptr)
+			root = node->getRightChild();
+		else if (node->getParent()->getLeftChild() == node)
+			node->getParent()->setLeftChild(node->getRightChild());
+		else
+			node->getParent()->setRightChild(node->getRightChild());
+
+		node->getRightChild()->setParent(node->getParent());
+		delete node;
+	}
+	else {	// node is a leaf
+
+		if (node->getParent() == nullptr)
+			root = nullptr;
+		else if (node->getParent()->getLeftChild() == node)
+			node->getParent()->setLeftChild(nullptr);
+		else
+			node->getParent()->setRightChild(nullptr);
+
+		delete node;
+	}
+
+	nodeCounter--;
+}
+
+bool BSTree::remove(type value) {
+	BSTreeNode* node = findNode(value);
+
+	if (node == nullptr)
+		return false;
+	
+	removeNode(node);
 	return true;
 }
 
+bool BSTree::rotateLeftAt(type value) {
+	BSTreeNode* node = findNode(value);
+	if (node == nullptr)
+		return false;
+	
+	rotateLeft(node);
+	return true;
+}
+
+bool BSTree::rotateRightAt(type value) {
+	BSTreeNode* node = findNode(value);
+	if (node == nullptr)
+		return false;
+
+	rotateRight(node);
+	return true;
+}
+
+void BSTree::performDSW() {
+	if (root == nullptr)
+		return;
+
+	straighten();
+	balance();
+}

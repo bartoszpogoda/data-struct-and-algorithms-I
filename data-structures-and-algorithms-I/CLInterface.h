@@ -67,7 +67,11 @@ public:
 	static void viewInputFilenameBSTree();
 	static void viewPrintedBSTree();
 	static void viewAddElementToBSTree();
+	static void viewDeleteElementFromBSTree();
 	static void viewFindElementInBSTree();
+	static void viewRotateLeftBSTree();
+	static void viewRotateRightBSTree();
+	static void viewPerformDSWBSTree();
 
 	static void viewTestMenu();
 	static void viewTestArray();
