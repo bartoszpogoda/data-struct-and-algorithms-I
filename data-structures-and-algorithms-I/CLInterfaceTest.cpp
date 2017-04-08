@@ -64,12 +64,12 @@ void CLInterface::viewTestArray() {
 	cout << "-- Eksperymenty na tablicy: --" << endl << endl;
 
 	srand(time(NULL));
-	int minSize = 1000, maxSize = 5000, sizeIteration = 250;
+	int minSize = 100000, maxSize = 1000000, sizeIteration = 100000;
 
 	//--------------------------------------1.1.
 	cout << endl << "1.1.a) " << endl;
 	for(int size = minSize; size <= maxSize; size += sizeIteration)
-		performanceTester.addElementToFrontOfArray(size, 0, 10, 100);
+		performanceTester.addElementToFrontOfArray(size, 0, 32000, 100);
 
 	cout << endl << "1.1.c) " << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
@@ -78,7 +78,7 @@ void CLInterface::viewTestArray() {
 	//--------------------------------------1.2.
 	cout << endl << "1.2.a) " << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
-		performanceTester.addElementToTheEndOfArray(size, 0, 10, 100);
+		performanceTester.addElementToTheEndOfArray(size, 0, 32000, 100);
 
 	cout << endl << "1.2.c) " << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
@@ -87,7 +87,7 @@ void CLInterface::viewTestArray() {
 	//--------------------------------------1.3.
 	cout << endl << "1.3.a) " << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
-		performanceTester.addElementToTheRandomOfArray(size, 0, 10, 100);
+		performanceTester.addElementToTheRandomOfArray(size, 0, 32000, 100);
 
 	cout << endl << "1.3.c) " << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
@@ -96,7 +96,7 @@ void CLInterface::viewTestArray() {
 	//--------------------------------------1.4.
 	cout << endl << "1.4.a) " << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
-		performanceTester.deleteElementFromTheFrontOfArray(size, 0, 10, 100);
+		performanceTester.deleteElementFromTheFrontOfArray(size, 0, 32000, 100);
 
 	cout << endl << "1.4.c) " << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
@@ -105,7 +105,7 @@ void CLInterface::viewTestArray() {
 	//--------------------------------------1.5.
 	cout << endl << "1.5.a) " << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
-		performanceTester.deleteElementFromTheEndOfArray(size, 0, 10, 100);
+		performanceTester.deleteElementFromTheEndOfArray(size, 0, 32000, 100);
 
 	cout << endl << "1.5.c) " << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
@@ -114,7 +114,7 @@ void CLInterface::viewTestArray() {
 	//--------------------------------------1.6.
 	cout << endl << "1.6.a) " << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
-		performanceTester.deleteElementFromTheRandomOfArray(size, 0, 10, 100);
+		performanceTester.deleteElementFromTheRandomOfArray(size, 0, 32000, 100);
 
 	cout << endl << "1.6.c) " << endl;
 	for (int size = minSize; size <= maxSize; size += sizeIteration)
@@ -136,7 +136,7 @@ void CLInterface::viewTestBDList() {
 	cout << "-- Eksperymenty na liscie dwukierunkowej: --" << endl << endl;
 
 	srand(time(NULL));
-	int minSize = 1000, maxSize = 5000, sizeIteration = 250;
+	int minSize = 100000, maxSize = 1000000, sizeIteration = 100000;
 
 	//--------------------------------------1.1.
 	cout << endl << "2.1.a) " << endl;
@@ -208,7 +208,7 @@ void CLInterface::viewTestHeap() {
 	cout << "-- Eksperymenty na kopcu: --" << endl << endl;
 
 	srand(time(NULL));
-	int minSize = 1000, maxSize = 5000, sizeIteration = 250;
+	int minSize = 100000, maxSize = 500000, sizeIteration = 50000;
 
 	//--------------------------------------3.1.
 	cout << endl << "3.1.a) " << endl;
