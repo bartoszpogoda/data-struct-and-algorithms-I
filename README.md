@@ -6,7 +6,6 @@ Implementation of structures and algorithm performance tests for:
 4. Binary Search Tree
 
 # Class tree
-
 helper
 - [FileReader](data-structures-and-algorithms-I/FileReader.h)
 - [Printer](data-structures-and-algorithms-I/Printer.h)
@@ -35,3 +34,6 @@ unit
 # Startup
 - `program_name.exe E` performance tests results are in easy copyable format
 - `program_name.exe U` runs unit tests before startup
+
+# Todo
+- [ ] Translate interface messages to english
