@@ -23,7 +23,7 @@ void PerformanceTester::addElementToFrontOfArray(int arraySize, type valuesMin, 
 		delete dataArray;
 	}
 	timer.divideMemory(iterations);
-	if (fileOutput)
+	if (excelFormat)
 		std::cout << arraySize << ";" << timer.timeMicroSecondsMemory() << std::endl;
 	else
 		std::cout << "Sredni czas (" << iterations << " iteracji) dodawania elementu na poczatek " << arraySize << " elementowej tablicy [" << valuesMin << ", " << valuesMax << "): " << timer.timeMicroSecondsMemory() << " uS" << std::endl;
@@ -46,7 +46,7 @@ void PerformanceTester::addElementToTheEndOfArray(int arraySize, type valuesMin,
 		delete dataArray;
 	}
 	timer.divideMemory(iterations);
-	if (fileOutput)
+	if (excelFormat)
 		std::cout << arraySize << ";" << timer.timeMicroSecondsMemory() << std::endl;
 	else
 		std::cout << "Sredni czas (" << iterations << " iteracji) dodawania elementu na koniec " << arraySize << " elementowej tablicy [" << valuesMin << ", " << valuesMax << "): " << timer.timeMicroSecondsMemory() << " uS" << std::endl;
@@ -70,7 +70,7 @@ void PerformanceTester::addElementToTheRandomOfArray(int arraySize, type valuesM
 		delete dataArray;
 	}
 	timer.divideMemory(iterations);
-	if (fileOutput)
+	if (excelFormat)
 		std::cout << arraySize << ";" << timer.timeMicroSecondsMemory() << std::endl;
 	else
 		std::cout << "Sredni czas (" << iterations << " iteracji) dodawania elementu na losowa pozycje " << arraySize << " elementowej tablicy [" << valuesMin << ", " << valuesMax << "): " << timer.timeMicroSecondsMemory() << " uS" << std::endl;
@@ -91,7 +91,7 @@ void PerformanceTester::deleteElementFromTheFrontOfArray(int arraySize, type val
 		delete dataArray;
 	}
 	timer.divideMemory(iterations);
-	if (fileOutput)
+	if (excelFormat)
 		std::cout << arraySize << ";" << timer.timeMicroSecondsMemory() << std::endl;
 	else
 		std::cout << "Sredni czas (" << iterations << " iteracji) usuwania elementu z poczatku " << arraySize << " elementowej tablicy [" << valuesMin << ", " << valuesMax << "): " << timer.timeMicroSecondsMemory() << " uS" << std::endl;
@@ -112,7 +112,7 @@ void PerformanceTester::deleteElementFromTheEndOfArray(int arraySize, type value
 		delete dataArray;
 	}
 	timer.divideMemory(iterations);
-	if (fileOutput)
+	if (excelFormat)
 		std::cout << arraySize << ";" << timer.timeMicroSecondsMemory() << std::endl;
 	else
 		std::cout << "Sredni czas (" << iterations << " iteracji) usuwania elementu z konca " << arraySize << " elementowej tablicy [" << valuesMin << ", " << valuesMax << "): " << timer.timeMicroSecondsMemory() << " uS" << std::endl;
@@ -136,7 +136,7 @@ void PerformanceTester::deleteElementFromTheRandomOfArray(int arraySize, type va
 		delete dataArray;
 	}
 	timer.divideMemory(iterations);
-	if (fileOutput)
+	if (excelFormat)
 		std::cout << arraySize << ";" << timer.timeMicroSecondsMemory() << std::endl;
 	else
 		std::cout << "Sredni czas (" << iterations << " iteracji) usuwania elementu z losowej pozycji " << arraySize << " elementowej tablicy [" << valuesMin << ", " << valuesMax << "): " << timer.timeMicroSecondsMemory() << " uS" << std::endl;
@@ -168,7 +168,7 @@ void PerformanceTester::findElementInArray(int arraySize, type valuesMin, int it
 		delete dataArray;
 	}
 	timer.divideMemory(iterations);
-	if (fileOutput)
+	if (excelFormat)
 		std::cout << arraySize << ";" << timer.timeMicroSecondsMemory() << std::endl;
 	else
 		std::cout << "Sredni czas (" << iterations << " iteracji) znajdywania elementu " << arraySize << " elementowej tablicy [" << valuesMin << ", " << valuesMin + arraySize << "): " << timer.timeMicroSecondsMemory() << " uS" << std::endl;

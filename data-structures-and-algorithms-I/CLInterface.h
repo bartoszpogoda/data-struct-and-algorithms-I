@@ -28,7 +28,7 @@ private:
 
 	CLInterface() {};
 public:
-	static void enterCLI(bool fileOutput);
+	static void enterCLI(bool excelFormat);
 	static int handleUserInput();
 
 	static void viewMenuStructures();

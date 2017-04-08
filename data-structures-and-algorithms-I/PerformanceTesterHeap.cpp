@@ -27,7 +27,7 @@ void PerformanceTester::addElementToTheHeap(int arraySize, type valuesMin, type 
 		delete dataArray;
 	}
 	timer.divideMemory(iterations);
-	if (fileOutput)
+	if (excelFormat)
 		std::cout << arraySize << ";" << timer.timeMicroSecondsMemory() << std::endl;
 	else
 		std::cout << "Sredni czas (" << iterations << " iteracji) dodawania elementu do " << arraySize << " elementowego kopca [" << valuesMin << ", " << valuesMax << "): " << timer.timeMicroSecondsMemory() << " uS" << std::endl;
@@ -48,7 +48,7 @@ void PerformanceTester::deleteRootFromTheHeap(int arraySize, type valuesMin, typ
 		delete dataArray;
 	}
 	timer.divideMemory(iterations);
-	if (fileOutput)
+	if (excelFormat)
 		std::cout << arraySize << ";" << timer.timeMicroSecondsMemory() << std::endl;
 	else
 		std::cout << "Sredni czas (" << iterations << " iteracji) usuwania korzenia " << arraySize << " elementowego kopca [" << valuesMin << ", " << valuesMax << "): " << timer.timeMicroSecondsMemory() << " uS" << std::endl;
@@ -82,7 +82,7 @@ void PerformanceTester::findElementInHeap(int arraySize, type valuesMin, int ite
 		delete dataArray;
 	}
 	timer.divideMemory(iterations);
-	if (fileOutput)
+	if (excelFormat)
 		std::cout << arraySize << ";" << timer.timeMicroSecondsMemory() << std::endl;
 	else
 		std::cout << "Sredni czas (" << iterations << " iteracji) znajdywania elementu " << arraySize << " elementowego kopca [" << valuesMin << ", " << valuesMin + arraySize << "): " << timer.timeMicroSecondsMemory() << " uS" << std::endl;

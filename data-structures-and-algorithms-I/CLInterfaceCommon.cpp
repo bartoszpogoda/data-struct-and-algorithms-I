@@ -6,15 +6,10 @@ using namespace std;
 FileReader CLInterface::fileReader = FileReader();
 Printer CLInterface::printer = Printer();
 
-void CLInterface::enterCLI(bool fileOutput) {
-	if (fileOutput) {
-		performanceTester.setFileOutput(true);
-		CLInterface::viewTestArray();
-		CLInterface::viewTestBDList();
-		CLInterface::viewTestHeap();
-	} 
-	else
-		viewMenuStructures();
+void CLInterface::enterCLI(bool excelFormat) {
+	if (excelFormat)
+		performanceTester.setExcelFormat(excelFormat);
+	viewMenuStructures();
 }
 
 void CLInterface::viewMenuStructures() {

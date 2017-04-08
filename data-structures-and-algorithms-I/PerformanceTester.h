@@ -5,14 +5,14 @@
 
 class PerformanceTester {
 	Timer timer;
-	bool fileOutput;
+	bool excelFormat;
 	std::mt19937 gen; 
 	std::uniform_int_distribution<> bigNumberDist; 
 
 	type* generateTestData(int size, type valuesMin, type valuesMax);
 public:
-	PerformanceTester() : timer(Timer()), fileOutput(false), gen(123456789), bigNumberDist(0, 2147483646) { };
-	void setFileOutput(bool fileOutput) { this->fileOutput = fileOutput; }
+	PerformanceTester() : timer(Timer()), excelFormat(false), gen(123456789), bigNumberDist(0, 2147483646) { };
+	void setExcelFormat(bool excelFormat) { this->excelFormat = excelFormat; }
 
 	// array
 	void addElementToFrontOfArray(int arraySize, type valuesMin, type valuesMax, int iterations);
