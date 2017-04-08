@@ -103,7 +103,7 @@ void CLInterface::viewAddElementToBSTree() {
 	system("CLS");
 	type element;
 
-	cout << "-- Dodaj element do drzewa czerwono-czarnego: --" << endl << endl;
+	cout << "-- Dodaj element do drzewa BST: --" << endl << endl;
 	cout << " > Wprowadz element (liczba calkowita): ";
 	cin >> element;
 
@@ -112,7 +112,7 @@ void CLInterface::viewAddElementToBSTree() {
 
 	testBSTree->add(element);
 
-	cout << " > Element " << element << " dodany do drzewa czerwono-czarnego";
+	cout << " > Element " << element << " dodany do drzewa BST";
 
 	cout << endl << endl << "> Powrot: Enter";
 	handleUserInput();
@@ -153,7 +153,7 @@ void CLInterface::viewFindElementInBSTree() {
 
 	int element;
 
-	cout << "-- Znajdz element w drzewie czerwono-czarnym: --" << endl << endl;
+	cout << "-- Znajdz element w drzewie BST: --" << endl << endl;
 	cout << " > Wprowadz element (liczba calkowita): ";
 	cin >> element;
 
