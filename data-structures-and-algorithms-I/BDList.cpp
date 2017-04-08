@@ -3,6 +3,11 @@
 #include <string>
 
 
+BDList::BDList(BDListNode ** nodes, int size) : BDList() {
+	for (int i = 0; i < size; i++)
+		addEnd(nodes[i]);
+}
+
 BDList::~BDList() {
 	if (head == nullptr)
 		return;
@@ -81,6 +86,19 @@ void BDList::addEnd(type element) {
 	currentSize++;
 }
 
+void BDList::addEnd(BDListNode * node) {
+	if (head == nullptr) {
+		head = node;
+		tail = node;
+	}
+	else {
+		tail->setNext(node);
+		node->setPrev(tail);
+		tail = node;
+	}
+	currentSize++;
+}
+
 void BDList::addRandom(type element) {
 	srand(time(NULL));
 
@@ -129,6 +147,7 @@ void BDList::deleteFront() {
 	if (head->getNext() == nullptr) {
 		delete head;
 		head = nullptr;
+		tail = nullptr;
 	}
 	else {
 		head = head->getNext();
@@ -145,9 +164,17 @@ void BDList::deleteEnd() {
 		return;
 	}
 
-	tail = tail->getPrev();
-	delete tail->getNext();
-	tail->setNext(nullptr);
+	if (tail->getPrev() == nullptr) {
+		delete tail;
+		tail = nullptr;
+		head = nullptr;
+	}
+	else {
+		tail = tail->getPrev();
+		delete tail->getNext();
+		tail->setNext(nullptr);
+	}
+
 	currentSize--;
 }
 
