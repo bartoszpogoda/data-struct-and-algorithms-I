@@ -31,3 +31,7 @@ unit
 - [ArrayUnitTesting](data-structures-and-algorithms-I/ArrayUnitTesting.h)
 - [BDListUnitTesting](data-structures-and-algorithms-I/BDListUnitTesting.h)
 - [HeapUnitTesting](data-structures-and-algorithms-I/HeapUnitTesting.h)
+
+# Startup
+- `program_name.exe E` performance tests results are in easy copyable format
+- `program_name.exe U` runs unit tests before startup
