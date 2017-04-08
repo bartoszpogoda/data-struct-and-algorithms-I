@@ -11,11 +11,8 @@
 void PerformanceTester::addElementToTheHeap(int arraySize, type valuesMin, type valuesMax, int iterations) {
 	timer.resetMemory();
 	for (int i = 0; i < iterations; i++) {
-		Heap* testHeap = new Heap();
-
-		for (int j = 0; j < arraySize; j++)
-			testHeap->add(valuesMin + (bigNumberDist(gen) % (valuesMax - valuesMin)));
-
+		type* dataArray = generateTestData(arraySize, valuesMin, valuesMax);
+		Heap* testHeap = new Heap(dataArray, arraySize);
 
 		type elementToAdd = valuesMin + (bigNumberDist(gen) % (valuesMax - valuesMin));
 
@@ -27,6 +24,7 @@ void PerformanceTester::addElementToTheHeap(int arraySize, type valuesMin, type 
 			std::cout << "Blad!";
 
 		delete testHeap;
+		delete dataArray;
 	}
 	timer.divideMemory(iterations);
 	if (fileOutput)
@@ -39,16 +37,15 @@ void PerformanceTester::addElementToTheHeap(int arraySize, type valuesMin, type 
 void PerformanceTester::deleteRootFromTheHeap(int arraySize, type valuesMin, type valuesMax, int iterations) {
 	timer.resetMemory();
 	for (int i = 0; i < iterations; i++) {
-		Heap* testHeap = new Heap();
-
-		for (int j = 0; j < arraySize; j++)
-			testHeap->add(valuesMin + (bigNumberDist(gen) % (valuesMax - valuesMin)));
+		type* dataArray = generateTestData(arraySize, valuesMin, valuesMax);
+		Heap* testHeap = new Heap(dataArray, arraySize);
 
 		timer.startTimer();
 		testHeap->deleteRoot();
 		timer.endTimer();
 
 		delete testHeap;
+		delete dataArray;
 	}
 	timer.divideMemory(iterations);
 	if (fileOutput)
@@ -66,11 +63,13 @@ void PerformanceTester::findElementInHeap(int arraySize, type valuesMin, int ite
 
 	timer.resetMemory();
 	for (int i = 0; i < iterations; i++) {
-		Heap* testHeap = new Heap();
 
 		std::shuffle(dataVec.begin(), dataVec.end(), engine);
+		type* dataArray = new type[arraySize];
 		for (int j = 0; j < arraySize; j++)
-			testHeap->add(dataVec[j]);
+			dataArray[j] = dataVec[j];
+
+		Heap* testHeap = new Heap(dataArray, arraySize);
 
 		type randomElement = dataVec[bigNumberDist(gen) % arraySize];
 
@@ -80,6 +79,7 @@ void PerformanceTester::findElementInHeap(int arraySize, type valuesMin, int ite
 
 
 		delete testHeap;
+		delete dataArray;
 	}
 	timer.divideMemory(iterations);
 	if (fileOutput)

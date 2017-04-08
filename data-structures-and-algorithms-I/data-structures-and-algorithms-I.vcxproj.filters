@@ -105,6 +105,9 @@
     <ClCompile Include="CLInterfaceBSTree.cpp">
       <Filter>Source Files\interface</Filter>
     </ClCompile>
+    <ClCompile Include="PerformanceTesterCommon.cpp">
+      <Filter>Source Files\performance</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h">

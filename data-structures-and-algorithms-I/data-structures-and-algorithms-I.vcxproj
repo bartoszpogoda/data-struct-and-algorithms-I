@@ -228,6 +228,7 @@
     <ClCompile Include="HeapUnitTesting.cpp" />
     <ClCompile Include="PerformanceTesterArray.cpp" />
     <ClCompile Include="PerformanceTesterBDList.cpp" />
+    <ClCompile Include="PerformanceTesterCommon.cpp" />
     <ClCompile Include="PerformanceTesterHeap.cpp" />
     <ClCompile Include="Printer.cpp" />
     <ClCompile Include="Source.cpp" />
