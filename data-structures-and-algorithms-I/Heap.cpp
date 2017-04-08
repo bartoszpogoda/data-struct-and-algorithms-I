@@ -61,6 +61,21 @@ void Heap::fixDown(int nodeId) {
 	}
 }
 
+Heap::Heap(type * elements, int size) {
+	currentSize = size;
+	this->elements = new type[currentSize];
+
+	for (int i = 0; i < currentSize; i++) {
+		this->elements[i] = elements[i];
+	}
+
+	// fix tree - start from last parent
+	int parentIteration = parent(currentSize - 1);
+	do {
+		fixDown(parentIteration);
+	} while (--parentIteration >= 0);
+}
+
 Heap::~Heap() {
 	if (elements == nullptr)
 		return;

@@ -12,6 +12,7 @@ private:
 	void fixDown(int nodeId);
 public:
 	Heap() : elements(nullptr), currentSize(0) { };
+	Heap(type* elements, int size);
 	~Heap();
 
 	int size() { return currentSize; }
