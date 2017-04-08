@@ -1,4 +1,5 @@
 #include "HeapUnitTesting.h"
+#include <iostream>
 
 void HeapUnitTesting::runTests() {
 	std::cout << "\nRunning tests for Heap: \n";

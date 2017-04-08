@@ -37,7 +37,7 @@ bool BDListUnitTesting::shouldAddFewItemsToList() {
 	myBDList.addEnd(32);
 
 	//then
-	if (myBDList.toString().compare("[32 <-> 23 <-> 32 <-> 32]") == 0)
+	if (myBDList.toString().compare("[32 23 32 32]") == 0)
 		return true;
 
 	return false;
@@ -54,7 +54,7 @@ bool BDListUnitTesting::shouldAddFewItemsToTheFrontOfList() {
 	myBDList.addFront(1);
 
 	//then
-	if (myBDList.toString().compare("[1 <-> 2 <-> 3 <-> 4]") == 0)
+	if (myBDList.toString().compare("[1 2 3 4]") == 0)
 		return true;
 
 	return false;
@@ -71,7 +71,7 @@ bool BDListUnitTesting::shouldAddElementAtSpecifiedPosition() {
 	myBDList.addAt(5, 1);
 
 	//then
-	if (myBDList.toString().compare("[1 <-> 5 <-> 2 <-> 3]") == 0)
+	if (myBDList.toString().compare("[1 5 2 3]") == 0)
 		return true;
 
 	return false;
@@ -87,7 +87,7 @@ bool BDListUnitTesting::shouldAddElementAtInCaseOfIncorrectPosition() {
 	myBDList.addAt(2, 1);
 	
 	//then
-	if (myBDList.toString().compare("[1 <-> 2 <-> 3]") == 0)
+	if (myBDList.toString().compare("[1 2 3]") == 0)
 		return true;
 
 	return false;
@@ -105,7 +105,7 @@ bool BDListUnitTesting::shouldDeleteItemFromList() {
 	myBDList.deleteAt(1);
 
 	//then
-	if (myBDList.toString().compare("[1 <-> 3 <-> 4]") == 0)
+	if (myBDList.toString().compare("[1 3 4]") == 0)
 		return true;
 
 	return false;
@@ -123,7 +123,7 @@ bool BDListUnitTesting::shouldDeleteItemFromListIndex0() {
 	myBDList.deleteAt(0);
 
 	//then
-	if (myBDList.toString().compare("[2 <-> 3 <-> 4]") == 0)
+	if (myBDList.toString().compare("[2 3 4]") == 0)
 		return true;
 
 	return false;
@@ -156,7 +156,7 @@ bool BDListUnitTesting::shouldDeleteItemFromListIndexLast() {
 	myBDList.deleteAt(3);
 
 	//then
-	if (myBDList.toString().compare("[1 <-> 2 <-> 3]") == 0)
+	if (myBDList.toString().compare("[1 2 3]") == 0)
 		return true;
 
 	return false;
@@ -174,7 +174,7 @@ bool BDListUnitTesting::shouldDeleteFirstItemFromList() {
 	myBDList.deleteFront();
 
 	//then
-	if (myBDList.toString().compare("[2 <-> 3 <-> 4]") == 0)
+	if (myBDList.toString().compare("[2 3 4]") == 0)
 		return true;
 
 	return false;
@@ -192,7 +192,7 @@ bool BDListUnitTesting::shouldDeleteLastItemFromList() {
 	myBDList.deleteEnd();
 
 	//then
-	if (myBDList.toString().compare("[1 <-> 2 <-> 3]") == 0)
+	if (myBDList.toString().compare("[1 2 3]") == 0)
 		return true;
 
 	return false;;
@@ -213,7 +213,7 @@ bool BDListUnitTesting::shouldDeleteFewItemsFromList() {
 	myBDList.deleteAt(2);
 
 	//then
-	if (myBDList.toString().compare("[1 <-> 4]") == 0)
+	if (myBDList.toString().compare("[1 4]") == 0)
 		return true;
 
 	return false;

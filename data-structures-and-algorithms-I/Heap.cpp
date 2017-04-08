@@ -61,6 +61,21 @@ void Heap::fixDown(int nodeId) {
 	}
 }
 
+Heap::Heap(type * elements, int size) {
+	currentSize = size;
+	this->elements = new type[currentSize];
+
+	for (int i = 0; i < currentSize; i++) {
+		this->elements[i] = elements[i];
+	}
+
+	// fix tree - start from last parent
+	int parentIteration = parent(currentSize - 1);
+	do {
+		fixDown(parentIteration);
+	} while (--parentIteration >= 0);
+}
+
 Heap::~Heap() {
 	if (elements == nullptr)
 		return;
@@ -94,9 +109,15 @@ void Heap::add(type element) {
 void Heap::deleteRoot() {
 	if (elements == nullptr)
 		return;
+	
+	if (currentSize - 1 == 0) {
+		delete[] elements;
+		elements = nullptr;
+		currentSize = 0;
+		return;
+	}
 
-	type* newElements = nullptr;	
-	newElements = new type[currentSize - 1];
+	type* newElements = new type[currentSize - 1];
 
 	// last node becomes root
 	newElements[0] = elements[currentSize - 1];
@@ -157,14 +178,6 @@ std::string Heap::toStringTable() {
 	result += "]";
 
 	return result;
-}
-
-std::vector<type> Heap::getVector() {
-	if (elements == nullptr) return std::vector<type>();
-
-	std::vector<type> myHeapVector;
-	myHeapVector.assign(elements, elements + currentSize);
-	return myHeapVector;
 }
 
 bool Heap::validate(int node) {

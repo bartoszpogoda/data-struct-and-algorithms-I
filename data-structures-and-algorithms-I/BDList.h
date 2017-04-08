@@ -8,8 +8,11 @@ class BDList {
 	BDListNode* tail;
 	int currentSize;
 
+	void addEnd(BDListNode* node);
+
 public:
 	BDList() : currentSize(0), head(nullptr), tail(nullptr) {} 
+	BDList(BDListNode** nodes, int size);
 	~BDList();
 
 	int size() { return currentSize; }

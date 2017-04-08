@@ -25,7 +25,7 @@ void PerformanceTester::addElementToFrontOfBDList(int arraySize, type valuesMin,
 		delete testBDList;
 	}
 	timer.divideMemory(iterations);
-	if (fileOutput)
+	if (excelFormat)
 		std::cout << arraySize << ";" << timer.timeMicroSecondsMemory() << std::endl;
 	else
 		std::cout << "Sredni czas (" << iterations << " iteracji) dodawania elementu na poczatek " << arraySize << " elementowej listy [" << valuesMin << ", " << valuesMax << "): " << timer.timeMicroSecondsMemory() << " uS" << std::endl;
@@ -49,7 +49,7 @@ void PerformanceTester::addElementToTheEndOfBDList(int arraySize, type valuesMin
 		delete testBDList;
 	}
 	timer.divideMemory(iterations);
-	if (fileOutput)
+	if (excelFormat)
 		std::cout << arraySize << ";" << timer.timeMicroSecondsMemory() << std::endl;
 	else
 		std::cout << "Sredni czas (" << iterations << " iteracji) dodawania elementu na koniec " << arraySize << " elementowej listy [" << valuesMin << ", " << valuesMax << "): " << timer.timeMicroSecondsMemory() << " uS" << std::endl;
@@ -74,7 +74,7 @@ void PerformanceTester::addElementToTheRandomOfBDList(int arraySize, type values
 		delete testBDList;
 	}
 	timer.divideMemory(iterations);
-	if (fileOutput)
+	if (excelFormat)
 		std::cout << arraySize << ";" << timer.timeMicroSecondsMemory() << std::endl;
 	else
 		std::cout << "Sredni czas (" << iterations << " iteracji) dodawania elementu na losowa pozycje " << arraySize << " elementowej listy [" << valuesMin << ", " << valuesMax << "): " << timer.timeMicroSecondsMemory() << " uS" << std::endl;
@@ -96,7 +96,7 @@ void PerformanceTester::deleteElementFromTheFrontOfBDList(int arraySize, type va
 		delete testBDList;
 	}
 	timer.divideMemory(iterations);
-	if (fileOutput)
+	if (excelFormat)
 		std::cout << arraySize << ";" << timer.timeMicroSecondsMemory() << std::endl;
 	else
 		std::cout << "Sredni czas (" << iterations << " iteracji) usuwania elementu z poczatku " << arraySize << " elementowej listy [" << valuesMin << ", " << valuesMax << "): " << timer.timeMicroSecondsMemory() << " uS" << std::endl;
@@ -118,7 +118,7 @@ void PerformanceTester::deleteElementFromTheEndOfBDList(int arraySize, type valu
 		delete testBDList;
 	}
 	timer.divideMemory(iterations);
-	if (fileOutput)
+	if (excelFormat)
 		std::cout << arraySize << ";" << timer.timeMicroSecondsMemory() << std::endl;
 	else
 		std::cout << "Sredni czas (" << iterations << " iteracji) usuwania elementu z konca " << arraySize << " elementowej listy [" << valuesMin << ", " << valuesMax << "): " << timer.timeMicroSecondsMemory() << " uS" << std::endl;
@@ -143,7 +143,7 @@ void PerformanceTester::deleteElementFromTheRandomOfBDList(int arraySize, type v
 		delete testBDList;
 	}
 	timer.divideMemory(iterations);
-	if (fileOutput)
+	if (excelFormat)
 		std::cout << arraySize << ";" << timer.timeMicroSecondsMemory() << std::endl;
 	else
 		std::cout << "Sredni czas (" << iterations << " iteracji) usuwania elementu z losowej pozycji " << arraySize << " elementowej listy [" << valuesMin << ", " << valuesMax << "): " << timer.timeMicroSecondsMemory() << " uS" << std::endl;
@@ -173,7 +173,7 @@ void PerformanceTester::findElementInBDList(int arraySize, type valuesMin, int i
 		delete testBDList;
 	}
 	timer.divideMemory(iterations);
-	if (fileOutput)
+	if (excelFormat)
 		std::cout << arraySize << ";" << timer.timeMicroSecondsMemory() << std::endl;
 	else
 		std::cout << "Sredni czas (" << iterations << " iteracji) znajdywania elementu " << arraySize << " elementowej listy [" << valuesMin << ", " << valuesMin + arraySize << "): " << timer.timeMicroSecondsMemory() << " uS" << std::endl;

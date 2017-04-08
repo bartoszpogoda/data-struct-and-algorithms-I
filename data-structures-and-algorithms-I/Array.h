@@ -10,6 +10,7 @@ private:
 
 public:
 	Array();
+	Array(type* elements, int size);
 	~Array();
 
 	int size();

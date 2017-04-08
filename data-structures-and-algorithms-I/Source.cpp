@@ -5,12 +5,12 @@
 
 using namespace std;
 
-bool FILE_OUTPUT_FORMAT = false, RUN_UNIT_TESTS = false;
+bool EXCEL_FORMAT = false, RUN_UNIT_TESTS = false;
 
 int main(int argc, char* argv[]) {
 
-	if (argc == 2 && argv[1][0] == 'F')
-		FILE_OUTPUT_FORMAT = true;
+	if (argc == 2 && argv[1][0] == 'E')
+		EXCEL_FORMAT = true;
 	else if (argc == 2 && argv[1][0] == 'U')
 		RUN_UNIT_TESTS = true;
 	
@@ -22,5 +22,5 @@ int main(int argc, char* argv[]) {
 		system("PAUSE");
 	}
 
-	CLInterface::enterCLI(FILE_OUTPUT_FORMAT);
+	CLInterface::enterCLI(EXCEL_FORMAT);
 }

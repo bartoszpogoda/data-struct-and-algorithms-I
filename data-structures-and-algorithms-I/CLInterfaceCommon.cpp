@@ -6,15 +6,10 @@ using namespace std;
 FileReader CLInterface::fileReader = FileReader();
 Printer CLInterface::printer = Printer();
 
-void CLInterface::enterCLI(bool fileOutput) {
-	if (fileOutput) {
-		performanceTester.setFileOutput(true);
-		CLInterface::viewTestArray();
-		CLInterface::viewTestBDList();
-		CLInterface::viewTestHeap();
-	} 
-	else
-		viewMenuStructures();
+void CLInterface::enterCLI(bool excelFormat) {
+	if (excelFormat)
+		performanceTester.setExcelFormat(excelFormat);
+	viewMenuStructures();
 }
 
 void CLInterface::viewMenuStructures() {
@@ -35,7 +30,7 @@ void CLInterface::viewMenuStructures() {
 			cout << ((selected == 0) ? " > " : "   ") << "Tablica" << endl;
 			cout << ((selected == 1) ? " > " : "   ") << "Lista" << endl;
 			cout << ((selected == 2) ? " > " : "   ") << "Kopiec" << endl;
-			cout << ((selected == 3) ? " > " : "   ") << "Drzewo czerwono-czarne" << endl;
+			cout << ((selected == 3) ? " > " : "   ") << "Drzewo BST" << endl;
 			cout << ((selected == 4) ? " > " : "   ") << "Eksperymenty" << endl;
 			cout << ((selected == 5) ? " > " : "   ") << "Wyjscie" << endl;
 		} while ((selectedDelta = handleUserInput()) != 0);
@@ -50,7 +45,7 @@ void CLInterface::viewMenuStructures() {
 			viewMenuHeap();
 		}
 		else if (selected == 3) {
-			viewMenuBRTree();
+			viewMenuBSTree();
 		}
 		else if (selected == 4) {
 			viewTestMenu();

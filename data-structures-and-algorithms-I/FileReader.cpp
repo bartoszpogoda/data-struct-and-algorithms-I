@@ -6,9 +6,8 @@ std::string FileReader::readArray(std::string filename, Array* &array) {
 
 	std::ifstream file = std::ifstream("data/" + filename);
 
-	if (array == nullptr) {
-		array = new Array();
-	}
+	delete array;
+	array = nullptr;
 
 	int size;
 	type val;
@@ -18,7 +17,8 @@ std::string FileReader::readArray(std::string filename, Array* &array) {
 		file >> size;
 		if (file.fail())
 			return "Blad odczytu pliku - wielkosc danych";
-		else
+		else {
+			type* data = new type[size];
 			for (int i = 0; i < size; i++)
 			{
 				file >> val;
@@ -28,8 +28,11 @@ std::string FileReader::readArray(std::string filename, Array* &array) {
 					break;
 				}
 				else
-					array->addEnd(val);
+					data[i] = val;
 			}
+			array = new Array(data, size);
+		}
+			
 		file.close();
 	}
 	else
@@ -42,9 +45,8 @@ std::string FileReader::readArray(std::string filename, Array* &array) {
 std::string FileReader::readBDList(std::string filename, BDList *& bdList) {
 	std::ifstream file = std::ifstream("data/" + filename);
 
-	if (bdList == nullptr) {
-		bdList = new BDList();
-	}
+	delete bdList;
+	bdList = nullptr;
 
 	int size;
 	type val;
@@ -54,18 +56,27 @@ std::string FileReader::readBDList(std::string filename, BDList *& bdList) {
 		file >> size;
 		if (file.fail())
 			return "Blad odczytu pliku - wielkosc danych";
-		else
+		else {
+			BDListNode** nodes = new BDListNode*[size];
 			for (int i = 0; i < size; i++)
 			{
 				file >> val;
 				if (file.fail())
 				{
+					for (int i = 0; i < size; i++)
+						delete nodes[i];
+					delete[] nodes;
+
 					return "Blad odczytu pliku - dane";
 					break;
 				}
 				else
-					bdList->addEnd(val);
+					nodes[i] = new BDListNode(val);
 			}
+			bdList = new BDList(nodes, size);
+			delete[] nodes;
+		}
+			
 		file.close();
 	}
 	else
@@ -78,9 +89,9 @@ std::string FileReader::readBDList(std::string filename, BDList *& bdList) {
 std::string FileReader::readHeap(std::string filename, Heap *& heap) {
 	std::ifstream file = std::ifstream("data/" + filename);
 
-	if (heap == nullptr) {
-		heap = new Heap();
-	}
+	delete heap;
+	heap = nullptr;
+		
 
 	int size;
 	type val;
@@ -90,7 +101,8 @@ std::string FileReader::readHeap(std::string filename, Heap *& heap) {
 		file >> size;
 		if (file.fail())
 			return "Blad odczytu pliku - wielkosc danych";
-		else
+		else {
+			type* data = new type[size];
 			for (int i = 0; i < size; i++)
 			{
 				file >> val;
@@ -100,8 +112,11 @@ std::string FileReader::readHeap(std::string filename, Heap *& heap) {
 					break;
 				}
 				else
-					heap->add(val);
+					data[i] = val;
 			}
+			heap = new Heap(data, size);
+		}
+			
 		file.close();
 	}
 	else
@@ -110,12 +125,12 @@ std::string FileReader::readHeap(std::string filename, Heap *& heap) {
 	return "Sukces! Dane wczytane.";
 }
 
-std::string FileReader::readBRTree(std::string filename, BRTree *& brTree) {
+std::string FileReader::readBSTree(std::string filename, BSTree *& brTree) {
 
 	std::ifstream file = std::ifstream("data/" + filename);
 
 	if (brTree == nullptr) {
-		brTree = new BRTree();
+		brTree = new BSTree();
 	}
 
 	int size;

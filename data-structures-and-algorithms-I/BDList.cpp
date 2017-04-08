@@ -3,6 +3,11 @@
 #include <string>
 
 
+BDList::BDList(BDListNode ** nodes, int size) : BDList() {
+	for (int i = 0; i < size; i++)
+		addEnd(nodes[i]);
+}
+
 BDList::~BDList() {
 	if (head == nullptr)
 		return;
@@ -81,6 +86,19 @@ void BDList::addEnd(type element) {
 	currentSize++;
 }
 
+void BDList::addEnd(BDListNode * node) {
+	if (head == nullptr) {
+		head = node;
+		tail = node;
+	}
+	else {
+		tail->setNext(node);
+		node->setPrev(tail);
+		tail = node;
+	}
+	currentSize++;
+}
+
 void BDList::addRandom(type element) {
 	srand(time(NULL));
 
@@ -129,6 +147,7 @@ void BDList::deleteFront() {
 	if (head->getNext() == nullptr) {
 		delete head;
 		head = nullptr;
+		tail = nullptr;
 	}
 	else {
 		head = head->getNext();
@@ -145,9 +164,17 @@ void BDList::deleteEnd() {
 		return;
 	}
 
-	tail = tail->getPrev();
-	delete tail->getNext();
-	tail->setNext(nullptr);
+	if (tail->getPrev() == nullptr) {
+		delete tail;
+		tail = nullptr;
+		head = nullptr;
+	}
+	else {
+		tail = tail->getPrev();
+		delete tail->getNext();
+		tail->setNext(nullptr);
+	}
+
 	currentSize--;
 }
 
@@ -159,6 +186,10 @@ void BDList::deleteRandom() {
 }
 
 int BDList::find(type element) {
+
+	if (head == nullptr)
+		return -1;
+
 	BDListNode* iterator = head;
 	int indexCounter = 0;
 	while (iterator->getNext() != nullptr && iterator->getData() != element) {
@@ -184,7 +215,7 @@ type BDList::get(int position) {
 	
 }
 /**
- format: [32 <-> 23 <-> 32 <-> 32]
+ format: [32 23 32 32]
 */
 std::string BDList::toString() {
 	std::string result = "[";
@@ -200,7 +231,7 @@ std::string BDList::toString() {
 
 	while (iterator->getNext() != nullptr) {
 		iterator = iterator->getNext();
-		result += " <-> " + std::to_string(iterator->getData());
+		result += " " + std::to_string(iterator->getData());
 	}
 
 	result += "]";

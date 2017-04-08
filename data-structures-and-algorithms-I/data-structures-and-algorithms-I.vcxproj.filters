@@ -90,22 +90,22 @@
     <ClCompile Include="HeapUnitTesting.cpp">
       <Filter>Source Files\unit</Filter>
     </ClCompile>
-    <ClCompile Include="BRTree.cpp">
-      <Filter>Source Files\structures</Filter>
-    </ClCompile>
-    <ClCompile Include="CLInterfaceBRTree.cpp">
-      <Filter>Source Files\interface</Filter>
-    </ClCompile>
     <ClCompile Include="PerformanceTesterHeap.cpp">
       <Filter>Source Files\performance</Filter>
     </ClCompile>
     <ClCompile Include="PerformanceTesterBDList.cpp">
       <Filter>Source Files\performance</Filter>
     </ClCompile>
-    <ClCompile Include="PerformanceTesterBRTree.cpp">
+    <ClCompile Include="PerformanceTesterArray.cpp">
       <Filter>Source Files\performance</Filter>
     </ClCompile>
-    <ClCompile Include="PerformanceTesterArray.cpp">
+    <ClCompile Include="BSTree.cpp">
+      <Filter>Source Files\structures</Filter>
+    </ClCompile>
+    <ClCompile Include="CLInterfaceBSTree.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="PerformanceTesterCommon.cpp">
       <Filter>Source Files\performance</Filter>
     </ClCompile>
   </ItemGroup>
@@ -143,16 +143,16 @@
     <ClInclude Include="HeapUnitTesting.h">
       <Filter>Header Files\unit</Filter>
     </ClInclude>
-    <ClInclude Include="BRTree.h">
-      <Filter>Header Files\structures</Filter>
-    </ClInclude>
-    <ClInclude Include="BRTreeNode.h">
-      <Filter>Header Files\structures</Filter>
-    </ClInclude>
     <ClInclude Include="PerformanceTester.h">
       <Filter>Header Files\performance</Filter>
     </ClInclude>
     <ClInclude Include="Type.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="BSTreeNode.h">
+      <Filter>Header Files\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="BSTree.h">
       <Filter>Header Files\structures</Filter>
     </ClInclude>
   </ItemGroup>

@@ -7,7 +7,7 @@
 #include "Array.h"
 #include "BDList.h"
 #include "Heap.h"
-#include "BRTree.h"
+#include "BSTree.h"
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -24,11 +24,11 @@ private:
 	static Array* testArray; 
 	static BDList* testBDList;
 	static Heap* testHeap;
-	static BRTree* testBRTree;
+	static BSTree* testBSTree;
 
 	CLInterface() {};
 public:
-	static void enterCLI(bool fileOutput);
+	static void enterCLI(bool excelFormat);
 	static int handleUserInput();
 
 	static void viewMenuStructures();
@@ -37,14 +37,22 @@ public:
 	static void viewInputFilenameArray();
 	static void viewPrintedArray();
 	static void viewAddElementToArray();
+	static void viewAddElementToArrayFront();
+	static void viewAddElementToArrayEnd();
 	static void viewDeleteElementFromArray();
+	static void viewDeleteElementFromArrayFront();
+	static void viewDeleteElementFromArrayEnd();
 	static void viewFindElementInArray();
 
 	static void viewMenuBDList();
 	static void viewInputFilenameBDList();
 	static void viewPrintedBDList();
 	static void viewAddElementToBDList();
+	static void viewAddElementToBDListFront();
+	static void viewAddElementToBDListEnd();
 	static void viewDeleteElementFromBDList();
+	static void viewDeleteElementFromBDListFront();
+	static void viewDeleteElementFromBDListEnd();
 	static void viewFindElementInBDList();
 
 	static void viewMenuHeap();
@@ -55,15 +63,19 @@ public:
 	static void viewDeleteElementFromHeap();
 	static void viewFindElementInHeap();
 
-	static void viewMenuBRTree();
-	static void viewInputFilenameBRTree();
-	static void viewPrintedBRTree();
-	static void viewAddElementToBRTree();
-	static void viewFindElementInBRTree();
+	static void viewMenuBSTree();
+	static void viewInputFilenameBSTree();
+	static void viewPrintedBSTree();
+	static void viewAddElementToBSTree();
+	static void viewDeleteElementFromBSTree();
+	static void viewFindElementInBSTree();
+	static void viewRotateLeftBSTree();
+	static void viewRotateRightBSTree();
+	static void viewPerformDSWBSTree();
 
 	static void viewTestMenu();
 	static void viewTestArray();
 	static void viewTestBDList();
 	static void viewTestHeap(); 
-	static void viewTestBRTree();
+	static void viewTestBSTree();
 };
