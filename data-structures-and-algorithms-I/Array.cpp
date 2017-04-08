@@ -7,6 +7,15 @@ Array::Array() {
 	elements = nullptr;
 }
 
+Array::Array(type * elements, int size){
+	currentSize = size;
+	this->elements = new type[size];
+
+	for (int i = 0; i < size; i++) {
+		this->elements[i] = elements[i];
+	}
+}
+
 Array::~Array() {
 	delete[] elements;
 }
