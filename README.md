@@ -34,6 +34,9 @@ unit
 # Startup
 - `program_name.exe E` performance tests results are in easy copyable format
 - `program_name.exe U` runs unit tests before startup
+- `program_name.exe` standard run
+
+Files to read must be in `data/[filename]` relative path to .exe program
 
 # Todo
 - [ ] Translate interface messages to english
