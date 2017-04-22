@@ -5,7 +5,7 @@ Implementation of structures and algorithm performance tests for:
 3. Heap
 4. Binary Search Tree
 
-# Class tree
+## Class tree
 helper
 - [FileReader](data-structures-and-algorithms-I/FileReader.h)
 - [Printer](data-structures-and-algorithms-I/Printer.h)
@@ -31,12 +31,12 @@ unit
 - [BDListUnitTesting](data-structures-and-algorithms-I/BDListUnitTesting.h)
 - [HeapUnitTesting](data-structures-and-algorithms-I/HeapUnitTesting.h)
 
-# Startup
+## Startup
 - `program_name.exe E` performance tests results are in easy copyable format
 - `program_name.exe U` runs unit tests before startup
 - `program_name.exe` standard run
 
 Files to read must be in `data/[filename]` relative path to .exe program
 
-# Todo
+## Todo
 - [ ] Translate interface messages to english
